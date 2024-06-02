@@ -16,7 +16,7 @@ processList = {#'wzp6_ee_mumuH_HZZ_ecm240':{},
                #'wzp6_ee_nunuH_Haa_ecm240':{},
                #'wzp6_ee_nunuH_Hbb_ecm240':{},
                #'wzp6_ee_nunuH_Hcc_ecm240':{},
-               #'wzp6_ee_nunuH_Hgg_ecm240':{},   #Fail to open
+               #'wzp6_ee_nunuH_Hgg_ecm240':{},   
                #'wzp6_ee_nunuH_Hmumu_ecm240':{},
                #'wzp6_ee_nunuH_Hss_ecm240':{},
                #'wzp6_ee_nunuH_Htautau_ecm240':{},
