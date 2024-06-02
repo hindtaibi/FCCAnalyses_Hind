@@ -89,15 +89,14 @@ class RDFanalysis():
                #.Filter("abs_pdg_Z2 == 1 || abs_pdg_Z2 == 2 || abs_pdg_Z2 == 3 || abs_pdg_Z2 == 4 || abs_pdg_Z2 == 5")
                #-----------------------------------------------------------------------------------------------------------------------------------
                
-               #Filter to have exactly two lepton candidates for the Z
-               .Filter('N_taken_leptons == 2') # || N_taken_leptons == 4')
-               
+               #It seems that the two following filters do the same thing               
                #Filter to have exactly 2 Z candidates for the reconstructed particles
-               #.Filter("zed_leptonic_m.size() == 2") 
+               #.Filter("zed_leptonic_m.size() == 2")   #Filter to have exactly 2 Z candidates for the reconstructed particles
+               .Filter("N_taken_leptons == 4")          #Filter to have exactly four lepton candidates for the Z
                
                #In the ll ll jj final state, we are not supposed to have any missing energy
                #.Filter("etmiss < 10")   ##A voir si j'utilise etmiss
-               #.Filter("emiss < 20")
+               .Filter("emiss < 10")
 
                #Z1 decays into 2 leptons
                .Define("Z1_e",           "zed_leptonic_e[0]")
@@ -273,6 +272,7 @@ class RDFanalysis():
             
             "N_zed_leptonic",   
             "N_selected_leptons",
+            "N_taken_leptons",
 
             "N_LooseLeptons_10",
             "N_LooseLeptons_2",
@@ -398,10 +398,10 @@ class RDFanalysis():
             #----------------------------------------------------------------------------Missing/Visible stuff
 
             "emiss",
+            "etmiss",
             "pxmiss",
             "pymiss",
             "pzmiss",
-            "etmiss",
             
             "visible_mass_predef"           
           
