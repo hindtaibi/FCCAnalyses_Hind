@@ -4,17 +4,17 @@ inputDir  = "../stage2/outputs/"
 #Input directory where the files produced at the pre-selection level are
 outputDir  = "outputs"
 
-processList = {#'wzp6_ee_mumuH_HZZ_ecm240':{},        #Signal
-               #'wzp6_ee_mumuH_HWW_ecm240':{},
-               #'wzp6_ee_mumuH_HZa_ecm240':{},
+processList = {'wzp6_ee_mumuH_HZZ_ecm240':{},        #Signal
+               'wzp6_ee_mumuH_HWW_ecm240':{},
+               'wzp6_ee_mumuH_HZa_ecm240':{},
                #'wzp6_ee_mumuH_Haa_ecm240':{},        #Empty after stage2
-               #'wzp6_ee_mumuH_Hbb_ecm240':{},
-               #'wzp6_ee_mumuH_Hcc_ecm240':{},
+               'wzp6_ee_mumuH_Hbb_ecm240':{},
+               'wzp6_ee_mumuH_Hcc_ecm240':{},
                #'wzp6_ee_mumuH_Hgg_ecm240':{},        #Empty after stage2
-               #'wzp6_ee_mumuH_Hmumu_ecm240':{},
-               #'wzp6_ee_mumuH_Hss_ecm240':{},
-               #'wzp6_ee_mumuH_Htautau_ecm240':{},
-               #'wzp6_ee_nunuH_HZZ_ecm240':{},
+               'wzp6_ee_mumuH_Hmumu_ecm240':{},
+               'wzp6_ee_mumuH_Hss_ecm240':{},
+               'wzp6_ee_mumuH_Htautau_ecm240':{},
+               'wzp6_ee_nunuH_HZZ_ecm240':{},
                #'wzp6_ee_nunuH_HWW_ecm240':{},        #Empty after stage2
                #'wzp6_ee_nunuH_HZa_ecm240':{},        #Empty after stage2
                #'wzp6_ee_nunuH_Haa_ecm240':{},        #Empty after stage2
@@ -24,12 +24,12 @@ processList = {#'wzp6_ee_mumuH_HZZ_ecm240':{},        #Signal
                #'wzp6_ee_nunuH_Hmumu_ecm240':{},      #Empty after stage2
                #'wzp6_ee_nunuH_Hss_ecm240':{},        #Empty after stage2
                #'wzp6_ee_nunuH_Htautau_ecm240':{},    #Empty after stage2
-               #'wzp6_ee_eeH_HZZ_ecm240':{},          #Signal
-               #'wzp6_ee_eeH_HWW_ecm240':{},
-               #'wzp6_ee_eeH_HZa_ecm240':{},
+               'wzp6_ee_eeH_HZZ_ecm240':{},          #Signal
+               'wzp6_ee_eeH_HWW_ecm240':{},
+               'wzp6_ee_eeH_HZa_ecm240':{},
                #'wzp6_ee_eeH_Haa_ecm240':{},          #Empty after stage2
-               #'wzp6_ee_eeH_Hbb_ecm240':{},
-               #'wzp6_ee_eeH_Hcc_ecm240':{},
+               'wzp6_ee_eeH_Hbb_ecm240':{},
+               'wzp6_ee_eeH_Hcc_ecm240':{},
                #'wzp6_ee_eeH_Hgg_ecm240':{},          #Empty after stage2
                'wzp6_ee_eeH_Hmumu_ecm240':{},
                'wzp6_ee_eeH_Hss_ecm240':{},
@@ -193,6 +193,9 @@ histoList = {
     "min_const_2":    {"name":"min_const_2",   "title":"Minimum number of constituents from Durham kt N=2",         "bin":70, "xmin":0,    "xmax":70},
     "max_const_2":    {"name":"max_const_2",   "title":"Maximum number of constituents from Durham kt N=2",         "bin":70, "xmin":0,    "xmax":70},
     "mean_const_2":   {"name":"mean_const_2",  "title":"Mean number of constituents from Durham kt N=2",            "bin":70, "xmin":0,    "xmax":70},
+
+    "diffthetajets_56":      {"name":"diffthetajets_56",   "title":"Angular diff (theta) between the jets 5 and 6",         "bin":100, "xmin":0, "xmax":4},
+    "diffphijets_56":        {"name":"diffphijets_56",     "title":"Angular diff (phi) between the jets 5 and 6",           "bin":100, "xmin":0, "xmax":4},
     
     "missing_theta":        {"name":"missing_theta",     "title":"#theta extracted from the missing tlv",                   "bin":100, "xmin":0, "xmax":4},
     "angle_miss_j5":        {"name":"angle_miss_j5",     "title":"angular difference between missing tlv and j5",           "bin":100, "xmin":0, "xmax":4},
