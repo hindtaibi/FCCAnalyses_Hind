@@ -151,25 +151,17 @@ variables = ['Z1_m',
 
 ###Dictonnary with the analysis name as a key, and the list of selections to be plotted for this analysis. The name of the selections should be the same than in the final selection
 selections = {}
-selections['lllljj']   = ["sel0" ,"sel1","sel2"] #,"sel3"]#, "sel4", "sel5", "sel6", "sel7","sel8","sel9","sel10","sel11","sel12", "sel13"]
+selections['lllljj']   = ["sel0" ,"sel1","sel2","sel3", "sel4", "sel5", "sel6", "sel7"]
 
 extralabel = {}
 extralabel['sel0'] = "No cut"
 extralabel['sel1'] = "emiss < 20"
 extralabel['sel2'] = "emiss < 10"
-#extralabel['sel3'] = "Nb lep + mll + recoil"
-#extralabel['sel4'] = "Nb lep + mll + recoil + MeanNconst"
-#extralabel['sel5'] = "Nb lep + mll + recoil + MeanNconst + mjj"
-#extralabel['sel6'] = "Nb lep + mll + recoil + MeanNconst + mjj + cosMissAng"
-#extralabel['sel7'] = "Nb lep + mll + recoil + MeanNconst + mjj + cosMissAng + minAngle"
-#extralabel['sel8'] = "Nb lep + mll + recoil + MeanNconst + mjj + cosMissAng + minAngle + NLeptons(p>2)"
-#extralabel['sel9'] = "Nb lep + mll + recoil + MeanNconst + mjj + cosMissAng + minAngle + NLeptons(p>2) + emiss"
-#extralabel['sel10'] = "Nb lep + mll + recoil + MeanNconst + mjj + cosMissAng + minAngle + NLeptons(p>2) + emiss + dmerge12"
-#extralabel['sel11'] = "Region 1, dmerge_23 < 60"
-#extralabel['sel12'] = "Region 2, dmerge_23 > 60 sans cut MeanNconst_3"
-#extralabel['sel13'] = "Region 2, dmerge_23 > 60 & MeanNconst_3 > 10"
-
-
+extralabel['sel3'] = "1st dilepton m"
+extralabel['sel4'] = "2nd dilepton m"
+extralabel['sel5'] = "Dijet m"
+extralabel['sel6'] = "Dileptons m + dijet m"
+extralabel['sel7'] = "emiss < 10 + dileptons m + dijet m"
 
 
 
