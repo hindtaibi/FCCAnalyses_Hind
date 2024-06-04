@@ -55,27 +55,12 @@ doScale = False
 #Dictionnay of the list of cuts. The key is the name of the selection that will be added to the output file
 cutList = {"sel0":"Z1_cos < 2",   #No cut
            "sel1":"emiss < 20",
-           "sel2":"emiss < 10"
-           #"sel1":"N_selected_leptons ==4",
-           #"sel2":"N_selected_leptons ==2 && Z1_m > 81 && Z1_m < 101",
-           #"sel3":"N_selected_leptons ==2 && Z1_m > 81 && Z1_m < 101 && Z1_recoil_m > 115 && Z1_recoil_m < 135"
-           #"sel4":"N_selected_leptons ==2 && Z1_m > 81 && Z1_m < 101 && Z1_recoil_m > 124 && Z1_recoil_m < 138 && meanNconst > 8",
-           #"sel5":"N_selected_leptons ==2 && Z1_m > 81 && Z1_m < 101 && Z1_recoil_m > 124 && Z1_recoil_m < 138 && meanNconst > 8 && Z3_m < 100 && Z3_m > 60",
-           #"sel6":"N_selected_leptons ==2 && Z1_m > 81 && Z1_m < 101 && Z1_recoil_m > 124 && Z1_recoil_m < 138 && meanNconst > 8 && Z3_m < 100 && Z3_m > 60 && abs(cos(missing_theta)) < 0.93",
-           #"sel7":"N_selected_leptons ==2 && Z1_m > 81 && Z1_m < 101 && Z1_recoil_m > 124 && Z1_recoil_m < 138 && meanNconst > 8 && Z3_m < 100 && Z3_m > 60 && abs(cos(missing_theta)) < 0.93 && min_angle_miss_jet > 0.4",
-           #"sel8": "N_selected_leptons ==2 && Z1_m > 81 && Z1_m < 101 && Z1_recoil_m > 124 && Z1_recoil_m < 138 && meanNconst > 8 && Z3_m < 100 && Z3_m > 60 && abs(cos(missing_theta)) < 0.93 && min_angle_miss_jet > 0.4 && N_LooseLeptons_2 == 2",
-           #"sel9": "N_selected_leptons ==2 && Z1_m > 81 && Z1_m < 101 && Z1_recoil_m > 124 && Z1_recoil_m < 138 && meanNconst > 8 && Z3_m < 100 && Z3_m > 60 && abs(cos(missing_theta)) < 0.93 && min_angle_miss_jet > 0.4 && N_LooseLeptons_2 == 2 && emiss < 45 && emiss > 5",
-           #"sel10": "N_selected_leptons ==2 && Z1_m > 81 && Z1_m < 101 && Z1_recoil_m > 124 && Z1_recoil_m < 138 && meanNconst > 8 && Z3_m < 100 && Z3_m > 60 && abs(cos(missing_theta)) < 0.93 && min_angle_miss_jet > 0.4 && N_LooseLeptons_2 == 2 && emiss < 45 && emiss > 5 && dmerge_2_12 > 2000", 
-           #"sel11": "N_selected_leptons ==2 && Z1_m > 81 && Z1_m < 101 && Z1_recoil_m > 124 && Z1_recoil_m < 138 && meanNconst > 8 && Z3_m < 100 && Z3_m > 60 && abs(cos(missing_theta)) < 0.93 && min_angle_miss_jet > 0.4 && N_LooseLeptons_2 == 2 && emiss < 45 && emiss > 5 && dmerge_2_12 > 2000 &&  dmerge_2_23 < 60 ",
-           #"sel12": "N_selected_leptons ==2 && Z1_m > 81 && Z1_m < 101 && Z1_recoil_m > 124 && Z1_recoil_m < 138 && meanNconst > 8 && Z3_m < 100 && Z3_m > 60 && abs(cos(missing_theta)) < 0.93 && min_angle_miss_jet > 0.4 && N_LooseLeptons_2 == 2 && emiss < 45 && emiss > 5 && dmerge_2_12 > 2000 && dmerge_2_23 > 60 ",
-
-
-           #"sel13": "N_selected_leptons ==2 && Z1_m > 81 && Z1_m < 101 && Z1_recoil_m > 124 && Z1_recoil_m < 138 && meanNconst > 8 && Z3_m < 100 && Z3_m > 60 && abs(cos(missing_theta)) < 0.93 && min_angle_miss_jet > 0.4 && N_LooseLeptons_2 == 2 && emiss < 45 && emiss > 5 && dmerge_2_12 > 2000 && dmerge_2_23 > 60 && meanNconst_3 > 10 "
-
-           
-           #"sel9": "Z1_m > 81 && Z1_m < 101 && Z1_recoil_m > 124 && Z1_recoil_m < 140 && emiss > 5 && Z3_m < 40 && Z3_m > 65 && dmerge_2_12 > 10 && dmerge_2_23 < 100 && Z3_p < 40"
-
-           
+           "sel2":"emiss < 10",
+           "sel3":"Z1_m > 81 && Z1_m < 101",
+           "sel4":"Z2_m > 81 && Z2_m < 101",
+           "sel5":"Z3_m > 10 && Z3_m < 50",
+           "sel6":"Z1_m > 81 && Z1_m < 101 && Z2_m > 81 && Z2_m < 101 && Z3_m > 10 && Z3_m < 50",
+           "sel7":"Z1_m > 81 && Z1_m < 101 && Z2_m > 81 && Z2_m < 101 && Z3_m > 10 && Z3_m < 50 && emiss < 10"
            }
 
 #Dictionary for the ouput variable/hitograms. The key is the name of the variable in the output files. "name" is the name of the variable in the input file, "title" is the x-axis label of the histogram, "bin" the number of bins of the histogram, "xmin" the minimum x-axis value and "xmax" the maximum x-axis value.
@@ -180,8 +165,8 @@ histoList = {
     "max_const_2":    {"name":"max_const_2",   "title":"Maximum number of constituents (Durham kt N=2)",         "bin":70, "xmin":0,    "xmax":70},
     "mean_const_2":   {"name":"mean_const_2",  "title":"Mean number of constituents (Durham kt N=2)",            "bin":70, "xmin":0,    "xmax":70},
 
-    "diffthetajets_56":      {"name":"diffthetajets_56",   "title":"Angular diff (#theta) between the jets 5 and 6",         "bin":100, "xmin":-4, "xmax":4},
-    "diffphijets_56":        {"name":"diffphijets_56",     "title":"Angular diff (#phi) between the jets 5 and 6",           "bin":100, "xmin":-7, "xmax":7},
+    "diffthetajets_56":      {"name":"diffthetajets_56",   "title":"Angular diff (#theta) between the jets 5 and 6",         "bin":100, "xmin":0, "xmax":4},
+    "diffphijets_56":        {"name":"diffphijets_56",     "title":"Angular diff (#phi) between the jets 5 and 6",           "bin":100, "xmin":0, "xmax":7},
     
     "missing_theta":        {"name":"missing_theta",     "title":"Missing #theta extracted from the missing tlv",           "bin":100, "xmin":0, "xmax":4},
     "angle_miss_j5":        {"name":"angle_miss_j5",     "title":"Angular difference between missing tlv and j5",           "bin":100, "xmin":0, "xmax":4},
@@ -224,6 +209,7 @@ histoList = {
     #--------------------------------------------------------------------------------------------------------------------------------------------------Missing/Visible stuff
 
     "visible_mass_predef":      {"name":"visible_mass_predef", "title":"Visible Mass [GeV]", "bin":100, "xmin":100, "xmax":300},
+    #"visible_mass_predef_zoom": {"name":"visible_mass_predef", "title":"Visible Mass [GeV]", "bin":100, "xmin":200, "xmax":240},
 
     "emiss":        {"name":"emiss",  "title":"Missing energy [GeV]",             "bin":100, "xmin":0,   "xmax":100},
     "pxmiss":       {"name":"pxmiss", "title":"Missing p_x [GeV]",                "bin":100, "xmin":-80, "xmax":80},
