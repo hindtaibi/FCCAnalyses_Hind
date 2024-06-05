@@ -65,7 +65,8 @@ cutList = {"sel0":"Z1_cos < 2",   #No cut
 
 #Dictionary for the ouput variable/hitograms. The key is the name of the variable in the output files. "name" is the name of the variable in the input file, "title" is the x-axis label of the histogram, "bin" the number of bins of the histogram, "xmin" the minimum x-axis value and "xmax" the maximum x-axis value.
 histoList = {
-    #--------------------------------------------------------------------------------------------------------------------------------------------------Z bosons
+    
+    Z bosons
 
     "Z1_m":        {"name":"Z1_m",       "title":"1st dilepton mass [GeV]",                              "bin":125,"xmin":0,"xmax":200},
     "Z1_p":        {"name":"Z1_p",       "title":"1st dilepton momentum [GeV]",                          "bin":125,"xmin":0,"xmax":200},
