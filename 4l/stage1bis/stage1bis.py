@@ -221,6 +221,30 @@ class RDFanalysis():
             .Define("on_taken_electrons",   "ReconstructedParticle::remove(on_electrons, on_extraelectrons)")    #All electrons selected by findZleptons
             .Define("N_on_taken_electrons", "ReconstructedParticle::get_n(on_taken_electrons)")
 
+            #Angular information
+            
+            #Theta
+            .Define("on_zed_muons_theta1",  "ReconstructedParticle::get_theta(on_zed_muons)")
+            .Define("on_zed_muons_theta2",  "ReconstructedParticle::get_theta(on_zed_muons2)")
+            .Define("on_difftheta1_muons",  "abs(on_zed_muons_theta1[0]-on_zed_muons_theta1[1])")
+            .Define("on_difftheta2_muons",  "abs(on_zed_muons_theta2[0]-on_zed_muons_theta2[1])")
+
+            .Define("on_zed_electrons_theta1",  "ReconstructedParticle::get_theta(on_zed_electrons)")
+            .Define("on_zed_electrons_theta2",  "ReconstructedParticle::get_theta(on_zed_electrons2)")
+            .Define("on_difftheta1_electrons",  "abs(on_zed_muons_theta1[0]-on_zed_electrons_theta1[1])")
+            .Define("on_difftheta2_electrons",  "abs(on_zed_muons_theta2[0]-on_zed_electrons_theta2[1])")
+            
+            #Phi
+            .Define("on_zed_muons_phi1",  "ReconstructedParticle::get_phi(on_zed_muons)")
+            .Define("on_zed_muons_phi2",  "ReconstructedParticle::get_phi(on_zed_muons2)")
+            .Define("on_diffphi1_muons",  "abs(on_zed_muons_phi1[0]-on_zed_muons_phi1[1])")
+            .Define("on_diffphi2_muons",  "abs(on_zed_muons_phi2[0]-on_zed_muons_phi2[1])")
+
+            .Define("on_zed_electrons_phi1",  "ReconstructedParticle::get_phi(on_zed_electrons)")
+            .Define("on_zed_electrons_phi2",  "ReconstructedParticle::get_phi(on_zed_electrons2)")
+            .Define("on_diffphi1_electrons",  "abs(on_zed_muons_phi1[0]-on_zed_electrons_phi1[1])")
+            .Define("on_diffphi2_electrons",  "abs(on_zed_muons_phi2[0]-on_zed_electrons_phi2[1])")
+
             #We group the Z bosons reconstructed from muons
 
             .Define("on_mergemuonic",       "ReconstructedParticle::merge(on_zed_muonic, on_zed_muonic2)")
@@ -292,6 +316,22 @@ class RDFanalysis():
             .Define("off_zed_leptonic",      "ReconstructedParticle::merge(off_zed_muonic, off_zed_electronic)")
             .Define("off_extraleptons",      "ReconstructedParticle::merge(off_extramuons, off_extraelectrons)")
             .Define("off_taken_leptons",     "ReconstructedParticle::merge(off_taken_muons, off_taken_electrons)")
+
+            #Angular information
+
+            #Theta
+            .Define("off_taken_muons_theta",  "ReconstructedParticle::get_theta(off_taken_muons)")
+            .Define("off_difftheta_muons",    "abs(off_taken_muons_theta[0]-off_taken_muons_theta[1])")
+
+            .Define("off_taken_electrons_theta",  "ReconstructedParticle::get_theta(off_taken_electrons)")
+            .Define("off_difftheta_electrons",    "abs(off_taken_electrons_theta[0]-off_taken_electrons_theta[1])")
+
+            #Phi
+            .Define("off_taken_muons_phi",  "ReconstructedParticle::get_phi(off_taken_muons)")
+            .Define("off_diffphi_muons",    "abs(off_taken_muons_phi[0]-off_taken_muons_phi[1])")
+
+            .Define("off_taken_electrons_phi",  "ReconstructedParticle::get_phi(off_taken_electrons)")
+            .Define("off_diffphi_electrons",    "abs(off_taken_electrons_phi[0]-off_taken_electrons_phi[1])")
 
             #Properties of the Z
 
@@ -550,6 +590,21 @@ class RDFanalysis():
             "off_taken_leptons_y",
             "off_taken_leptons_m",
             "off_taken_leptons_recoil_m",
+
+            #Angular difference of the leptons that reconstructed the Z bosons
+            "on_difftheta1_muons",
+            "on_difftheta2_muons",
+            "on_difftheta1_electrons",
+            "on_difftheta2_electrons",
+            "on_diffphi1_muons",
+            "on_diffphi2_muons",
+            "on_diffphi1_electrons",
+            "on_diffphi2_electrons",
+
+            "off_difftheta_muons",
+            "off_difftheta_electrons",
+            "off_diffphi_muons",
+            "off_diffphi_electrons",
 
             #--------------------------------------------------------------------------------------------------
 
