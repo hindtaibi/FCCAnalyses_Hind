@@ -1,15 +1,15 @@
 #Mandatory: List of processes
 
-processList = {'wzp6_ee_mumuH_HZZ_ecm240':{},   #Signal
-               'wzp6_ee_mumuH_HWW_ecm240':{},
-               'wzp6_ee_mumuH_HZa_ecm240':{},
-               'wzp6_ee_mumuH_Haa_ecm240':{},
-               'wzp6_ee_mumuH_Hbb_ecm240':{},
-               'wzp6_ee_mumuH_Hcc_ecm240':{},
-               'wzp6_ee_mumuH_Hgg_ecm240':{},
-               'wzp6_ee_mumuH_Hmumu_ecm240':{},
-               'wzp6_ee_mumuH_Hss_ecm240':{},
-               'wzp6_ee_mumuH_Htautau_ecm240':{},
+processList = {#'wzp6_ee_mumuH_HZZ_ecm240':{},   #Signal
+               #'wzp6_ee_mumuH_HWW_ecm240':{},
+               #'wzp6_ee_mumuH_HZa_ecm240':{},
+               #'wzp6_ee_mumuH_Haa_ecm240':{},
+               #'wzp6_ee_mumuH_Hbb_ecm240':{},
+               #'wzp6_ee_mumuH_Hcc_ecm240':{},
+               #'wzp6_ee_mumuH_Hgg_ecm240':{},
+               #'wzp6_ee_mumuH_Hmumu_ecm240':{},
+               #'wzp6_ee_mumuH_Hss_ecm240':{},
+               #'wzp6_ee_mumuH_Htautau_ecm240':{},
                'wzp6_ee_nunuH_HZZ_ecm240':{},
                'wzp6_ee_nunuH_HWW_ecm240':{},
                'wzp6_ee_nunuH_HZa_ecm240':{},
@@ -218,7 +218,8 @@ class RDFanalysis():
             #get_e doesn't work directly on zed_leptonic so we apply it on the leptons and then we sum [0] and [1] to get the energy component of the Z's tlv
             #Rq : on n'a qu'un seul candidat au Z en stage 2 avec le fitlre donc on fait ça qu'avec les premières paires (et meilleures) d'électrons et muons de fineptons
             ##Note to myself: je le fais pour les trois finalement 
-
+            
+            #Energy
             .Define("zed_electrons_e",             "ReconstructedParticle::get_e(zed_electrons)")
             .Define("zed_muons_e",                 "ReconstructedParticle::get_e(zed_muons)")
             .Define("zed_leptons",                 "ReconstructedParticle::merge(zed_electrons, zed_muons)")
@@ -233,6 +234,33 @@ class RDFanalysis():
             .Define("zed_muons_e_bisbis",          "ReconstructedParticle::get_e(zed_muonsbisbis)")
             .Define("zed_leptonsbisbis",           "ReconstructedParticle::merge(zed_electronsbisbis, zed_muonsbisbis)")
             .Define("zed_leptons_e_bisbis",        "ReconstructedParticle::get_e(zed_leptonsbisbis)")
+            
+            #Theta
+            .Define("zed_electrons_theta",             "ReconstructedParticle::get_theta(zed_electrons)")
+            .Define("zed_muons_theta",                 "ReconstructedParticle::get_theta(zed_muons)")
+            .Define("zed_leptons_theta",               "ReconstructedParticle::get_theta(zed_leptons)")
+
+            .Define("zed_electrons_theta_bis",         "ReconstructedParticle::get_theta(zed_electronsbis)")
+            .Define("zed_muons_theta_bis",             "ReconstructedParticle::get_theta(zed_muonsbis)")
+            .Define("zed_leptons_theta_bis",           "ReconstructedParticle::get_theta(zed_leptonsbis)")
+
+            .Define("zed_electrons_theta_bisbis",      "ReconstructedParticle::get_theta(zed_electronsbisbis)")
+            .Define("zed_muons_theta_bisbis",          "ReconstructedParticle::get_theta(zed_muonsbisbis)")
+            .Define("zed_leptons_theta_bisbis",        "ReconstructedParticle::get_theta(zed_leptonsbisbis)")
+
+            #Phi
+            .Define("zed_electrons_phi",             "ReconstructedParticle::get_phi(zed_electrons)")
+            .Define("zed_muons_phi",                 "ReconstructedParticle::get_phi(zed_muons)")
+            .Define("zed_leptons_phi",               "ReconstructedParticle::get_phi(zed_leptons)")
+
+            .Define("zed_electrons_phi_bis",         "ReconstructedParticle::get_phi(zed_electronsbis)")
+            .Define("zed_muons_phi_bis",             "ReconstructedParticle::get_phi(zed_muonsbis)")
+            .Define("zed_leptons_phi_bis",           "ReconstructedParticle::get_phi(zed_leptonsbis)")
+
+            .Define("zed_electrons_phi_bisbis",      "ReconstructedParticle::get_phi(zed_electronsbisbis)")
+            .Define("zed_muons_phi_bisbis",          "ReconstructedParticle::get_phi(zed_muonsbisbis)")
+            .Define("zed_leptons_phi_bisbis",        "ReconstructedParticle::get_phi(zed_leptonsbisbis)")
+
 
             #Properties of the Z pairs
 
@@ -267,7 +295,8 @@ class RDFanalysis():
             .Define("taken_leptons_y",        "ReconstructedParticle::get_y(taken_leptons)")
             .Define("taken_leptons_eta",      "ReconstructedParticle::get_eta(taken_leptons)")
             .Define("taken_leptons_m",        "ReconstructedParticle::get_mass(taken_leptons)")
-            .Define("taken_leptons_recoil_m", "ReconstructedParticle::recoilBuilder(240)(taken_leptons)")
+            .Define("taken_leptons_recoil",   "ReconstructedParticle::recoilBuilder(240)(taken_leptons)")
+            .Define("taken_leptons_recoil_m", "ReconstructedParticle::get_mass(taken_leptons_recoil)")
 
             #We select all the particles minus the particles used for the Z pairs to reconstruct the jets then we create the pseudojets with them 
 
@@ -478,6 +507,32 @@ class RDFanalysis():
             "zed_electrons_e_bisbis",
             "zed_muons_e_bisbis",
             "zed_leptons_e_bisbis",
+
+            #Their theta
+            "zed_electrons_theta",
+            "zed_muons_theta",
+            "zed_leptons_theta",
+
+            "zed_electrons_theta_bis",
+            "zed_muons_theta_bis",
+            "zed_leptons_theta_bis",
+
+            "zed_electrons_theta_bisbis",
+            "zed_muons_theta_bisbis",
+            "zed_leptons_theta_bisbis",
+
+            #Their phi
+            "zed_electrons_phi",
+            "zed_muons_phi",
+            "zed_leptons_phi",
+
+            "zed_electrons_phi_bis",
+            "zed_muons_phi_bis",
+            "zed_leptons_phi_bis",
+
+            "zed_electrons_phi_bisbis",
+            "zed_muons_phi_bisbis",
+            "zed_leptons_phi_bisbis",
 
             #--------------------------------------------------------------------------------------------------
             
