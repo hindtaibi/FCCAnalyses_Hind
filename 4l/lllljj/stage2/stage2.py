@@ -36,10 +36,8 @@ processList = {'wzp6_ee_mumuH_HZZ_ecm240':{},       #Signal
                'wzp6_ee_eeH_Hgg_ecm240':{},
                'wzp6_ee_eeH_Hmumu_ecm240':{},
                'wzp6_ee_eeH_Hss_ecm240':{},
-               'wzp6_ee_eeH_Htautau_ecm240':{},
-               'wzp6_ee_mumuH_HZZ_ecm365':{},
-               'wzp6_ee_eeH_HZZ_ecm365':{}
-            }
+               'wzp6_ee_eeH_Htautau_ecm240':{}
+               }
 
 
 #Optional: ncpus, default is 4
@@ -89,14 +87,14 @@ class RDFanalysis():
                #.Filter("abs_pdg_Z2 == 1 || abs_pdg_Z2 == 2 || abs_pdg_Z2 == 3 || abs_pdg_Z2 == 4 || abs_pdg_Z2 == 5")
                #-----------------------------------------------------------------------------------------------------------------------------------
                
-               #It seems that the two following filters do the same thing               
+               #The three following filters do the same thing               
                #Filter to have exactly 2 Z candidates for the reconstructed particles
                #.Filter("zed_leptonic_m.size() == 2")   #Filter to have exactly 2 Z candidates for the reconstructed particles
                .Filter("N_taken_leptons == 4")          #Filter to have exactly four lepton candidates for the Z
+               #.Filter("N_zed_leptonic == 2")
                
                #In the ll ll jj final state, we are not supposed to have any missing energy
-               #.Filter("etmiss < 10")   ##A voir si j'utilise etmiss
-               .Filter("emiss < 10")
+               #.Filter("emiss < 20")
 
                #Z1 decays into 2 leptons
                .Define("Z1_e",           "zed_leptonic_e[0]")
@@ -110,7 +108,6 @@ class RDFanalysis():
                .Define("Z1_q",           "zed_leptonic_charge[0]")
                .Define("Z1_phi",         "zed_leptonic_phi[0]")
                .Define("Z1_theta",       "zed_leptonic_theta[0]")
-               .Define("Z1_cos",         "zed_leptonic_cos[0]")
                .Define("Z1_y",           "zed_leptonic_y[0]")
                .Define("Z1_eta",         "zed_leptonic_eta[0]")
 
@@ -126,7 +123,6 @@ class RDFanalysis():
                .Define("Z2_q",           "zed_leptonic_charge[1]")
                .Define("Z2_phi",         "zed_leptonic_phi[1]")
                .Define("Z2_theta",       "zed_leptonic_theta[1]")
-               .Define("Z2_cos",         "zed_leptonic_cos[1]")
                .Define("Z2_y",           "zed_leptonic_y[1]")
                .Define("Z2_eta",         "zed_leptonic_eta[1]")
 
@@ -144,6 +140,27 @@ class RDFanalysis():
                .Define("Z3_theta",       "Z3.Theta()")
                .Define("Z3_phi",         "Z3.Phi()")
                .Define("Z3_eta",         "Z3.Eta()")
+
+               #Angular difference
+            
+               #Theta
+               .Define("zed_electrons_difftheta1",       "abs(zed_electrons_theta[0]-zed_electrons_theta[1])")
+               .Define("zed_muons_difftheta1",           "abs(zed_muons_theta[0]-zed_muons_theta[1])")
+               .Define("zed_leptons_difftheta1",         "abs(zed_leptons_theta[0]-zed_leptons_theta[1])")
+
+               .Define("zed_electrons_difftheta2",       "abs(zed_electrons_theta_bis[0]-zed_electrons_theta_bis[1])")
+               .Define("zed_muons_difftheta2",           "abs(zed_muons_theta_bis[0]-zed_muons_theta_bis[1])")
+               .Define("zed_leptons_difftheta2",         "abs(zed_leptons_theta_bis[0]-zed_leptons_theta_bis[1])")
+
+               #Phi
+               .Define("zed_electrons_diffphi1",         "abs(zed_electrons_phi[0]-zed_electrons_phi[1])")
+               .Define("zed_muons_diffphi1",             "abs(zed_muons_phi[0]-zed_muons_phi[1])")
+               .Define("zed_leptons_diffphi1",           "abs(zed_leptons_phi[0]-zed_leptons_phi[1])")
+
+               .Define("zed_electrons_diffphi2",         "abs(zed_electrons_phi_bis[0]-zed_electrons_phi_bis[1])")
+               .Define("zed_muons_diffphi2",             "abs(zed_muons_phi_bis[0]-zed_muons_phi_bis[1])")
+               .Define("zed_leptons_diffphi2",           "abs(zed_leptons_phi_bis[0]-zed_leptons_phi_bis[1])")
+                
 
 	           #jetconstituents_ee_genkt2 is obtained with JetClusteringUtils::get_constituents
 		       #jetconstituents_ee_2 is obtained with JetConstituentsUtils::build_constituents_cluster
@@ -240,6 +257,20 @@ class RDFanalysis():
     def output():
         branchList = [
             
+            #-------------------------------------------------------------------------------------------Photons
+
+            "N_photons",
+            "photons_e",
+            "photons_p",
+            "photons_px",
+            "photons_py",
+            "photons_pz",
+            "photons_pt",
+            "photons_phi",
+            "photons_theta",
+            "photons_eta",
+            "photons_y",
+
             #----------------------------------------------------------------------------Leptons
 
             "selected_muons_pt",
@@ -281,7 +312,25 @@ class RDFanalysis():
             "LooseLeptons_10_theta",
             "LooseLeptons_10_phi",
             "LooseLeptons_10_p",
-            
+
+            "taken_leptons_e",
+            "taken_leptons_p",
+            "taken_leptons_px",
+            "taken_leptons_py",
+            "taken_leptons_pz",
+            "taken_leptons_pt",
+            "taken_leptons_theta",
+            "taken_leptons_phi",
+            "taken_leptons_eta",
+            "taken_leptons_y",
+            "taken_leptons_m",
+            "taken_leptons_recoil_m",
+
+            "zed_leptons_difftheta1",
+            "zed_leptons_diffphi1",
+            "zed_leptons_difftheta2",
+            "zed_leptons_diffphi2",
+                        
             #----------------------------------------------------------------------------Z
 
             "Z1_e",
@@ -295,7 +344,6 @@ class RDFanalysis():
             "Z1_q",
             "Z1_phi",
             "Z1_theta",
-            "Z1_cos",
             "Z1_y",
             "Z1_eta",
 
@@ -310,7 +358,6 @@ class RDFanalysis():
             "Z2_q",
             "Z2_phi",
             "Z2_theta",
-            "Z2_cos",
             "Z2_y",
             "Z2_eta",
 
@@ -405,5 +452,6 @@ class RDFanalysis():
             
             "visible_mass_predef"           
           
-        ]
+        ]        
+
         return branchList
