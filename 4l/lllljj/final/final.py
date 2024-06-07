@@ -53,26 +53,29 @@ doScale = False
 
 
 #Dictionnay of the list of cuts. The key is the name of the selection that will be added to the output file
-cutList = {"sel0":"Z1_cos < 2",   #No cut
-           "sel1":"emiss < 20",
-           "sel2":"emiss < 10",
-           "sel3":"Z1_m > 81 && Z1_m < 101",
-           "sel4":"Z2_m > 81 && Z2_m < 101",
-           "sel5":"Z3_m > 10 && Z3_m < 50",
-           "sel6":"Z1_m > 81 && Z1_m < 101 && Z2_m > 81 && Z2_m < 101 && Z3_m > 10 && Z3_m < 50",
-           "sel7":"Z1_m > 81 && Z1_m < 101 && Z2_m > 81 && Z2_m < 101 && Z3_m > 10 && Z3_m < 50 && emiss < 10"
+cutList = {"sel0":"Z1_theta < 10",   #No cut
+           "sel1":"emiss < 10",
+           "sel2":"Z1_m > 81 && Z1_m < 101",
+           "sel4":"Z1_m > 81 && Z1_m < 101 && Z2_m > 81 && Z2_m < 101"
+           #"sel5":"Z1_m > 81 && Z1_m < 101 && Z2_m > 81 && Z2_m < 101 && Z3_m > 10 && Z3_m < 50",
+           #"sel6":"Z1_m > 81 && Z1_m < 101 && Z2_m > 81 && Z2_m < 101 && Z3_m > 10 && Z3_m < 50 && emiss < 10"
            }
 
 #Dictionary for the ouput variable/hitograms. The key is the name of the variable in the output files. "name" is the name of the variable in the input file, "title" is the x-axis label of the histogram, "bin" the number of bins of the histogram, "xmin" the minimum x-axis value and "xmax" the maximum x-axis value.
 histoList = {
-    
-    Z bosons
+
+    #---------------------------------------------------------------------------------------------------------------------------------------------------Photons
+
+    "N_photons":   {"name":"N_photons",  "title":"Number of photons",                                    "bin":10, "xmin":0, "xmax":10},
+    "photons_e":   {"name":"photons_e",  "title":"Energy of the photons [GeV]",                          "bin":125,"xmin":0, "xmax":300},
+    "photons_p":   {"name":"photons_p",  "title":"Momentum of the photons [GeV]",                        "bin":125,"xmin":0, "xmax":300},
+
+    #--------------------------------------------------------------------------------------------------------------------------------------------------Z bosons
 
     "Z1_m":        {"name":"Z1_m",       "title":"1st dilepton mass [GeV]",                              "bin":125,"xmin":0,"xmax":200},
     "Z1_p":        {"name":"Z1_p",       "title":"1st dilepton momentum [GeV]",                          "bin":125,"xmin":0,"xmax":200},
     "Z1_theta":    {"name":"Z1_theta",   "title":"#theta of the 1st lepton pair",                        "bin":100,"xmin":-7,"xmax":7},
     "Z1_phi":      {"name":"Z1_phi",     "title":"#phi of the 1st lepton pair",                          "bin":100,"xmin":-7,"xmax":7},
-    "Z1_cos":      {"name":"Z1_cos",     "title":"cos(#theta) of the 1st lepton pair",                   "bin":100,"xmin":-1,"xmax":1},
     "Z1_eta":      {"name":"Z1_eta",     "title":"Pseudo-rapidity #eta of the 1st lepton pair",          "bin":100,"xmin":-10,"xmax":10},
     "Z1_y":        {"name":"Z1_y",       "title":"Rapidity y of the 1st lepton pair",                    "bin":100,"xmin":-3,"xmax":3},
     "Z1_recoil_m": {"name":"Z1_recoil_m","title":"Leptonic recoil mass of the 1st lepton pair [GeV]",    "bin":100,"xmin":0,"xmax":200},
@@ -81,7 +84,6 @@ histoList = {
     "Z2_p":        {"name":"Z2_p",       "title":"2nd dilepton momentum [GeV]",                         "bin":125,"xmin":0, "xmax":120},
     "Z2_theta":    {"name":"Z2_theta",   "title":"#theta of the 2nd lepton pair ",                      "bin":100,"xmin":0, "xmax":4},
     "Z2_phi":      {"name":"Z2_phi",     "title":"#phi of the 2nd lepton pair",                         "bin":100,"xmin":-4,"xmax":4},
-    "Z2_cos":      {"name":"Z2_cos",     "title":"cos(#theta) of the 2nd lepton pair",                  "bin":100,"xmin":-1,"xmax":1},
     "Z2_eta":      {"name":"Z2_eta",     "title":"Pseudo-rapidity #eta of the 2nd lepton pair",         "bin":100,"xmin":-6,"xmax":6},
     "Z2_y":        {"name":"Z2_y",       "title":"Rapidity y of the 2nd lepton pair",                   "bin":100,"xmin":-3,"xmax":3},
     "Z2_recoil_m": {"name":"Z2_recoil_m","title":"Leptonic recoil mass of the 2nd lepton pair [GeV]",   "bin":100,"xmin":0,"xmax":10},
@@ -130,6 +132,18 @@ histoList = {
     "LooseLeptons_10_p":    {"name":"LooseLeptons_10_p",    "title":"p of leptons with p>10GeV [GeV]",                   "bin":100, "xmin":0, "xmax":200},
     "LooseLeptons_10_theta":{"name":"LooseLeptons_10_theta","title":"#theta of leptons with p>10GeV [GeV]",              "bin":100, "xmin":0, "xmax":4},
     "LooseLeptons_10_phi":  {"name":"LooseLeptons_10_phi",  "title":"#phi of leptons with p>10 GeV [GeV]",               "bin":100, "xmin":-7,"xmax":7},
+
+    "zed_leptons_difftheta1":  {"name":"zed_leptons_difftheta1",  "title":"zed_leptons_difftheta1",               "bin":100, "xmin":0,"xmax":4},
+    "zed_leptons_difftheta2":  {"name":"zed_leptons_difftheta2",  "title":"zed_leptons_difftheta2",               "bin":100, "xmin":0,"xmax":4},
+    "zed_leptons_diffphi1":    {"name":"zed_leptons_diffphi1",    "title":"zed_leptons_diffphi1",                 "bin":100, "xmin":0,"xmax":4},
+    "zed_leptons_diffphi2":    {"name":"zed_leptons_diffphi2",    "title":"zed_leptons_diffphi2",                 "bin":100, "xmin":0,"xmax":4},
+
+    "taken_leptons_e":        {"name":"taken_leptons_e",        "title":"Energy of the taken leptons [GeV]",      "bin":100, "xmin":0, "xmax":100},
+    "taken_leptons_p":        {"name":"taken_leptons_p",        "title":"Momentum of the taken leptons [GeV]",    "bin":100, "xmin":0, "xmax":100},
+    "taken_leptons_phi":      {"name":"taken_leptons_phi",      "title":"#phi of the taken leptons",              "bin":100, "xmin":0, "xmax":100},
+    "taken_leptons_theta":    {"name":"taken_leptons_theta",    "title":"#theta of the taken leptons",            "bin":100, "xmin":0, "xmax":100},
+    "taken_leptons_m":        {"name":"taken_leptons_m",        "title":"Mass of the taken leptons [GeV]",        "bin":100, "xmin":0, "xmax":100},
+    "taken_leptons_recoil_m": {"name":"taken_leptons_recoil_m", "title":"Recoil mass of the taken leptons [GeV]", "bin":100, "xmin":0, "xmax":100},
 
     #--------------------------------------------------------------------------------------------------------------------------------------------------Jets
     
