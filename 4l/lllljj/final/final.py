@@ -56,7 +56,7 @@ doScale = False
 cutList = {"sel0":"Z1_theta < 10",   #No cut
            "sel1":"emiss < 10",
            "sel2":"Z1_m > 81 && Z1_m < 101",
-           "sel4":"Z1_m > 81 && Z1_m < 101 && Z2_m > 81 && Z2_m < 101"
+           "sel3":"Z1_m > 81 && Z1_m < 101 && Z2_m > 81 && Z2_m < 101"
            #"sel5":"Z1_m > 81 && Z1_m < 101 && Z2_m > 81 && Z2_m < 101 && Z3_m > 10 && Z3_m < 50",
            #"sel6":"Z1_m > 81 && Z1_m < 101 && Z2_m > 81 && Z2_m < 101 && Z3_m > 10 && Z3_m < 50 && emiss < 10"
            }

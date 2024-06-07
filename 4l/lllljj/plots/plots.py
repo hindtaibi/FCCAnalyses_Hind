@@ -14,11 +14,14 @@ formats        = ['png']
 yaxis          = ['log']
 stacksig       = ['stack']
 
-variables = ['Z1_m',
+variables = ['N_photons',
+             'photons_e',
+             'photons_p',
+
+             'Z1_m',
              'Z1_p',
              'Z1_theta',
              'Z1_phi', 
-             'Z1_cos' ,
              'Z1_eta', 
              'Z1_y',
              'Z1_recoil_m', 
@@ -27,7 +30,6 @@ variables = ['Z1_m',
              'Z2_p',
              'Z2_theta',
              'Z2_phi',
-             'Z2_cos' ,
              'Z2_eta',
              'Z2_y',
              'Z2_recoil_m',
@@ -40,7 +42,6 @@ variables = ['Z1_m',
              'Z3_pt',
 
              'N_zed_leptonic',
-
 
              'selected_muons_e', 
              'selected_electrons_e', 
@@ -76,6 +77,17 @@ variables = ['Z1_m',
              'LooseLeptons_10_theta',
              'LooseLeptons_10_phi',
 
+             "zed_leptons_difftheta1",
+             "zed_leptons_difftheta2",
+             "zed_leptons_diffphi1",
+             "zed_leptons_diffphi2",
+
+             "taken_leptons_e",
+             "taken_leptons_p",
+             "taken_leptons_phi",
+             "taken_leptons_theta",
+             "taken_leptons_m",
+             "taken_leptons_recoil_m",
              
              'j5_p', 
              'j6_p', 
@@ -151,17 +163,17 @@ variables = ['Z1_m',
 
 ###Dictonnary with the analysis name as a key, and the list of selections to be plotted for this analysis. The name of the selections should be the same than in the final selection
 selections = {}
-selections['lllljj']   = ["sel0" ,"sel1","sel2","sel3", "sel4", "sel5", "sel6", "sel7"]
+selections['lllljj']   = ["sel0" ,"sel1","sel2","sel3"]#, "sel4", "sel5", "sel6", "sel7"]
 
 extralabel = {}
 extralabel['sel0'] = "No cut"
-extralabel['sel1'] = "emiss < 20"
-extralabel['sel2'] = "emiss < 10"
-extralabel['sel3'] = "1st dilepton m"
-extralabel['sel4'] = "2nd dilepton m"
-extralabel['sel5'] = "Dijet m"
-extralabel['sel6'] = "Dileptons m + dijet m"
-extralabel['sel7'] = "emiss < 10 + dileptons m + dijet m"
+extralabel['sel1'] = "emiss < 10"
+extralabel['sel2'] = "Z1 mass"
+extralabel['sel3'] = "Z1 & Z2 mass"
+#extralabel['sel4'] = "2nd dilepton m"
+#extralabel['sel5'] = "Dijet m"
+#extralabel['sel6'] = "Dileptons m + dijet m"
+#extralabel['sel7'] = "emiss < 10 + dileptons m + dijet m"
 
 
 
