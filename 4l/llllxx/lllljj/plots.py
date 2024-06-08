@@ -118,7 +118,7 @@ colors = {}
 colors['Signal,HZZ'] = ROOT.kRed
 colors['HWW'] = ROOT.kGreen
 colors['nunuH,HZZ'] = ROOT.kBlue
-#colors['WW'] = ROOT.kOrange+6
+colors['Hgg'] = ROOT.kYellow
 #colors['ZZ'] = ROOT.kOrange-2
 colors['Htautau'] = ROOT.kCyan+2
 colors['Hqq'] = ROOT.kPink-9
@@ -149,7 +149,8 @@ plots['llllxx'] = {'signal':{'Signal,HZZ':['wzp6_ee_mumuH_HZZ_ecm240',
                                            'wzp6_ee_eeH_Hmumu_ecm240'],
  
                                   'HZa':['wzp6_ee_mumuH_HZa_ecm240', 
-                                         'wzp6_ee_eeH_HZa_ecm240']}
+                                         'wzp6_ee_eeH_HZa_ecm240'],
+                                  'Hgg':['wzp6_ee_mumuH_Hgg_ecm240']}
                   }
                                          
 
@@ -157,7 +158,7 @@ legend = {}
 legend['Signal,HZZ'] = 'Signal'
 legend['HWW'] = 'H#rightarrowWW'
 legend['nunuH,HZZ'] = '#nu#nuH, HZZ'
-#legend['WW'] = 'WW'
+legend['Hgg'] = 'Hgg'
 #legend['ZZ'] = 'ZZ'
 legend['Htautau'] = 'H#rightarrow#tau#tau'
 legend['Hqq'] = 'H#rightarrowqq (bb, ss, cc)'

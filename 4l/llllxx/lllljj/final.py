@@ -10,7 +10,7 @@ processList = {'wzp6_ee_mumuH_HZZ_ecm240':{},        #Signal
                #'wzp6_ee_mumuH_Haa_ecm240':{},        #Empty after stage2
                'wzp6_ee_mumuH_Hbb_ecm240':{},
                'wzp6_ee_mumuH_Hcc_ecm240':{},
-               #'wzp6_ee_mumuH_Hgg_ecm240':{},        #Empty after stage2
+               'wzp6_ee_mumuH_Hgg_ecm240':{},
                'wzp6_ee_mumuH_Hmumu_ecm240':{},
                'wzp6_ee_mumuH_Hss_ecm240':{},
                'wzp6_ee_mumuH_Htautau_ecm240':{},
@@ -55,9 +55,9 @@ cutList = {"sel0":"Z1_theta < 10",   #No cut
            "sel1":"emiss < 8",
            "sel2":"Z1_m > 81 && Z1_m < 101",
            "sel3":"Z1_m > 81 && Z1_m < 101 && Z2_m > 81 && Z2_m < 101",
-           "sel4":"Z1_m > 81 && Z1_m < 101 && Z2_m > 81 && Z2_m < 101 && Z3_m > 10 && Z3_m < 50"
-           #"sel6":"Z1_m > 81 && Z1_m < 101 && Z2_m > 81 && Z2_m < 101 && Z3_m > 10 && Z3_m < 50",
-           #"sel7":"Z1_m > 81 && Z1_m < 101 && Z2_m > 81 && Z2_m < 101 && Z3_m > 10 && Z3_m < 50 && emiss < 10"
+           "sel4":"Z1_m > 81 && Z1_m < 101 && Z2_m > 81 && Z2_m < 101 && Z3_m > 10 && Z3_m < 50",
+           #"sel5":"photons_e < 19"
+           #"sel6":"Z1_m > 81 && Z1_m < 101 && Z2_m > 81 && Z2_m < 101 && Z3_m > 10 && Z3_m < 50 && emiss < 10"
            }
 
 #Dictionary for the ouput variable/hitograms. The key is the name of the variable in the output files. "name" is the name of the variable in the input file, "title" is the x-axis label of the histogram, "bin" the number of bins of the histogram, "xmin" the minimum x-axis value and "xmax" the maximum x-axis value.
