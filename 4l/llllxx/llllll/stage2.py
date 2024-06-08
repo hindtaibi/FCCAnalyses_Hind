@@ -1,6 +1,6 @@
-inputDir    = "../../stage1bis/outputs"
+inputDir    = "../../../stage1bis/outputs"
 
-#In this case, we are looking for he final state Z1, Z2, Z3* -> ll (l1 + l2) ll (l3 + l4) xx (jj, vv ou ll)
+#In this case, we are looking for he final state Z1, Z2, Z3* -> ll (l1 + l2) ll (l3 + l4) ll (l1 + l2)
 
 #Optional: output directory, default is local dir
 outputDir   = "outputs"
@@ -85,12 +85,10 @@ class RDFanalysis():
                #.Filter("abs_pdg_Z2 == 1 || abs_pdg_Z2 == 2 || abs_pdg_Z2 == 3 || abs_pdg_Z2 == 4 || abs_pdg_Z2 == 5")
                #-----------------------------------------------------------------------------------------------------------------------------------
                
-               #The three following filters do the same thing               
-               .Filter("N_on_taken_leptons == 4")          #Filter to have exactly four lepton candidates for the Z
-               #.Filter("N_on_zed_leptonic == 2")           #Filter to have exactly 2 Z candidates for the reconstructed particles
-               
-               #Final state we are looking for
-
+               #Filter to have three leptonic Z bosons               
+               #.Filter("N_on_taken_leptons == 4 && N_off_taken_leptons == 2")          
+               .Filter("N_on_zed_leptonic == 2 && N_off_zed_leptonic == 1")           
+            
                #Z1 decays into 2 leptons
                .Define("Z1_e",           "on_zed_leptonic_e[0]")
                .Define("Z1_m",           "on_zed_leptonic_m[0]")
@@ -103,8 +101,6 @@ class RDFanalysis():
                .Define("Z1_q",           "on_zed_leptonic_charge[0]")
                .Define("Z1_phi",         "on_zed_leptonic_phi[0]")
                .Define("Z1_theta",       "on_zed_leptonic_theta[0]")
-               .Define("Z1_y",           "on_zed_leptonic_y[0]")
-               .Define("Z1_eta",         "on_zed_leptonic_eta[0]")
 
                #Z2 decays into 2 leptons
                .Define("Z2_e",           "on_zed_leptonic_e[1]")
@@ -118,10 +114,20 @@ class RDFanalysis():
                .Define("Z2_q",           "on_zed_leptonic_charge[1]")
                .Define("Z2_phi",         "on_zed_leptonic_phi[1]")
                .Define("Z2_theta",       "on_zed_leptonic_theta[1]")
-               .Define("Z2_y",           "on_zed_leptonic_y[1]")
-               .Define("Z2_eta",         "on_zed_leptonic_eta[1]")
 
-               #Z3 can decay into anything (ll, vv, jj), we don't look at it for now
+               #Z3 decays into 2 leptons
+               .Define("Z3_e",           "off_zed_leptonic_e[0]")
+               .Define("Z3_m",           "off_zed_leptonic_m[0]")
+               .Define("Z3_recoil_m",    "off_zed_leptonic_recoil_m[0]")
+               .Define("Z3_pt",          "off_zed_leptonic_pt[0]")
+               .Define("Z3_px",          "off_zed_leptonic_px[0]")
+               .Define("Z3_py",          "off_zed_leptonic_py[0]")
+               .Define("Z3_pz",          "off_zed_leptonic_pz[0]")
+               .Define("Z3_p",           "off_zed_leptonic_p[0]")
+               .Define("Z3_q",           "off_zed_leptonic_charge[0]")
+               .Define("Z3_phi",         "off_zed_leptonic_phi[0]")
+               .Define("Z3_theta",       "off_zed_leptonic_theta[0]")
+               
        
                )
         return df2
@@ -135,116 +141,36 @@ class RDFanalysis():
 
             "N_photons",
             "photons_e",
-            "photons_p",
             "photons_px",
             "photons_py",
             "photons_pz",
             "photons_pt",
             "photons_phi",
             "photons_theta",
-            "photons_eta",
-            "photons_y",
             
             #-------------------------------------------------------------------------------------------Leptons
-
-            #Properties of the on/ff leptons (p(25,80) GeV)/(p(5,25) GeV), i. e. the leptons not coming from jets
-            "on_muons_pt",
-            "on_electrons_pt",
-            "on_leptons_pt",
-            "off_muons_pt",
-            "off_electrons_pt",
-            "off_leptons_pt",
-
-            "on_muons_px",
-            "on_electrons_px",
-            "on_leptons_px",
-            "off_muons_px",
-            "off_electrons_px",
-            "off_leptons_px",
-
-            "on_muons_py",
-            "on_electrons_py",
-            "on_leptons_py",
-            "off_muons_py",
-            "off_electrons_py",
-            "off_leptons_py",
-
-            "on_muons_pz",
-            "on_electrons_pz",
-            "on_leptons_pz",
-            "off_muons_pz",
-            "off_electrons_pz",
-            "off_leptons_pz",
-
-            "on_muons_p",
-            "on_electrons_p",
-            "on_leptons_p",
-            "off_muons_p",
-            "off_electrons_p",
-            "off_leptons_p",
-            
-            "on_muons_y",
-            "on_electrons_y",
-            "on_leptons_y",
-            "off_muons_y",
-            "off_electrons_y",
-            "off_leptons_y",
-
-            "on_muons_e",
-            "on_electrons_e",
-            "on_leptons_e",
-            "off_muons_e",
-            "off_electrons_e",
-            "off_leptons_e",
-            
-            "N_on_muons",
-            "N_on_electrons",
-            "N_on_leptons",
-            "N_off_muons",
-            "N_off_electrons",
-            "N_off_leptons",
 
             #LooseLeptons_p0 are leptons with p>p0
             "N_LooseLeptons_10",
             "N_LooseLeptons_2",
             "N_LooseLeptons_1",
-            "LooseLeptons_10_pt",
+            "LooseLeptons_10_e",
             "LooseLeptons_10_theta",
             "LooseLeptons_10_phi",
             "LooseLeptons_10_p",
 
             #Taken leptons are the selected leptons without the extraleptons, i. e. the leptons that reconstructed the Z
-            "N_on_taken_muons",
-            "N_on_taken_electrons",
-            "N_on_taken_leptons",
-            "on_taken_leptons_e",
-            "on_taken_leptons_p",
-            "on_taken_leptons_px",
-            "on_taken_leptons_py",
-            "on_taken_leptons_pz",
-            "on_taken_leptons_pt",
-            "on_taken_leptons_theta",
-            "on_taken_leptons_phi",
-            "on_taken_leptons_eta",
-            "on_taken_leptons_y",
-            "on_taken_leptons_m",
-            "on_taken_leptons_recoil_m",
-
-            "N_off_taken_muons",
-            "N_off_taken_electrons",
-            "N_off_taken_leptons",
-            "off_taken_leptons_e",
-            "off_taken_leptons_p",
-            "off_taken_leptons_px",
-            "off_taken_leptons_py",
-            "off_taken_leptons_pz",
-            "off_taken_leptons_pt",
-            "off_taken_leptons_theta",
-            "off_taken_leptons_phi",
-            "off_taken_leptons_eta",
-            "off_taken_leptons_y",
-            "off_taken_leptons_m",
-            "off_taken_leptons_recoil_m",
+            "N_all_taken_leptons",
+            "all_taken_leptons_e",
+            "all_taken_leptons_p",
+            "all_taken_leptons_px",
+            "all_taken_leptons_py",
+            "all_taken_leptons_pz",
+            "all_taken_leptons_pt",
+            "all_taken_leptons_theta",
+            "all_taken_leptons_phi",
+            "all_taken_leptons_eta",
+            "all_taken_leptons_y",
 
             #Angular difference of the leptons that reconstructed the Z bosons
             "on_difftheta1_muons",
@@ -255,13 +181,12 @@ class RDFanalysis():
             "on_diffphi2_muons",
             "on_diffphi1_electrons",
             "on_diffphi2_electrons",
-
             "off_difftheta_muons",
             "off_difftheta_electrons",
             "off_diffphi_muons",
-            "off_diffphi_electrons",        
+            "off_diffphi_electrons",
             
-            #----------------------------------------------------------------------------Z
+            #-------------------------------------------------------------------------------------------------Z
 
             "Z1_e",
             "Z1_m",
@@ -274,8 +199,6 @@ class RDFanalysis():
             "Z1_q",
             "Z1_phi",
             "Z1_theta",
-            "Z1_y",
-            "Z1_eta",
 
             "Z2_e",
             "Z2_m",
@@ -288,8 +211,18 @@ class RDFanalysis():
             "Z2_q",
             "Z2_phi",
             "Z2_theta",
-            "Z2_y",
-            "Z2_eta",
+            
+            "Z3_e",
+            "Z3_m",
+            "Z3_recoil_m",
+            "Z3_pt",
+            "Z3_px",
+            "Z3_py",
+            "Z3_pz",
+            "Z3_p",
+            "Z3_q",
+            "Z3_phi",
+            "Z3_theta",
             
             #----------------------------------------------------------------------------Missing/Visible stuff
 
