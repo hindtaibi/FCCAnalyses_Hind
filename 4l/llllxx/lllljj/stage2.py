@@ -1,6 +1,6 @@
 inputDir    = "../../../stage1bis/outputs"
 
-#In this case, we are looking for he final state Z1, Z2, Z3* -> ll (l1 + l2) ll (l3 + l4) jj (j1 + j2)
+#In this case, we are looking for he final state Z1, Z2, Z3* -> ll (l1 + l2) ll (l3 + l4) jj (j5 + j6)
 
 #Optional: output directory, default is local dir
 outputDir   = "outputs"
