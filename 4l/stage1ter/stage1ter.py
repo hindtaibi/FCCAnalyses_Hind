@@ -244,6 +244,8 @@ class RDFanalysis():
             .Define("dmerge_3_34",                  "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt3, 3)")
             .Define("dmerge_3_23",                  "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt3, 2)")
             .Define("dmerge_3_12",                  "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt3, 1)")
+            
+            #-----------------------------------------------------------------------------------Missing/Visible
 
             #Missing energy and momentum
 
@@ -293,172 +295,49 @@ class RDFanalysis():
            
             "N_photons",
             "photons_tlv",
+            "photons_recoil_m",
 
             #--------------------------------------------------------------------------------------------------
             
             #-------------------------------------------------------------------------------------------Leptons
 
-            #Properties of the on/ff leptons (p(25,80) GeV)/(p(5,25) GeV), i. e. the leptons not coming from jets
-            "on_muons_pt",
-            "on_electrons_pt",
-            "on_leptons_pt",
-            "off_muons_pt",
-            "off_electrons_pt",
-            "off_leptons_pt",
-
-            "on_muons_px",
-            "on_electrons_px",
-            "on_leptons_px",
-            "off_muons_px",
-            "off_electrons_px",
-            "off_leptons_px",
-
-            "on_muons_py",
-            "on_electrons_py",
-            "on_leptons_py",
-            "off_muons_py",
-            "off_electrons_py",
-            "off_leptons_py",
-
-            "on_muons_pz",
-            "on_electrons_pz",
-            "on_leptons_pz",
-            "off_muons_pz",
-            "off_electrons_pz",
-            "off_leptons_pz",
-
-            "on_muons_p",
-            "on_electrons_p",
-            "on_leptons_p",
-            "off_muons_p",
-            "off_electrons_p",
-            "off_leptons_p",
-            
-            "on_muons_y",
-            "on_electrons_y",
-            "on_leptons_y",
-            "off_muons_y",
-            "off_electrons_y",
-            "off_leptons_y",
-
-            "on_muons_e",
-            "on_electrons_e",
-            "on_leptons_e",
-            "off_muons_e",
-            "off_electrons_e",
-            "off_leptons_e",
-            
+	    #Preselected leptons
             "N_on_muons",
-            "N_on_electrons",
-            "N_on_leptons",
-            "N_off_muons",
-            "N_off_electrons",
-            "N_off_leptons",
+	    "N_on_electrons",
+	    "N_on_leptons",
+	    "N_other_muons",
+	    "N_other_electrons",
+	    "N_other_leptons",
+	    "on_muons_tlv",
+	    "on_electrons_tlv",
+	    "on_leptons_tlv",
+	    "other_muons_tlv",
+	    "other_electrons_tlv",
+	    "other_leptons_tlv",
 
-            #LooseLeptons_p0 are leptons with p>p0
-            "N_LooseLeptons_10",
-            "N_LooseLeptons_2",
-            "N_LooseLeptons_1",
-            "LooseLeptons_10_e",
-            "LooseLeptons_10_theta",
-            "LooseLeptons_10_phi",
-            "LooseLeptons_10_p",
-
-            #Taken leptons are the selected leptons without the extraleptons, i. e. the leptons that reconstructed the Z
-            "N_on_taken_muons",
-            "N_on_taken_electrons",
-            "N_on_taken_leptons",
-            "on_taken_leptons_e",
-            "on_taken_leptons_p",
-            "on_taken_leptons_px",
-            "on_taken_leptons_py",
-            "on_taken_leptons_pz",
-            "on_taken_leptons_pt",
-            "on_taken_leptons_theta",
-            "on_taken_leptons_phi",
-            "on_taken_leptons_eta",
-            "on_taken_leptons_y",
-            "on_taken_leptons_m",
-            "on_taken_leptons_recoil_m",
-
-            "N_off_taken_muons",
-            "N_off_taken_electrons",
-            "N_off_taken_leptons",
-            "off_taken_leptons_e",
-            "off_taken_leptons_p",
-            "off_taken_leptons_px",
-            "off_taken_leptons_py",
-            "off_taken_leptons_pz",
-            "off_taken_leptons_pt",
-            "off_taken_leptons_theta",
-            "off_taken_leptons_phi",
-            "off_taken_leptons_eta",
-            "off_taken_leptons_y",
-            "off_taken_leptons_m",
-            "off_taken_leptons_recoil_m",
-            
-            "N_all_taken_leptons",
-            "all_taken_leptons_e",
-            "all_taken_leptons_p",
-            "all_taken_leptons_px",
-            "all_taken_leptons_py",
-            "all_taken_leptons_pz",
-            "all_taken_leptons_pt",
-            "all_taken_leptons_theta",
-            "all_taken_leptons_phi",
-            "all_taken_leptons_eta",
-            "all_taken_leptons_y",
-
-            #Angular difference of the leptons that reconstructed the Z bosons
-            "on_difftheta1_muons",
-            "on_difftheta2_muons",
-            "on_difftheta1_electrons",
-            "on_difftheta2_electrons",
-            "on_diffphi1_muons",
-            "on_diffphi2_muons",
-            "on_diffphi1_electrons",
-            "on_diffphi2_electrons",
-
-            "off_difftheta_muons",
-            "off_difftheta_electrons",
-            "off_diffphi_muons",
-            "off_diffphi_electrons",
-
+       	    "N_on_Z_leptons",
+       	    "on_Z_leptons_tlv",
+       	    "on_Z_leptons_recoil_m",
+       	    
+       	    "N_on_extra_leptons",
+       	    "on_extra_leptons_tlv",
+       	    
+       	    "N_other_Z_leptons", 
+	    "other_Z_leptons_tlv",
+	    "other_Z_leptons_recoil_m",
+	    
+	    "N_other_extra_leptons",
+	    "other_extra_leptons_tlv",
             #--------------------------------------------------------------------------------------------------
 
             #-------------------------------------------------------------------------------------------------Z
-                        
-            #zed_leptonic is the Z reconstructed from the taken leptons
-            "N_on_zed_leptonic",
-            "on_zed_leptonic_e",
-            "on_zed_leptonic_pt",
-            "on_zed_leptonic_px",
-            "on_zed_leptonic_py", 
-            "on_zed_leptonic_pz",
-            "on_zed_leptonic_p",
-            "on_zed_leptonic_m",
-            "on_zed_leptonic_charge",
-            "on_zed_leptonic_recoil_m",
-            "on_zed_leptonic_phi",
-            "on_zed_leptonic_theta",
-            "on_zed_leptonic_y",
-            "on_zed_leptonic_eta",
-
-            "N_off_zed_leptonic",
-            "off_zed_leptonic_e",
-            "off_zed_leptonic_pt",
-            "off_zed_leptonic_px",
-            "off_zed_leptonic_py",
-            "off_zed_leptonic_pz",
-            "off_zed_leptonic_p",
-            "off_zed_leptonic_m",
-            "off_zed_leptonic_charge",
-            "off_zed_leptonic_recoil_m",
-            "off_zed_leptonic_phi",
-            "off_zed_leptonic_theta",
-            "off_zed_leptonic_y",
-            "off_zed_leptonic_eta",
-
+ 	    "N_on_Z_leptonic",
+ 	    "on_Z_leptonic_tlv",
+ 	    "on_Z_leptonic_recoil_m",                       
+	    
+	    "N_other_Z_leptonic",
+	    "other_Z_leptonic_tlv",
+	    "other_Z_leptonic_recoil_m",
             #--------------------------------------------------------------------------------------------------
             
             #----------------------------------------------------------------------------------------------Jets
@@ -470,6 +349,7 @@ class RDFanalysis():
             "jets_p2",
             "jets_e2",
             "jets_m2",
+            "jets_recoil_m2",
             "jets_pt2",
             "jets_y2",
             "jets_eta2",
@@ -502,26 +382,6 @@ class RDFanalysis():
             "dmerge_3_34",
             "dmerge_3_23",
             "dmerge_3_12",
-            
-            #N=4
-            "jets_px4",
-            "jets_py4",
-            "jets_pz4",
-            "jets_p4",
-            "jets_e4",
-            "jets_m4",
-            "jets_pt4",
-            "jets_y4",
-            "jets_eta4",
-            "jets_theta4",
-            "jets_phi4",
-            "jetconstituents_ee_genkt4",
-            "jetconstituents_ee_4",
-            "jetconstituents_4",
-            "dmerge_4_45",
-            "dmerge_4_34",
-            "dmerge_4_23",
-            "dmerge_4_12",
             #--------------------------------------------------------------------------------------------------
 
             #-----------------------------------------------------------------------------Missing/Visible stuff
@@ -535,7 +395,7 @@ class RDFanalysis():
             "missing_tlv",
             
             #Visible
-            "visible_mass_predef",
+            "visible_4vector",
 
             #--------------------------------------------------------------------------------------------------
             
