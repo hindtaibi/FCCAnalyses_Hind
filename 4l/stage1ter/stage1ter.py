@@ -109,9 +109,9 @@ class RDFanalysis():
             .Define("on_leptons_tlv",       "ReconstructedParticle::get_tlv(on_leptons)")
                 
             #Other          
-            .Define("N_other_muons",        "ReconstructedParticle::get_n(off_muons)")
-            .Define("N_other_electrons",    "ReconstructedParticle::get_n(off_electrons)")
-            .Define("N_other_leptons",      "ReconstructedParticle::get_n(off_leptons)")
+            .Define("N_other_muons",        "ReconstructedParticle::get_n(other_muons)")
+            .Define("N_other_electrons",    "ReconstructedParticle::get_n(other_electrons)")
+            .Define("N_other_leptons",      "ReconstructedParticle::get_n(other_leptons)")
             
             .Define("other_muons_tlv",      "ReconstructedParticle::get_tlv(on_muons)")
             .Define("other_electrons_tlv",  "ReconstructedParticle::get_tlv(on_electrons)")
@@ -125,7 +125,7 @@ class RDFanalysis():
             #We create the Z from these leptons with resonanceBuilder
 
             .Define("on_Z_leptons",                "ReconstructedParticle::findZleptons(on_leptons)")               #Selection of the leptons (2 or 0) that could come from a Z
-            .Define("on_Z_leptonic",       	   "ReconstructedParticle::resonanceBuilder(91)(on_zed_leptons)")   #Builds resonance from 2 particles
+            .Define("on_Z_leptonic",       	   "ReconstructedParticle::resonanceBuilder(91)(on_Z_leptons)")   #Builds resonance from 2 particles
             
             .Define("N_on_Z_leptons",       	   "ReconstructedParticle::get_n(on_Z_leptons)")
             .Define("on_Z_leptons_tlv",            "ReconstructedParticle::get_tlv(on_Z_leptons)")
@@ -142,9 +142,9 @@ class RDFanalysis():
             .Define("on_extra_leptons_tlv", 	   "ReconstructedParticle::get_tlv(on_extra_leptons)")
             
 
-            #Off
-            #We repeat the same process but with off leptons
-            #For off leptons, we use findZleptons twice because there are two remaining Z bosons
+            #Other
+            #We repeat the same process but with the other leptons
+            #For other leptons, we use findZleptons twice because there are two remaining Z bosons
             
             .Define("other_leptons2",	           "ReconstructedParticle::remove(other_leptons, on_Z_leptons)")
             .Define("other_Z_leptons1",		   "ReconstructedParticle::findZleptons(other_leptons2)")
@@ -156,7 +156,7 @@ class RDFanalysis():
             
             .Define("other_Z_leptons",	           "ReconstructedParticle::merge(other_Z_leptons1, other_Z_leptons2)")
             .Define("other_Z_leptonic",	           "ReconstructedParticle::merge(other_Z_leptonic1, other_Z_leptonic2)")
-            .Define("other_extra_leptons",         "ReconstructedPArticle::remove(other_leptons2, other_Z_leptons)")
+            .Define("other_extra_leptons",         "ReconstructedParticle::remove(other_leptons2, other_Z_leptons)")
             
             .Define("N_other_Z_leptons",       	   "ReconstructedParticle::get_n(other_Z_leptons)")
             .Define("other_Z_leptons_tlv",         "ReconstructedParticle::get_tlv(other_Z_leptons)")
