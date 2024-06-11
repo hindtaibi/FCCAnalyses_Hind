@@ -1,5 +1,7 @@
+#This file aims to plot the energy of the photons and the missing energy in order to determine the first cuts to apply on this variables next
+
 #Input directory where the files produced at the pre-selection level are
-inputDir  = "../stage2/outputs/"
+inputDir  = "../outputs/"
 
 #Input directory where the files produced at the pre-selection level are
 outputDir  = "outputs"
@@ -56,10 +58,7 @@ cutList = {"sel0":"emiss > -10"   #No Cut
 
 #Dictionary for the ouput variable/hitograms. The key is the name of the variable in the output files. "name" is the name of the variable in the input file, "title" is the x-axis label of the histogram, "bin" the number of bins of the histogram, "xmin" the minimum x-axis value and "xmax" the maximum x-axis value.
 histoList = {
-
-    "photons_e":      {"name":"photons_tlv.E()","title":"Energy of the photons [GeV]",                           "bin":125,  "xmin":0,    "xmax":50},
-    "emiss":          {"name":"emiss",  "title":"Missing energy [GeV]",               				 "bin":100,  "xmin":0,    "xmax":150}
-
+    "emiss":          {"name":"emiss",          "title":"Missing energy [GeV]",               			 "bin":100,  "xmin":0,    "xmax":150}
 }
 
 
