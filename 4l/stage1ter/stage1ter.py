@@ -82,9 +82,15 @@ class RDFanalysis():
             
             .Define("N_photons",            "ReconstructedParticle::get_n(photons)")
             .Define("photons_e",            "ReconstructedParticle::get_e(photons)")
-            .Define("photons_tlv",          "ReconstructedParticle::get_tlv(photons)")
+	    .Define("photons_p",            "ReconstructedParticle::get_p(photons)")
+	    .Define("photons_px",           "ReconstructedParticle::get_px(photons)")
+	    .Define("photons_py",           "ReconstructedParticle::get_py(photons)")
+	    .Define("photons_pz",           "ReconstructedParticle::get_pz(photons)")
+	    .Define("photons_theta",        "ReconstructedParticle::get_theta(photons)")
+	    .Define("photons_phi",          "ReconstructedParticle::get_phi(photons)")
             .Define("photons_recoil",       "ReconstructedParticle::recoilBuilder(240)(photons)")
-            .Define("photons_recoil_m",     "ReconstructedParticle::get_mass(photons)")
+            .Define("photons_recoil_m",     "ReconstructedParticle::get_mass(photons_recoil)")
+	    .Define("photons_tlv",          "ReconstructedParticle::get_tlv(photons)")
 
             #We select the isolated muons/electrons within a certain range of high momentum; they should neither come from jets nor from an off shell Z
 
@@ -127,21 +133,47 @@ class RDFanalysis():
 
             .Define("on_Z_leptons",                "ReconstructedParticle::findZleptons(on_leptons)")               #Selection of the leptons (2 or 0) that could come from a Z
             .Define("on_Z_leptonic",       	   "ReconstructedParticle::resonanceBuilder(91)(on_Z_leptons)")     #Builds resonance from 2 particles
-            
+
+	    #We collect the kinematic information
             .Define("N_on_Z_leptons",       	   "ReconstructedParticle::get_n(on_Z_leptons)")
-            .Define("on_Z_leptons_tlv",            "ReconstructedParticle::get_tlv(on_Z_leptons)")
+	    .Define("on_Z_leptons_e",       	   "ReconstructedParticle::get_e(on_Z_leptons)")
+	    .Define("on_Z_leptons_p",       	   "ReconstructedParticle::get_p(on_Z_leptons)")
+	    .Define("on_Z_leptons_px",       	   "ReconstructedParticle::get_px(on_Z_leptons)")
+	    .Define("on_Z_leptons_py",       	   "ReconstructedParticle::get_py(on_Z_leptons)")
+	    .Define("on_Z_leptons_pz",       	   "ReconstructedParticle::get_pz(on_Z_leptons)")
+	    .Define("on_Z_leptons_theta",          "ReconstructedParticle::get_theta(on_Z_leptons)")
+	    .Define("on_Z_leptons_phi",       	   "ReconstructedParticle::get_phi(on_Z_leptons)")
+	    .Define("on_Z_leptons_m",       	   "ReconstructedParticle::get_mass(on_Z_leptons)")
             .Define("on_Z_leptons_recoil",         "ReconstructedParticle::recoilBuilder(240)(on_Z_leptons)")
             .Define("on_Z_leptons_recoil_m",       "ReconstructedParticle::get_mass(on_Z_leptons_recoil)")
+	    .Define("on_Z_leptons_tlv",            "ReconstructedParticle::get_tlv(on_Z_leptons)")
             
             .Define("N_on_Z_leptonic",             "ReconstructedParticle::get_n(on_Z_leptonic)")
-            .Define("on_Z_leptonic_tlv",    	   "ReconstructedParticle::get_tlv(on_Z_leptonic)")
+	    .Define("on_Z_leptonic_e",             "ReconstructedParticle::get_e(on_Z_leptonic)")
+	    .Define("on_Z_leptonic_p",             "ReconstructedParticle::get_p(on_Z_leptonic)")
+	    .Define("on_Z_leptonic_px",            "ReconstructedParticle::get_px(on_Z_leptonic)")
+	    .Define("on_Z_leptonic_py",            "ReconstructedParticle::get_py(on_Z_leptonic)")
+	    .Define("on_Z_leptonic_pz",            "ReconstructedParticle::get_pz(on_Z_leptonic)")
+	    .Define("on_Z_leptonic_theta",         "ReconstructedParticle::get_theta(on_Z_leptonic)")
+	    .Define("on_Z_leptonic_phi",           "ReconstructedParticle::get_phi(on_Z_leptonic)")
+	    .Define("on_Z_leptonic_m",             "ReconstructedParticle::get_mass(on_Z_leptonic)")
             .Define("on_Z_leptonic_recoil",        "ReconstructedParticle::recoilBuilder(240)(on_Z_leptonic)")
             .Define("on_Z_leptonic_recoil_m",      "ReconstructedParticle::get_mass(on_Z_leptonic_recoil)")
+	    .Define("on_Z_leptonic_tlv",    	   "ReconstructedParticle::get_tlv(on_Z_leptonic)")
 
             .Define("on_extra_leptons",     	   "ReconstructedParticle::remove(on_leptons, on_Z_leptons)")       #The leptons that didn't reconstruct the on shell Z
-            .Define("N_on_extra_leptons",   	   "ReconstructedParticle::get_n(on_extra_leptons)")
-            .Define("on_extra_leptons_tlv", 	   "ReconstructedParticle::get_tlv(on_extra_leptons)")
-            
+	    .Define("N_on_extra_leptons",          "ReconstructedParticle::get_n(on_extra_leptons)")
+	    .Define("on_extra_leptons_e",          "ReconstructedParticle::get_e(on_extra_leptons)")
+	    .Define("on_extra_leptons_p",          "ReconstructedParticle::get_p(on_extra_leptons)")
+	    .Define("on_extra_leptons_px",         "ReconstructedParticle::get_px(on_extra_leptons)")
+	    .Define("on_extra_leptons_py",         "ReconstructedParticle::get_py(on_extra_leptons)")
+	    .Define("on_extra_leptons_pz",         "ReconstructedParticle::get_pz(on_extra_leptons)")
+	    .Define("on_extra_leptons_theta",      "ReconstructedParticle::get_theta(on_extra_leptons)")
+	    .Define("on_extra_leptons_phi",        "ReconstructedParticle::get_phi(on_extra_leptons)")
+	    .Define("on_extra_leptons_m",          "ReconstructedParticle::get_mass(on_extra_leptons)")
+            .Define("on_extra_leptons_recoil",     "ReconstructedParticle::recoilBuilder(240)(on_extra_leptons)")
+            .Define("on_extra_leptons_recoil_m",   "ReconstructedParticle::get_mass(on_extra_leptons_recoil)")
+	    .Define("on_extra_leptons_tlv",        "ReconstructedParticle::get_tlv(on_extra_leptons)")            
 
             #Other
             #We repeat the same process but with the other leptons
@@ -151,20 +183,47 @@ class RDFanalysis():
             .Define("other_Z_leptonic",	 	   "ReconstructedParticle::resonanceBuilder(91)(other_Z_leptons)")
 
             .Define("other_extra_leptons",         "ReconstructedParticle::remove(other_leptons2, other_Z_leptons)")
-            
+		
+	    #We collect the kinematic information
             .Define("N_other_Z_leptons",       	   "ReconstructedParticle::get_n(other_Z_leptons)")
-            .Define("other_Z_leptons_tlv",         "ReconstructedParticle::get_tlv(other_Z_leptons)")
+	    .Define("other_Z_leptons_e",       	   "ReconstructedParticle::get_e(other_Z_leptons)")
+	    .Define("other_Z_leptons_p",       	   "ReconstructedParticle::get_p(other_Z_leptons)")
+	    .Define("other_Z_leptons_px",          "ReconstructedParticle::get_px(other_Z_leptons)")
+	    .Define("other_Z_leptons_py",          "ReconstructedParticle::get_py(other_Z_leptons)")
+	    .Define("other_Z_leptons_pz",          "ReconstructedParticle::get_pz(other_Z_leptons)")
+	    .Define("other_Z_leptons_theta",       "ReconstructedParticle::get_theta(other_Z_leptons)")
+	    .Define("other_Z_leptons_phi",         "ReconstructedParticle::get_phi(other_Z_leptons)")
+	    .Define("other_Z_leptons_m",       	   "ReconstructedParticle::get_mass(other_Z_leptons)")
             .Define("other_Z_leptons_recoil",      "ReconstructedParticle::recoilBuilder(240)(other_Z_leptons)")
             .Define("other_Z_leptons_recoil_m",    "ReconstructedParticle::get_mass(other_Z_leptons_recoil)")
+	    .Define("other_Z_leptons_tlv",         "ReconstructedParticle::get_tlv(other_Z_leptons)")
             
-            .Define("N_other_Z_leptonic",          "ReconstructedParticle::get_n(other_Z_leptonic)")
-            .Define("other_Z_leptonic_tlv",    	   "ReconstructedParticle::get_tlv(other_Z_leptonic)")
-            .Define("other_Z_leptonic_recoil",     "ReconstructedParticle::recoilBuilder(240)(other_Z_leptonic)")
-            .Define("other_Z_leptonic_recoil_m",   "ReconstructedParticle::get_mass(other_Z_leptonic_recoil)")
-      
-            .Define("N_other_extra_leptons",   	   "ReconstructedParticle::get_n(other_extra_leptons)")
-            .Define("other_extra_leptons_tlv", 	   "ReconstructedParticle::get_tlv(other_extra_leptons)")
-            
+            .Define("N_other_Z_leptonic",             "ReconstructedParticle::get_n(other_Z_leptonic)")
+	    .Define("other_Z_leptonic_e",             "ReconstructedParticle::get_e(other_Z_leptonic)")
+	    .Define("other_Z_leptonic_p",             "ReconstructedParticle::get_p(other_Z_leptonic)")
+	    .Define("other_Z_leptonic_px",            "ReconstructedParticle::get_px(other_Z_leptonic)")
+	    .Define("other_Z_leptonic_py",            "ReconstructedParticle::get_py(other_Z_leptonic)")
+	    .Define("other_Z_leptonic_pz",            "ReconstructedParticle::get_pz(other_Z_leptonic)")
+	    .Define("other_Z_leptonic_theta",         "ReconstructedParticle::get_theta(other_Z_leptonic)")
+	    .Define("other_Z_leptonic_phi",           "ReconstructedParticle::get_phi(other_Z_leptonic)")
+	    .Define("other_Z_leptonic_m",             "ReconstructedParticle::get_mass(other_Z_leptonic)")
+            .Define("other_Z_leptonic_recoil",        "ReconstructedParticle::recoilBuilder(240)(other_Z_leptonic)")
+            .Define("other_Z_leptonic_recoil_m",      "ReconstructedParticle::get_mass(other_Z_leptonic_recoil)")
+	    .Define("other_Z_leptonic_tlv",    	      "ReconstructedParticle::get_tlv(other_Z_leptonic)")
+
+	    .Define("N_other_extra_leptons",          "ReconstructedParticle::get_n(other_extra_leptons)")
+	    .Define("other_extra_leptons_e",          "ReconstructedParticle::get_e(other_extra_leptons)")
+	    .Define("other_extra_leptons_p",          "ReconstructedParticle::get_p(other_extra_leptons)")
+	    .Define("other_extra_leptons_px",         "ReconstructedParticle::get_px(other_extra_leptons)")
+	    .Define("other_extra_leptons_py",         "ReconstructedParticle::get_py(other_extra_leptons)")
+	    .Define("other_extra_leptons_pz",         "ReconstructedParticle::get_pz(other_extra_leptons)")
+	    .Define("other_extra_leptons_theta",      "ReconstructedParticle::get_theta(other_extra_leptons)")
+	    .Define("other_extra_leptons_phi",        "ReconstructedParticle::get_phi(other_extra_leptons)")
+	    .Define("other_extra_leptons_m",          "ReconstructedParticle::get_mass(other_extra_leptons)")
+            .Define("other_extra_leptons_recoil",     "ReconstructedParticle::recoilBuilder(240)(other_extra_leptons)")
+            .Define("other_extra_leptons_recoil_m",   "ReconstructedParticle::get_mass(other_extra_leptons_recoil)")
+	    .Define("other_extra_leptons_tlv",        "ReconstructedParticle::get_tlv(other_extra_leptons)") 
+	            
             #All particles that reconstructed Z bosons
             
             .Define("all_Z_leptons",		   "ReconstructedParticle::merge(on_Z_leptons, other_Z_leptons)")
@@ -314,8 +373,14 @@ class RDFanalysis():
            
             "N_photons",
             "photons_e",
-            "photons_tlv",
+	    "photons_p",
+	    "photons_px",
+	    "photons_py",
+	    "photons_pz",
+	    "photons_theta",
+	    "photons_phi",
             "photons_recoil_m",
+            "photons_tlv",
 
             #--------------------------------------------------------------------------------------------------
             
@@ -336,29 +401,79 @@ class RDFanalysis():
 	    "other_leptons_tlv",
 
        	    "N_on_Z_leptons",
-       	    "on_Z_leptons_tlv",
+       	    "on_Z_leptons_e",
+	    "on_Z_leptons_p",
+	    "on_Z_leptons_px",
+	    "on_Z_leptons_py",
+	    "on_Z_leptons_pz",
+	    "on_Z_leptons_theta",
+	    "on_Z_leptons_phi",
+	    "on_Z_leptons_m",
        	    "on_Z_leptons_recoil_m",
+	    "on_Z_leptons_tlv",
        	    
        	    "N_on_extra_leptons",
-       	    "on_extra_leptons_tlv",
+       	    "on_extra_leptons_e",
+	    "on_extra_leptons_p",
+	    "on_extra_leptons_px",
+	    "on_extra_leptons_py",
+	    "on_extra_leptons_pz",
+	    "on_extra_leptons_theta",
+	    "on_extra_leptons_phi",
+	    "on_extra_leptons_m",
+       	    "on_extra_leptons_recoil_m",
+	    "on_extra_leptons_tlv",
        	    
-       	    "N_other_Z_leptons", 
+       	    "N_other_Z_leptons",
+       	    "other_Z_leptons_e",
+	    "other_Z_leptons_p",
+	    "other_Z_leptons_px",
+	    "other_Z_leptons_py",
+	    "other_Z_leptons_pz",
+	    "other_Z_leptons_theta",
+	    "other_Z_leptons_phi",
+	    "other_Z_leptons_m",
+       	    "other_Z_leptons_recoil_m",
 	    "other_Z_leptons_tlv",
-	    "other_Z_leptons_recoil_m",
-	    
-	    "N_other_extra_leptons",
+       	    
+       	    "N_other_extra_leptons",
+       	    "other_extra_leptons_e",
+	    "other_extra_leptons_p",
+	    "other_extra_leptons_px",
+	    "other_extra_leptons_py",
+	    "other_extra_leptons_pz",
+	    "other_extra_leptons_theta",
+	    "other_extra_leptons_phi",
+	    "other_extra_leptons_m",
+       	    "other_extra_leptons_recoil_m",
 	    "other_extra_leptons_tlv",
 	    
             #--------------------------------------------------------------------------------------------------
 
             #-------------------------------------------------------------------------------------------------Z
  	    "N_on_Z_leptonic",
- 	    "on_Z_leptonic_tlv",
+ 	    "on_Z_leptonic_e",
+	    "on_Z_leptonic_p",
+	    "on_Z_leptonic_px",
+	    "on_Z_leptonic_py",
+	    "on_Z_leptonic_pz",
+	    "on_Z_leptonic_theta",
+	    "on_Z_leptonic_phi",
+	    "on_Z_leptonic_m",
  	    "on_Z_leptonic_recoil_m",                       
-	    
+	    "on_Z_leptonic_tlv",
+		
 	    "N_other_Z_leptonic",
+ 	    "other_Z_leptonic_e",
+	    "other_Z_leptonic_p",
+	    "other_Z_leptonic_px",
+	    "other_Z_leptonic_py",
+	    "other_Z_leptonic_pz",
+	    "other_Z_leptonic_theta",
+	    "other_Z_leptonic_phi",
+	    "other_Z_leptonic_m",
+ 	    "other_Z_leptonic_recoil_m",                       
 	    "other_Z_leptonic_tlv",
-	    "other_Z_leptonic_recoil_m",
             #--------------------------------------------------------------------------------------------------
             
             #----------------------------------------------------------------------------------------------Jets
