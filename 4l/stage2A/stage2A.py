@@ -101,7 +101,7 @@ class RDFanalysis():
 
                #We take the photon with highest energy, which is the 1st photon
 
-               .Define("photon_e",          "photons_e[0]")
+               #.Define("photon_e",          "photons_e[0]")
                .Define("photon_p",          "photons_p[0]")
                .Define("photon_px",         "photons_px[0]")
                .Define("photon_py",         "photons_py[0]")
@@ -110,12 +110,13 @@ class RDFanalysis():
                .Define("photon_phi",        "photons_phi[0]")
                .Define("photon_recoil_m",   "photons_recoil_m[0]")
                .Define("photon_tlv",        "photons_tlv[0]")
+               .Define("photon_e",          "photons_tlv.E()[0]")
 
                #On shell dilepton + photon
 
                .Define("on_lla_tlv",        "on_ll_tlv + photon_tlv")
                
-               #Z1 (the on shell Z) decays into 2 leptons
+               #Za (the on shell Z) decays into 2 leptons
                
                .Define("Za_e",              "on_Z_leptonic_e[0]")
                .Define("Za_p",              "on_Z_leptonic_p[0]")
@@ -189,8 +190,17 @@ class RDFanalysis():
             "on_ll_tlv",
 
             #----------------------------------------------------------------------------------------On shell Z
-          
+
+            "Za_e",
+            "Za_p",
+            "Za_px",
+            "Za_py",
+            "Za_pz",
+            "Za_theta",
+            "Za_phi",
             "Za_m",
+            "Za_recoil_m",
+            "Za_tlv",
             
             #----------------------------------------------------------------------------------------------Jets
             
