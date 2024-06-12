@@ -64,7 +64,7 @@ histoList = {
     "pzmiss":         {"name":"pzmiss",         "title":"Missing p_{z} [GeV]",               			 "bin":100,  "xmin":-150,  "xmax":150},
     "photon_e":       {"name":"photon_e",       "title":"Energy of the photon [GeV]",             		 "bin":100,  "xmin":0,     "xmax":150},
     
-    "za_m":           {"name":"za_m",           "title":"On shell dilepton mass [GeV]",             		 "bin":100,  "xmin":0,     "xmax":150},
+    "za_m":           {"name":"za_m",           "title":"On shell dilepton mass [GeV]",             		 "bin":100,  "xmin":0,     "xmax":150}
 }
 
 
