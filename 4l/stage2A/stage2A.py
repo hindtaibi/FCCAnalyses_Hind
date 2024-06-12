@@ -85,22 +85,35 @@ class RDFanalysis():
                
                
                #Filter to have two leptonic Z bosons               
-               #.Filter("N_other_Z_leptons == 2 && N_on_Z_leptons ==2")
-               .Filter("N_photons == 5")
-
-               #
-               .Define("photon1_e",    "photons_e[0]")
-               .Define("photon2_e",    "photons_e[1]")
-               .Define("photon3_e",    "photons_e[2]")
-               .Define("photon4_e",    "photons_e[3]")
-               .Define("photon5_e",    "photons_e[4]")
+               .Filter("N_other_Z_leptons == 2 && N_on_Z_leptons ==2")
 
                #On shell Dilepton
 
-               .Define("on_ll_tlv",         "on_Z_leptons_tlv[0]+on_Z_leptons_tlv[1]")
-               .Define("on_ll_e2",          "(on_Z_leptons_e[0]+on_Z_leptons_e[1])**2")
-               .Define("on_ll_p2",          "(on_Z_leptons_p[0]+on_Z_leptons_p[1])**2")
-               .Define("on_ll_inv_m",       "sqrt(ll_e2-llp2)")
+               .Define("on_ll_e",           "on_Z_leptons_e[0] + on_Z_leptons_e[1]")
+               .Define("on_ll_p",           "on_Z_leptons_p[0] + on_Z_leptons_p[1]")
+               .Define("on_ll_px",          "on_Z_leptons_px[0] + on_Z_leptons_px[1]")
+               .Define("on_ll_py",          "on_Z_leptons_py[0] + on_Z_leptons_py[1]")
+               .Define("on_ll_pz",          "on_Z_leptons_pz[0] + on_Z_leptons_pz[1]")
+               .Define("on_ll_theta_diff",  "abs(on_Z_leptons_theta[0] - on_Z_leptons_theta[1])")
+               .Define("on_ll_phi_diff",    "abs(on_Z_leptons_phi[0] - on_Z_leptons_phi[1])")
+               .Define("on_ll_m",           "on_Z_leptons_m[0] + on_Z_leptons_m[1]")
+               .Define("on_ll_tlv",         "on_Z_leptons_tlv[0] + on_Z_leptons_tlv[1]")
+
+               #We take the photon with highest energy, which is the 1st photon
+
+               .Define("photon_e",          "photons_e[0]")
+               .Define("photon_p",          "photons_p[0]")
+               .Define("photon_px",         "photons_px[0]")
+               .Define("photon_py",         "photons_py[0]")
+               .Define("photon_pz",         "photons_pz[0]")
+               .Define("photon_theta",      "photons_theta[0]")
+               .Define("photon_phi",        "photons_phi[0]")
+               .Define("photon_recoil_m",   "photons_recoil_m[0]")
+               .Define("photon_tlv",        "photons_tlv[0]")
+
+               #On shell dilepton + photon
+
+               .Define("on_lla_tlv",        "on_ll_tlv + photon_tlv")
                
                #Z1 (the on shell Z) decays into 2 leptons
                
@@ -111,7 +124,7 @@ class RDFanalysis():
                .Define("Za_pz",             "on_Z_leptonic_pz[0]")
                .Define("Za_theta",          "on_Z_leptonic_theta[0]")
                .Define("Za_phi",            "on_Z_leptonic_phi[0]")
-               .Define("Za_m",              "on_Z_leptonic_m[0]")
+               .Define("Za_m",              "on_Z_leptonic_m[0]")   #On shell dilepton mass
                .Define("Za_recoil_m",       "on_Z_leptonic_recoil_m[0]")
                .Define("Za_tlv",            "on_Z_leptonic_tlv[0]")
                
@@ -151,15 +164,32 @@ class RDFanalysis():
     def output():
         branchList = [
 
-            #-------------------------------------------------------------------------------------------Photons
-            "photon1_e",
-            "photon2_e",
-            "photon3_e",
-            "photon4_e",
-            "photon5_e",
+            #--------------------------------------------------------------------------------------------Photon
+          
+            "photon_e",
+            "photon_p",
+            "photon_px",
+            "photon_py",
+            "photon_pz",
+            "photon_theta",
+            "photon_phi",
+            "photon_recoil_m",
+            "photon_tlv",
 
-            "on_ll_inv_m",
+            #----------------------------------------------------------------------------------On shell dilepton
+
+            "on_ll_e",
+            "on_ll_p",
+            "on_ll_px",
+            "on_ll_py",
+            "on_ll_pz",
+            "on_ll_theta_diff",
+            "on_ll_phi_diff",
+            "on_ll_m",
             "on_ll_tlv",
+
+            #----------------------------------------------------------------------------------------On shell Z
+          
             "Za_m",
             
             #----------------------------------------------------------------------------------------------Jets
@@ -191,9 +221,7 @@ class RDFanalysis():
             "etmiss",
             "pxmiss",
             "pymiss",
-            "pzmiss",
-            
-            "visible_mass_predef"           
+            "pzmiss"       
           
         ]        
 
