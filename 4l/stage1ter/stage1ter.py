@@ -81,6 +81,7 @@ class RDFanalysis():
             #We collect information about the photons
             
             .Define("N_photons",            "ReconstructedParticle::get_n(photons)")
+            .Define("photons_e",            "ReconstructedParticle::get_e(photons)")
             .Define("photons_tlv",          "ReconstructedParticle::get_tlv(photons)")
             .Define("photons_recoil",       "ReconstructedParticle::recoilBuilder(240)(photons)")
             .Define("photons_recoil_m",     "ReconstructedParticle::get_mass(photons)")
@@ -125,7 +126,7 @@ class RDFanalysis():
             #We create the Z from these leptons with resonanceBuilder
 
             .Define("on_Z_leptons",                "ReconstructedParticle::findZleptons(on_leptons)")               #Selection of the leptons (2 or 0) that could come from a Z
-            .Define("on_Z_leptonic",       	   "ReconstructedParticle::resonanceBuilder(91)(on_Z_leptons)")   #Builds resonance from 2 particles
+            .Define("on_Z_leptonic",       	   "ReconstructedParticle::resonanceBuilder(91)(on_Z_leptons)")     #Builds resonance from 2 particles
             
             .Define("N_on_Z_leptons",       	   "ReconstructedParticle::get_n(on_Z_leptons)")
             .Define("on_Z_leptons_tlv",            "ReconstructedParticle::get_tlv(on_Z_leptons)")
@@ -144,18 +145,11 @@ class RDFanalysis():
 
             #Other
             #We repeat the same process but with the other leptons
-            #For other leptons, we use findZleptons twice because there are two remaining Z bosons
             
             .Define("other_leptons2",	           "ReconstructedParticle::remove(other_leptons, on_Z_leptons)")
-            .Define("other_Z_leptons1",		   "ReconstructedParticle::findZleptons(other_leptons2)")
-            .Define("other_Z_leptonic1",	   "ReconstructedParticle::resonanceBuilder(91)(other_Z_leptons1)")
-            
-            .Define("other_leptons3",	           "ReconstructedParticle::remove(other_leptons2, other_Z_leptons1)")
-            .Define("other_Z_leptons2",		   "ReconstructedParticle::findZleptons(other_leptons3)")
-            .Define("other_Z_leptonic2",	   "ReconstructedParticle::resonanceBuilder(91)(other_Z_leptons2)")
-            
-            .Define("other_Z_leptons",	           "ReconstructedParticle::merge(other_Z_leptons1, other_Z_leptons2)")
-            .Define("other_Z_leptonic",	           "ReconstructedParticle::merge(other_Z_leptonic1, other_Z_leptonic2)")
+            .Define("other_Z_leptons",		   "ReconstructedParticle::findZleptons(other_leptons2)")
+            .Define("other_Z_leptonic",	 	   "ReconstructedParticle::resonanceBuilder(91)(other_Z_leptons)")
+
             .Define("other_extra_leptons",         "ReconstructedParticle::remove(other_leptons2, other_Z_leptons)")
             
             .Define("N_other_Z_leptons",       	   "ReconstructedParticle::get_n(other_Z_leptons)")
@@ -205,8 +199,6 @@ class RDFanalysis():
             .Define("jets_eta2",                    "JetClusteringUtils::get_eta(jets_ee_genkt2)")
             .Define("jets_theta2",                  "JetClusteringUtils::get_theta(jets_ee_genkt2)")
             .Define("jets_phi2",                    "JetClusteringUtils::get_phi(jets_ee_genkt2)")
-            .Define("jets_recoil2",                 "JetClusteringUtils::recoilBuilder(240)(jets_ee_genkt2)")
-            .Define("jets_recoil_m2",               "JetClusteringUtils::get_m(jets_recoil2)")
 
             .Define("jetconstituents_ee_genkt2",    "JetClusteringUtils::get_constituents(FCCAnalysesJets_ee_genkt2)")
             .Define("jetconstituents_ee_2",         "JetConstituentsUtils::build_constituents_cluster(my_recoparticles, jetconstituents_ee_genkt2)")
@@ -245,6 +237,32 @@ class RDFanalysis():
             .Define("dmerge_3_23",                  "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt3, 2)")
             .Define("dmerge_3_12",                  "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt3, 1)")
             
+            #Durham N=4
+            
+            .Define("FCCAnalysesJets_ee_genkt4",    "JetClustering::clustering_ee_kt(2, 4, 1, 0)(pseudo_jets)")
+            .Define("jets_ee_genkt4",               "JetClusteringUtils::get_pseudoJets(FCCAnalysesJets_ee_genkt4)")
+
+            .Define("jets_px4",                     "JetClusteringUtils::get_px(jets_ee_genkt4)")
+            .Define("jets_py4",                     "JetClusteringUtils::get_py(jets_ee_genkt4)")
+            .Define("jets_pz4",                     "JetClusteringUtils::get_pz(jets_ee_genkt4)")
+            .Define("jets_p4",                      "JetClusteringUtils::get_p(jets_ee_genkt4)")
+            .Define("jets_e4",                      "JetClusteringUtils::get_e(jets_ee_genkt4)")
+            .Define("jets_m4",                      "JetClusteringUtils::get_m(jets_ee_genkt4)")
+            .Define("jets_pt4",                     "JetClusteringUtils::get_pt(jets_ee_genkt4)")
+            .Define("jets_y4",                      "JetClusteringUtils::get_y(jets_ee_genkt4)")
+            .Define("jets_eta4",                    "JetClusteringUtils::get_eta(jets_ee_genkt4)")
+            .Define("jets_theta4",                  "JetClusteringUtils::get_theta(jets_ee_genkt4)")
+            .Define("jets_phi4",                    "JetClusteringUtils::get_phi(jets_ee_genkt4)")
+
+            .Define("jetconstituents_ee_genkt4",    "JetClusteringUtils::get_constituents(FCCAnalysesJets_ee_genkt4)")
+            .Define("jetconstituents_ee_4",         "JetConstituentsUtils::build_constituents_cluster(my_recoparticles, jetconstituents_ee_genkt4)")
+            .Define("jetconstituents_4",            "JetConstituentsUtils::count_consts(jetconstituents_ee_4)")
+
+            .Define("dmerge_4_45",                  "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt4, 4)")
+            .Define("dmerge_4_34",                  "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt4, 3)")
+            .Define("dmerge_4_23",                  "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt4, 2)")
+            .Define("dmerge_4_12",                  "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt4, 1)")
+            
             #-----------------------------------------------------------------------------------Missing/Visible
 
             #Missing energy and momentum
@@ -281,6 +299,7 @@ class RDFanalysis():
             .Define("Z2_true_p",                    "MCParticle::get_p(hzz_decay.Z2_decay)")
             .Define("Z2_true_e",                    "MCParticle::get_e(hzz_decay.Z2_decay)")
             .Define("Z2_true_m",                    "MCParticle::get_mass(hzz_decay.Z2_decay)")
+            
             #-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
             )
@@ -294,6 +313,7 @@ class RDFanalysis():
             #-------------------------------------------------------------------------------------------Photons
            
             "N_photons",
+            "photons_e",
             "photons_tlv",
             "photons_recoil_m",
 
@@ -349,8 +369,6 @@ class RDFanalysis():
             "jets_pz2",
             "jets_p2",
             "jets_e2",
-            "jets_m2",
-            "jets_recoil_m2",
             "jets_pt2",
             "jets_y2",
             "jets_eta2",
@@ -383,6 +401,27 @@ class RDFanalysis():
             "dmerge_3_34",
             "dmerge_3_23",
             "dmerge_3_12",
+            
+            #N=4
+            "jets_px4",
+            "jets_py4",
+            "jets_pz4",
+            "jets_p4",
+            "jets_e4",
+            "jets_m4",
+            "jets_pt4",
+            "jets_y4",
+            "jets_eta4",
+            "jets_theta4",
+            "jets_phi4",
+            "jetconstituents_ee_genkt4",
+            "jetconstituents_ee_4",
+            "jetconstituents_4",
+            "dmerge_4_45",
+            "dmerge_4_34",
+            "dmerge_4_23",
+            "dmerge_4_12",
+            
             #--------------------------------------------------------------------------------------------------
 
             #-----------------------------------------------------------------------------Missing/Visible stuff

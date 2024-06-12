@@ -58,7 +58,11 @@ cutList = {"sel0":"emiss > -10"   #No Cut
 
 #Dictionary for the ouput variable/hitograms. The key is the name of the variable in the output files. "name" is the name of the variable in the input file, "title" is the x-axis label of the histogram, "bin" the number of bins of the histogram, "xmin" the minimum x-axis value and "xmax" the maximum x-axis value.
 histoList = {
-    "emiss":          {"name":"emiss",          "title":"Missing energy [GeV]",               			 "bin":100,  "xmin":0,    "xmax":150}
+    "emiss":          {"name":"emiss",          "title":"Missing energy [GeV]",               			 "bin":100,  "xmin":0,    "xmax":150},
+    "pxmiss":         {"name":"pxmiss",         "title":"Missing p_{x} [GeV]",               			 "bin":100,  "xmin":-50,  "xmax":50},
+    "pymiss":         {"name":"pymiss",         "title":"Missing p_{y} [GeV]",               			 "bin":100,  "xmin":-50,  "xmax":50},
+    "pzmiss":         {"name":"pzmiss",         "title":"Missing p_{z} [GeV]",               			 "bin":100,  "xmin":-50,  "xmax":50},
+    "photons_e":      {"name":"photons_e",      "title":"Energy of the photons [GeV]",             		 "bin":100,  "xmin":0,    "xmax":150}
 }
 
 

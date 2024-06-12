@@ -14,7 +14,11 @@ formats        = ['png']
 yaxis          = ['log']
 stacksig       = ['stack']
 
-variables = ['emiss'
+variables = ['emiss',
+	     'pxmiss',
+	     'pymiss',
+	     'pzmiss',
+	     'photons_e'
              ]
 
 
