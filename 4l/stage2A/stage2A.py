@@ -1,7 +1,5 @@
 inputDir    = "../stage1ter/outputs"
 
-
-
 #Optional: output directory, default is local dir
 outputDir   = "outputs"
 
@@ -85,20 +83,37 @@ class RDFanalysis():
                #.Filter("abs_pdg_Z2 == 1 || abs_pdg_Z2 == 2 || abs_pdg_Z2 == 3 || abs_pdg_Z2 == 4 || abs_pdg_Z2 == 5")
                #-----------------------------------------------------------------------------------------------------------------------------------
                
+               
                #Filter to have two leptonic Z bosons               
-               .Filter("N_other_Z_leptons == 2 && N_on_Z_leptons ==2")                    
-            
-               #Z1 (the on shell Z) decays into 2 leptons
-               .Define("Za_inv_m",          "sqrt(on_Z_leptonic_tlv.E()*on_Z_leptonic_tlv.E()-on_Z_leptonic_tlv.P()*on_Z_leptonic_tlv.P())[0]")     #Invariant mass of the on shell Z
-               .Define("Za_e",              "on_Z_leptonic.E()[0]")
-               .Define("Za_energy",         "on_Z_leptonic.Energy()[0]")
-               .Define("Za_m",              "on_Z_leptonic.M()[0]")
-               .Define("Za_mag",            "on_Z_leptonic.Mag()[0]")
-               .Define("Za_P",              "on_Z_leptonic.P()[0]")
-               .Define("Za_recoil_m",       "on_Z_leptonic_recoil_m[0]")
+               #.Filter("N_other_Z_leptons == 2 && N_on_Z_leptons ==2")
+               .Filter("N_photons == 5")
 
-               .Define("ll_tlv",            "on_Z_leptons_tlv[0] + on_Z_leptons_tlv[1]")
-               .Define("ll_m",              "ll_tlv.M()")
+               #
+               .Define("photon1_e",    "photons_e[0]")
+               .Define("photon2_e",    "photons_e[1]")
+               .Define("photon3_e",    "photons_e[2]")
+               .Define("photon4_e",    "photons_e[3]")
+               .Define("photon5_e",    "photons_e[4]")
+
+               #On shell Dilepton
+
+               .Define("on_ll_tlv",         "on_Z_leptons_tlv[0]+on_Z_leptons_tlv[1]")
+               .Define("on_ll_e2",          "(on_Z_leptons_e[0]+on_Z_leptons_e[1])**2")
+               .Define("on_ll_p2",          "(on_Z_leptons_p[0]+on_Z_leptons_p[1])**2")
+               .Define("on_ll_inv_m",       "sqrt(ll_e2-llp2)")
+               
+               #Z1 (the on shell Z) decays into 2 leptons
+               
+               .Define("Za_e",              "on_Z_leptonic_e[0]")
+               .Define("Za_p",              "on_Z_leptonic_p[0]")
+               .Define("Za_px",             "on_Z_leptonic_px[0]")
+               .Define("Za_py",             "on_Z_leptonic_py[0]")
+               .Define("Za_pz",             "on_Z_leptonic_pz[0]")
+               .Define("Za_theta",          "on_Z_leptonic_theta[0]")
+               .Define("Za_phi",            "on_Z_leptonic_phi[0]")
+               .Define("Za_m",              "on_Z_leptonic_m[0]")
+               .Define("Za_recoil_m",       "on_Z_leptonic_recoil_m[0]")
+               .Define("Za_tlv",            "on_Z_leptonic_tlv[0]")
                
                #Durham N = 2
                .Define("j5_p",              "jets_p2[0]")
@@ -137,7 +152,15 @@ class RDFanalysis():
         branchList = [
 
             #-------------------------------------------------------------------------------------------Photons
+            "photon1_e",
+            "photon2_e",
+            "photon3_e",
+            "photon4_e",
+            "photon5_e",
 
+            "on_ll_inv_m",
+            "on_ll_tlv",
+            "Za_m",
             
             #----------------------------------------------------------------------------------------------Jets
             
