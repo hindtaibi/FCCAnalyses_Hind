@@ -45,7 +45,7 @@ colors['HZa'] = ROOT.kOrange+6
 #colors['VV'] = ROOT.kGreen+3
 
 plots = {}                                  
-plots['prestage2'] = {'signal':{'Signal,HZZ':['wzp6_ee_mumuH_HZZ_ecm240',
+plots['stage1ter'] = {'signal':{'Signal,HZZ':['wzp6_ee_mumuH_HZZ_ecm240',
                                            'wzp6_ee_eeH_HZZ_ecm240']},
 
                    'backgrounds':{'HWW':['wzp6_ee_mumuH_HWW_ecm240', 
