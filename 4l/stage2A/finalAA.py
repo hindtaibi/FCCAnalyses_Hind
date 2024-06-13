@@ -55,9 +55,10 @@ doScale = False
 
 
 #Dictionnay of the list of cuts. The key is the name of the selection that will be added to the output file
-cutList = {"Precuts":"emiss > -10",  
-           "Precuts_emiss":"emiss < 8",     
-           "Precuts_emiss_photon_e":"emiss < 8 && photon_e < 30"     
+cutList = {"precuts":"emiss > -10",  
+           "precuts_emiss":"emiss < 8",     
+           "precuts_emiss_photon_e":"emiss < 8 && photon_e < 20",
+           "precuts_emiss_photon_e_jj_m":"emiss < 8 && photon_e < 29 && jj_m > 2"
            }
 
 #Dictionary for the ouput variable/hitograms. The key is the name of the variable in the output files. "name" is the name of the variable in the input file, "title" is the x-axis label of the histogram, "bin" the number of bins of the histogram, "xmin" the minimum x-axis value and "xmax" the maximum x-axis value.
@@ -82,18 +83,18 @@ histoList = {
     "Za_theta":       {"name":"Za_theta",          "title":"Za_theta",               			   "bin":100,  "xmin":0,      "xmax":3.5},
     "Za_phi":         {"name":"Za_phi",            "title":"Za_phi",               			     "bin":100,  "xmin":-3.5,   "xmax":3.5},
     "Za_m":           {"name":"Za_m",              "title":"Za_m [GeV]",               			 "bin":70,   "xmin":100,    "xmax":160},
-    "Za_recoil_m":    {"name":"Za_recoil_m",       "title":"Za_recoil_m [GeV]",              "bin":100,  "xmin":0,      "xmax":250},
+    "Za_recoil_m":    {"name":"Za_recoil_m",       "title":"Za_recoil_m [GeV]",              "bin":100,  "xmin":100,      "xmax":160},
     
     "on_ll_theta_diff": {"name":"on_ll_theta_diff","title":"on_ll_theta_diff",               "bin":100,  "xmin":0,      "xmax":3.5},
     "on_ll_phi_diff":   {"name":"on_ll_phi_diff",  "title":"on_ll_phi_diff",                 "bin":100,  "xmin":0,      "xmax":7},
     
-    "Zb_e":           {"name":"Zb_e",              "title":"Zb_e [GeV]",               			 "bin":100,  "xmin":70,     "xmax":120},
+    "Zb_e":           {"name":"Zb_e",              "title":"Zb_e [GeV]",               			 "bin":100,  "xmin":80,     "xmax":120},
     "Zb_p":           {"name":"Zb_p",              "title":"Zb_p [GeV]",               			 "bin":100,  "xmin":0,      "xmax":80},
     "Zb_px":          {"name":"Zb_px",             "title":"Zb_px [GeV]",               		 "bin":100,  "xmin":-60,    "xmax":60},
     "Zb_py":          {"name":"Zb_py",             "title":"Zb_py [GeV]",               		 "bin":100,  "xmin":-60,    "xmax":60},
     "Zb_pz":          {"name":"Zb_pz",             "title":"Zb_pz [GeV]",               		 "bin":100,  "xmin":-60,    "xmax":60},
-    "Zb_theta":       {"name":"Zb_theta",          "title":"Zb_theta",               			   "bin":100,  "xmin":0,      "xmax":4},
-    "Zb_phi":         {"name":"Zb_phi",            "title":"Zb_phi",               			     "bin":100,  "xmin":-4,     "xmax":4},
+    "Zb_theta":       {"name":"Zb_theta",          "title":"Zb_theta",               			   "bin":100,  "xmin":0,      "xmax":3.5},
+    "Zb_phi":         {"name":"Zb_phi",            "title":"Zb_phi",               			     "bin":100,  "xmin":-3.5,     "xmax":3.5},
     "Zb_m":           {"name":"Zb_m",              "title":"Zb_m [GeV]",               			 "bin":100,  "xmin":70,     "xmax":120},
     "Zb_recoil_m":    {"name":"Zb_recoil_m",       "title":"Zb_recoil_m [GeV]",              "bin":100,  "xmin":100,    "xmax":170},
     
@@ -123,4 +124,3 @@ histoList = {
 
 
     
-
