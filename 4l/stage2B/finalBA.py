@@ -9,7 +9,7 @@ outputDir  = "outputs"
 processList = {'wzp6_ee_mumuH_HZZ_ecm240':{},        #Signal
                'wzp6_ee_mumuH_HWW_ecm240':{},
                'wzp6_ee_mumuH_HZa_ecm240':{},
-               'wzp6_ee_mumuH_Haa_ecm240':{},        
+               #'wzp6_ee_mumuH_Haa_ecm240':{},        
                'wzp6_ee_mumuH_Hbb_ecm240':{},	   
                'wzp6_ee_mumuH_Hcc_ecm240':{},      
                'wzp6_ee_mumuH_Hgg_ecm240':{},      
