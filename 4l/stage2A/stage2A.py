@@ -6,35 +6,35 @@ inputDir    = "../stage1ter/outputs"
 outputDir   = "outputs"
 
 processList = {'wzp6_ee_mumuH_HZZ_ecm240':{},       #Signal
-               #'wzp6_ee_mumuH_HWW_ecm240':{},
-               #'wzp6_ee_mumuH_HZa_ecm240':{},
-               #'wzp6_ee_mumuH_Haa_ecm240':{},
-               #'wzp6_ee_mumuH_Hbb_ecm240':{},
-               #'wzp6_ee_mumuH_Hcc_ecm240':{},
-               #'wzp6_ee_mumuH_Hgg_ecm240':{},
-               #'wzp6_ee_mumuH_Hmumu_ecm240':{},
-               #'wzp6_ee_mumuH_Hss_ecm240':{},
-               #'wzp6_ee_mumuH_Htautau_ecm240':{},
-               #'wzp6_ee_nunuH_HZZ_ecm240':{},
-               #'wzp6_ee_nunuH_HWW_ecm240':{},
-               #'wzp6_ee_nunuH_HZa_ecm240':{},
-               #'wzp6_ee_nunuH_Haa_ecm240':{},
-               #'wzp6_ee_nunuH_Hbb_ecm240':{},
-               #'wzp6_ee_nunuH_Hcc_ecm240':{},
-               #'wzp6_ee_nunuH_Hgg_ecm240':{},   
-               #'wzp6_ee_nunuH_Hmumu_ecm240':{},
-               #'wzp6_ee_nunuH_Hss_ecm240':{},
-               #'wzp6_ee_nunuH_Htautau_ecm240':{},
-               #'wzp6_ee_eeH_HZZ_ecm240':{},         #Signal
-               #'wzp6_ee_eeH_HWW_ecm240':{},
-               #'wzp6_ee_eeH_HZa_ecm240':{},
-               #'wzp6_ee_eeH_Haa_ecm240':{},
-               #'wzp6_ee_eeH_Hbb_ecm240':{},
-               #'wzp6_ee_eeH_Hcc_ecm240':{},
-               #'wzp6_ee_eeH_Hgg_ecm240':{},
-               #'wzp6_ee_eeH_Hmumu_ecm240':{},
-               #'wzp6_ee_eeH_Hss_ecm240':{},
-               #'wzp6_ee_eeH_Htautau_ecm240':{}, 
+               'wzp6_ee_mumuH_HWW_ecm240':{},
+               'wzp6_ee_mumuH_HZa_ecm240':{},
+               'wzp6_ee_mumuH_Haa_ecm240':{},
+               'wzp6_ee_mumuH_Hbb_ecm240':{},
+               'wzp6_ee_mumuH_Hcc_ecm240':{},
+               'wzp6_ee_mumuH_Hgg_ecm240':{},
+               'wzp6_ee_mumuH_Hmumu_ecm240':{},
+               'wzp6_ee_mumuH_Hss_ecm240':{},
+               'wzp6_ee_mumuH_Htautau_ecm240':{},
+               'wzp6_ee_nunuH_HZZ_ecm240':{},
+               'wzp6_ee_nunuH_HWW_ecm240':{},
+               'wzp6_ee_nunuH_HZa_ecm240':{},
+               'wzp6_ee_nunuH_Haa_ecm240':{},
+               'wzp6_ee_nunuH_Hbb_ecm240':{},
+               'wzp6_ee_nunuH_Hcc_ecm240':{},
+               'wzp6_ee_nunuH_Hgg_ecm240':{},   
+               'wzp6_ee_nunuH_Hmumu_ecm240':{},
+               'wzp6_ee_nunuH_Hss_ecm240':{},
+               'wzp6_ee_nunuH_Htautau_ecm240':{},
+               'wzp6_ee_eeH_HZZ_ecm240':{},         #Signal
+               'wzp6_ee_eeH_HWW_ecm240':{},
+               'wzp6_ee_eeH_HZa_ecm240':{},
+               'wzp6_ee_eeH_Haa_ecm240':{},
+               'wzp6_ee_eeH_Hbb_ecm240':{},
+               'wzp6_ee_eeH_Hcc_ecm240':{},
+               'wzp6_ee_eeH_Hgg_ecm240':{},
+               'wzp6_ee_eeH_Hmumu_ecm240':{},
+               'wzp6_ee_eeH_Hss_ecm240':{},
+               'wzp6_ee_eeH_Htautau_ecm240':{}, 
                #'p8_ee_ZZ_ecm240':{},
                #'p8_ee_WW_ecm240':{}
                }
@@ -221,11 +221,28 @@ class RDFanalysis():
             "on_ll_phi_diff",
             "on_ll_inv_m",
             "on_ll_tlv",
+            
+            #--------------------------------------------------------------------------------------Other dilepton
 
-            #------------------------------------------------------------------------------------------------lla
+            "other_ll_e",
+            "other_ll_p",
+            "other_ll_px",
+            "other_ll_py",
+            "other_ll_pz",
+            "other_ll_theta_diff",
+            "other_ll_phi_diff",
+            "other_ll_inv_m",
+            "other_ll_tlv",
+
+            #---------------------------------------------------------------------------------------------on lla
 
             "on_lla_inv_m",  
             "on_lla_tlv",
+            
+            #------------------------------------------------------------------------------------------other lla
+
+            "other_lla_inv_m",  
+            "other_lla_tlv",
 
             #-----------------------------------------------------------------------------------------On shell Z
 
@@ -239,6 +256,56 @@ class RDFanalysis():
             "Za_m",
             "Za_recoil_m",
             "Za_tlv",
+            
+            #-------------------------------------------------------------------------------------------Other Z
+
+            "Zb_e",
+            "Zb_p",
+            "Zb_px",
+            "Zb_py",
+            "Zb_pz",
+            "Zb_theta",
+            "Zb_phi",
+            "Zb_m",
+            "Zb_recoil_m",
+            "Zb_tlv",
+            
+            #---------------------------------------------------------------------------------------------Jets
+
+            "jj_e",
+            "jj_p",
+            "jj_px",
+            "jj_py",
+            "jj_pz",
+            "jj_pt",
+            "jj_theta",
+            "jj_phi",
+            "jj_m",
+            
+            "j5_e",
+            "j5_p",
+            "j5_px",
+            "j5_py",
+            "j5_pz",
+            "j5_pt",
+            "j5_theta",
+            "j5_phi",
+            "j5_m",
+            "angle_miss_j5",     #The missing theta
+            
+            "j6_e",
+            "j6_p",
+            "j6_px",
+            "j6_py",
+            "j6_pz",
+            "j6_pt",
+            "j6_theta",
+            "j6_phi",
+            "j6_m",
+            "angle_miss_j6",     #The missing theta
+            
+            "diffthetajets_56",
+            "diffphijets_56",
             
             #----------------------------------------------------------------------------Missing/Visible stuff
 
