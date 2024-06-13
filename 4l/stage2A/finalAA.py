@@ -56,8 +56,8 @@ doScale = False
 
 #Dictionnay of the list of cuts. The key is the name of the selection that will be added to the output file
 cutList = {"Precuts":"emiss > -10",  
-           "Precuts & emiss":"emiss < 8",     
-           "Precuts & emiss & photon_e":"emiss < 8 && photon_e < 30"     
+           "Precuts_emiss":"emiss < 8",     
+           "Precuts_emiss_photon_e":"emiss < 8 && photon_e < 30"     
            }
 
 #Dictionary for the ouput variable/hitograms. The key is the name of the variable in the output files. "name" is the name of the variable in the input file, "title" is the x-axis label of the histogram, "bin" the number of bins of the histogram, "xmin" the minimum x-axis value and "xmax" the maximum x-axis value.
