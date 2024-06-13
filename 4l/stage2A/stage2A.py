@@ -144,6 +144,50 @@ class RDFanalysis():
                .Define("Zb_phi",            "other_Z_leptonic_phi[0]")
                .Define("Zb_m",              "other_Z_leptonic_m[0]")   #Other dilepton mass
                .Define("Zb_recoil_m",       "other_Z_leptonic_recoil_m[0]")
+               
+               #Dijet
+
+               .Define("jj",             "ReconstructedParticle::jetsum(jets_e2, jets_px2, jets_py2, jets_pz2)")
+               .Define("jj_e",           "jj.E()")
+               .Define("jj_p",           "jj.P()")
+               .Define("jj_px",          "jj.Px()")
+               .Define("jj_py",          "jj.Py()")
+               .Define("jj_pz",          "jj.Pz()")
+               .Define("jj_pt",          "jj.Pt()")
+               .Define("jj_theta",       "jj.Theta()")
+               .Define("jj_phi",         "jj.Phi()")
+               .Define("jj_m",           "jj.M()")
+               
+               #Information about each jet (Durham N = 2)
+               
+               .Define("j5_e",              "jets_e2[0]")
+               .Define("j5_p",              "jets_p2[0]")              
+               .Define("j5_px",             "jets_px2[0]")
+               .Define("j5_py",             "jets_py2[0]")
+               .Define("j5_pz",             "jets_pz2[0]")
+               .Define("j5_pt",             "jets_pt2[0]")
+               .Define("j5_theta",          "jets_theta2[0]")
+               .Define("j5_phi",            "jets_phi2[0]")
+               .Define("j5_m",              "jets_m2[0]")
+               
+               .Define("j6_e",              "jets_e2[1]")
+               .Define("j6_p",              "jets_p2[1]")                                           
+               .Define("j6_px",             "jets_px2[1]")           
+               .Define("j6_py",             "jets_py2[1]")               
+               .Define("j6_pz",             "jets_pz2[1]")
+               .Define("j6_pt",             "jets_pt2[1]")                
+               .Define("j6_theta",          "jets_theta2[1]")          
+               .Define("j6_phi",            "jets_phi2[1]")
+               .Define("j6_m",              "jets_m2[1]")
+               
+               .Define("diffthetajets_56",  "abs(j5_theta - j6_theta)")
+               .Define("diffphijets_56",    "abs(j5_phi - j6_phi)")
+
+               .Define("missing_theta",     "missing_tlv[0].Theta()")
+
+               .Define("angle_miss_jet",    "ReconstructedParticle::get_angle(missing_tlv[0], jets_e2, jets_px2, jets_py2, jets_pz2)")
+               .Define("angle_miss_j5",     "angle_miss_jet[0]")
+               .Define("angle_miss_j6",     "angle_miss_jet[1]")
        
                )
         return df2
