@@ -74,7 +74,7 @@ class RDFanalysis():
                .Define("other_ll_inv_m",    "other_ll_tlv.M()")
                .Filter("other_ll_inv_m < 110 && other_ll_inv_m > 80")
 
-               #On shell Dilepton
+               #On shell dilepton
 
                .Define("on_ll_tlv",         "on_Z_leptons_tlv[0] + on_Z_leptons_tlv[1]")
                .Define("on_ll_e",           "on_ll_tlv.E()")
@@ -85,6 +85,16 @@ class RDFanalysis():
                .Define("on_ll_theta_diff",  "abs(on_Z_leptons_theta[0] - on_Z_leptons_theta[1])")
                .Define("on_ll_phi_diff",    "abs(on_Z_leptons_phi[0] - on_Z_leptons_phi[1])")
                .Define("on_ll_inv_m",       "on_ll_tlv.M()")
+               
+               #Other dilepton
+               
+               .Define("other_ll_e",           "other_ll_tlv.E()")
+               .Define("other_ll_p",           "other_ll_tlv.P()")
+               .Define("other_ll_px",          "other_ll_tlv.Px()")
+               .Define("other_ll_py",          "other_ll_tlv.Py()")
+               .Define("other_ll_pz",          "other_ll_tlv.Pz()")
+               .Define("other_ll_theta_diff",  "abs(other_Z_leptons_theta[0] - other_Z_leptons_theta[1])")
+               .Define("other_ll_phi_diff",    "abs(other_Z_leptons_phi[0] - other_Z_leptons_phi[1])")
 
                #We take the photon with highest energy, which is the 1st photon
 
@@ -104,6 +114,11 @@ class RDFanalysis():
                .Define("on_lla_tlv",        "on_ll_tlv + photon_tlv")
                .Define("on_lla_inv_m",      "on_lla_tlv.M()")
                
+               #Other dilepton + photon
+
+               .Define("other_lla_tlv",     "other_ll_tlv + photon_tlv")
+               .Define("other_lla_inv_m",   "other_lla_tlv.M()")
+               
                #Za (the on shell Z) decays into 2 leptons
 
                .Define("Za_tlv",            "on_Z_leptonic_tlv[0]")
@@ -116,6 +131,19 @@ class RDFanalysis():
                .Define("Za_phi",            "on_Z_leptonic_phi[0]")
                .Define("Za_m",              "on_Z_leptonic_m[0]")   #On shell dilepton mass
                .Define("Za_recoil_m",       "on_Z_leptonic_recoil_m[0]")
+               
+               #Zb (the other leptonic Z) decays into 2 leptons and is considered on shell here
+
+               .Define("Zb_tlv",            "other_Z_leptonic_tlv[0]")
+               .Define("Zb_e",              "Zb_tlv.E()")
+               .Define("Zb_p",              "Zb_tlv.P()")
+               .Define("Zb_px",             "other_Z_leptonic_px[0]")
+               .Define("Zb_py",             "other_Z_leptonic_py[0]")
+               .Define("Zb_pz",             "other_Z_leptonic_pz[0]")
+               .Define("Zb_theta",          "other_Z_leptonic_theta[0]")
+               .Define("Zb_phi",            "other_Z_leptonic_phi[0]")
+               .Define("Zb_m",              "other_Z_leptonic_m[0]")   #Other dilepton mass
+               .Define("Zb_recoil_m",       "other_Z_leptonic_recoil_m[0]")
        
                )
         return df2
