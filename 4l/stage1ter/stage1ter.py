@@ -484,6 +484,7 @@ class RDFanalysis():
             "jets_pz2",
             "jets_p2",
             "jets_e2",
+	    "jets_m2",
             "jets_pt2",
             "jets_y2",
             "jets_eta2",
