@@ -72,7 +72,9 @@ class RDFanalysis():
 
                .Define("other_ll_tlv",      "other_Z_leptons_tlv[0] + other_Z_leptons_tlv[1]")
                .Define("other_ll_inv_m",    "other_ll_tlv.M()")
+               .Define("other_ll_p",        "other_ll_tlv.P()")
                .Filter("other_ll_inv_m < 110 && other_ll_inv_m > 80")
+               .Filter("other_ll_p < 80      && other_ll_p > 20")
 
                #On shell dilepton
 
@@ -89,7 +91,6 @@ class RDFanalysis():
                #Other dilepton
                
                .Define("other_ll_e",           "other_ll_tlv.E()")
-               .Define("other_ll_p",           "other_ll_tlv.P()")
                .Define("other_ll_px",          "other_ll_tlv.Px()")
                .Define("other_ll_py",          "other_ll_tlv.Py()")
                .Define("other_ll_pz",          "other_ll_tlv.Pz()")
