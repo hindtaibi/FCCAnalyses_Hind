@@ -87,8 +87,6 @@ histoList = {
     "on_ll_theta_diff": {"name":"on_ll_theta_diff",   "title":"on_ll_theta_diff",                        "bin":100,  "xmin":0,     "xmax":3.5},
     "on_ll_phi_diff":   {"name":"on_ll_phi_diff",   "title":"on_ll_phi_diff",                            "bin":100,  "xmin":0,     "xmax":7},
     
-    #Za (1st dilepton) and Zb (2nd dilepton)
-    
     "Zb_e":           {"name":"Zb_e",          "title":"Zb_e [GeV]",               			 "bin":100,  "xmin":0,     "xmax":250},
     "Zb_p":           {"name":"Zb_p",          "title":"Zb_p [GeV]",               			 "bin":100,  "xmin":0,     "xmax":250},
     "Zb_px":          {"name":"Zb_px",          "title":"Zb_px [GeV]",               			 "bin":100,  "xmin":-100,     "xmax":100},
