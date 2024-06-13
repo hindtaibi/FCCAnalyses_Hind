@@ -1,4 +1,4 @@
-#Here, we are looking at the events where the second Z leptonic is on shell
+#Here, we are looking at the events where the second Z leptonic is off shell
 
 inputDir    = "../stage1ter/outputs"
 
@@ -132,7 +132,7 @@ class RDFanalysis():
                .Define("Za_m",              "on_Z_leptonic_m[0]")   #On shell dilepton mass
                .Define("Za_recoil_m",       "on_Z_leptonic_recoil_m[0]")
                
-               #Zb (the other leptonic Z) decays into 2 leptons and is considered on shell here
+               #Zb (the other leptonic Z) decays into 2 leptons and is considered off shell here
 
                .Define("Zb_tlv",            "other_Z_leptonic_tlv[0]")
                .Define("Zb_e",              "Zb_tlv.E()")
