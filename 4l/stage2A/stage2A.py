@@ -35,8 +35,8 @@ processList = {'wzp6_ee_mumuH_HZZ_ecm240':{},       #Signal
                'wzp6_ee_eeH_Hmumu_ecm240':{},
                'wzp6_ee_eeH_Hss_ecm240':{},
                'wzp6_ee_eeH_Htautau_ecm240':{}, 
-               #'p8_ee_ZZ_ecm240':{},
-               #'p8_ee_WW_ecm240':{}
+               'p8_ee_ZZ_ecm240':{},
+               'p8_ee_WW_ecm240':{}
                }
 
 
@@ -67,84 +67,72 @@ class RDFanalysis():
     def analysers(df):
         df2 = (df 
                
-               #Filter to have two leptonic Z bosons               
-               .Filter("N_other_Z_leptons == 2 && N_on_Z_leptons ==2")
+               #Filter to have two leptonic on shell Z bosons               
+               .Filter("N_other_Z_leptonic == 0 && N_on_Z_leptonic == 2")
 
-               .Define("other_ll_tlv",      "other_Z_leptons_tlv[0] + other_Z_leptons_tlv[1]")
-               .Define("other_ll_inv_m",    "other_ll_tlv.M()")
-               .Define("other_ll_p",        "other_ll_tlv.P()")
-               .Filter("other_ll_inv_m < 110 && other_ll_inv_m > 80")
-               .Filter("other_ll_p < 80      && other_ll_p > 20")
+               .Define("Za_tlv",            "on_Z_leptonic_tlv[0]")
+               .Define("Za_m",              "Za_tlv.M()")
+               .Define("Zb_tlv",            "on_Z_leptonic_tlv[1]")
+               .Define("Zb_m",              "Zb_tlv.M()")
 
-               #On shell dilepton
+               #We filter to have the invariant masses that correspond to on shell Z
+               .Filter("Za_m < 110 && Za_m > 80" && "Zb_m < 110 && Zb_m > 80")
 
-               .Define("on_ll_tlv",         "on_Z_leptons_tlv[0] + on_Z_leptons_tlv[1]")
-               .Define("on_ll_e",           "on_ll_tlv.E()")
-               .Define("on_ll_p",           "on_ll_tlv.P()")
-               .Define("on_ll_px",          "on_ll_tlv.Px()")
-               .Define("on_ll_py",          "on_ll_tlv.Py()")
-               .Define("on_ll_pz",          "on_ll_tlv.Pz()")
-               .Define("on_ll_theta_diff",  "abs(on_Z_leptons_theta[0] - on_Z_leptons_theta[1])")
-               .Define("on_ll_phi_diff",    "abs(on_Z_leptons_phi[0] - on_Z_leptons_phi[1])")
-               .Define("on_ll_inv_m",       "on_ll_tlv.M()")
+               #Dileptons
+
+               .Define("ll1_tlv",           "on_Z_leptons_tlv[0] + on_Z_leptons_tlv[1]")
+               .Define("ll2_tlv",           "on_Z_leptons_tlv[2] + on_Z_leptons_tlv[3]")
+
+               .Define("ll1_theta_diff",    "abs(on_Z_leptons_tlv.Theta()[0] - on_Z_leptons_tlv.Theta()[1])")
+               .Define("ll1_phi_diff",      "abs(on_Z_leptons_tlv.Phi()[0] - on_Z_leptons_tlv.Phi()[1])")
                
-               #Other dilepton
-               
-               .Define("other_ll_e",           "other_ll_tlv.E()")
-               .Define("other_ll_px",          "other_ll_tlv.Px()")
-               .Define("other_ll_py",          "other_ll_tlv.Py()")
-               .Define("other_ll_pz",          "other_ll_tlv.Pz()")
-               .Define("other_ll_theta_diff",  "abs(other_Z_leptons_theta[0] - other_Z_leptons_theta[1])")
-               .Define("other_ll_phi_diff",    "abs(other_Z_leptons_phi[0] - other_Z_leptons_phi[1])")
+               .Define("ll2_theta_diff",    "abs(on_Z_leptons_tlv.Theta()[2] - on_Z_leptons_tlv.Theta()[3])")
+               .Define("ll2_phi_diff",      "abs(on_Z_leptons_tlv.Phi()[2] - on_Z_leptons_tlv.Phi()[3])")
 
                #We take the photon with highest energy, which is the 1st photon
 
                .Define("photon_tlv",        "photons_tlv[0]")
                .Define("photon_e",          "photon_tlv.E()")
-               .Define("photon_p",          "photons_p[0]")
-               .Define("photon_px",         "photons_px[0]")
-               .Define("photon_py",         "photons_py[0]")
-               .Define("photon_pz",         "photons_pz[0]")
-               .Define("photon_theta",      "photons_theta[0]")
-               .Define("photon_phi",        "photons_phi[0]")
-               .Define("photon_inv_m",      "photon_tlv.M()")
+               .Define("photon_p",          "photon_tlv.P()")
+               .Define("photon_px",         "photon_tlv.Px()")
+               .Define("photon_py",         "photon_tlv.Py()")
+               .Define("photon_pz",         "photon_tlv.Pz()")
+               .Define("photon_theta",      "photon_tlv.Theta()")
+               .Define("photon_phi",        "photon_tlv.Phi()")
+               .Define("photon_m",          "photon_tlv.M()")
                .Define("photon_recoil_m",   "photons_recoil_m[0]")
                
-               #On shell dilepton + photon
+               #1st dilepton + photon
 
-               .Define("on_lla_tlv",        "on_ll_tlv + photon_tlv")
-               .Define("on_lla_inv_m",      "on_lla_tlv.M()")
+               .Define("ll1a_tlv",          "ll1_tlv + photon_tlv")
+               .Define("ll1a_m",            "ll1a_tlv.M()")
                
-               #Other dilepton + photon
+               #2nd dilepton + photon
 
-               .Define("other_lla_tlv",     "other_ll_tlv + photon_tlv")
-               .Define("other_lla_inv_m",   "other_lla_tlv.M()")
+               .Define("ll2a_tlv",          "ll2_tlv + photon_tlv")
+               .Define("ll2a_m",            "ll2a_tlv.M()")
                
                #Za (the on shell Z) decays into 2 leptons
 
-               .Define("Za_tlv",            "on_Z_leptonic_tlv[0]")
                .Define("Za_e",              "Za_tlv.E()")
                .Define("Za_p",              "Za_tlv.P()")
-               .Define("Za_px",             "on_Z_leptonic_px[0]")
-               .Define("Za_py",             "on_Z_leptonic_py[0]")
-               .Define("Za_pz",             "on_Z_leptonic_pz[0]")
-               .Define("Za_theta",          "on_Z_leptonic_theta[0]")
-               .Define("Za_phi",            "on_Z_leptonic_phi[0]")
-               .Define("Za_m",              "on_Z_leptonic_m[0]")   #On shell dilepton mass
+               .Define("Za_px",             "Za_tlv.Px()")
+               .Define("Za_py",             "Za_tlv.Py()")
+               .Define("Za_pz",             "Za_tlv.Pz()")
+               .Define("Za_theta",          "Za_tlv.Theta()")
+               .Define("Za_phi",            "Za_tlv.Phi()")
                .Define("Za_recoil_m",       "on_Z_leptonic_recoil_m[0]")
                
                #Zb (the other leptonic Z) decays into 2 leptons and is considered on shell here
-
-               .Define("Zb_tlv",            "other_Z_leptonic_tlv[0]")
+               
                .Define("Zb_e",              "Zb_tlv.E()")
                .Define("Zb_p",              "Zb_tlv.P()")
-               .Define("Zb_px",             "other_Z_leptonic_px[0]")
-               .Define("Zb_py",             "other_Z_leptonic_py[0]")
-               .Define("Zb_pz",             "other_Z_leptonic_pz[0]")
-               .Define("Zb_theta",          "other_Z_leptonic_theta[0]")
-               .Define("Zb_phi",            "other_Z_leptonic_phi[0]")
-               .Define("Zb_m",              "other_Z_leptonic_m[0]")   #Other dilepton mass
-               .Define("Zb_recoil_m",       "other_Z_leptonic_recoil_m[0]")
+               .Define("Zb_px",             "Zb_tlv.Px()")
+               .Define("Zb_py",             "Zb_tlv.Py()")
+               .Define("Zb_pz",             "Zb_tlv.Pz()")
+               .Define("Zb_theta",          "Zb_tlv.Theta()")
+               .Define("Zb_phi",            "Zb_tlv.Phi()")
+               .Define("Zb_recoil_m",       "on_Z_leptonic_recoil_m[1]")
                
                #Dijet
 
@@ -158,6 +146,16 @@ class RDFanalysis():
                .Define("jj_theta",       "jj.Theta()")
                .Define("jj_phi",         "jj.Phi()")
                .Define("jj_m",           "jj.M()")
+
+               #1st dilepton + dijet
+
+               .Define("ll1jj_tlv",         "ll1_tlv + jj")
+               .Define("ll1jj_m",           "ll1jj_tlv.M()")
+               
+               #2nd dilepton + photon
+
+               .Define("ll2jj_tlv",         "ll2_tlv + jj")
+               .Define("ll2jj_m",           "ll2jj_tlv.M()")
                
                #Information about each jet (Durham N = 2)
                
@@ -207,44 +205,30 @@ class RDFanalysis():
             "photon_pz",
             "photon_theta",
             "photon_phi",
-            "photon_inv_m",
+            "photon_m",
             "photon_recoil_m",
             "photon_tlv",
 
-            #----------------------------------------------------------------------------------On shell dilepton
+            #----------------------------------------------------------------------------------Dileptons
 
-            "on_ll_e",
-            "on_ll_p",
-            "on_ll_px",
-            "on_ll_py",
-            "on_ll_pz",
-            "on_ll_theta_diff",
-            "on_ll_phi_diff",
-            "on_ll_inv_m",
-            "on_ll_tlv",
+            "ll1_theta_diff",
+            "ll1_phi_diff",
+            "ll1_tlv",
+          
+            "ll2_theta_diff",
+            "ll2_phi_diff",
+            "ll2_tlv",
+
+            "ll1a_m",
+            "ll1a_tlv",
+            "ll2a_m",
+            "ll2a_tlv",
+
+            "ll1jj_m",
+            "ll1jj_tlv",
+            "ll2jj_m",
+            "ll2jj_tlv",
             
-            #--------------------------------------------------------------------------------------Other dilepton
-
-            "other_ll_e",
-            "other_ll_p",
-            "other_ll_px",
-            "other_ll_py",
-            "other_ll_pz",
-            "other_ll_theta_diff",
-            "other_ll_phi_diff",
-            "other_ll_inv_m",
-            "other_ll_tlv",
-
-            #---------------------------------------------------------------------------------------------on lla
-
-            "on_lla_inv_m",  
-            "on_lla_tlv",
-            
-            #------------------------------------------------------------------------------------------other lla
-
-            "other_lla_inv_m",  
-            "other_lla_tlv",
-
             #-----------------------------------------------------------------------------------------On shell Z
 
             "Za_e",
