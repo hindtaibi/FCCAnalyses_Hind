@@ -76,7 +76,7 @@ class RDFanalysis():
                .Define("Zb_m",              "Zb_tlv.M()")
 
                #We filter to have the invariant masses that correspond to on shell Z
-               .Filter("Za_m < 110 && Za_m > 80" && "Zb_m < 110 && Zb_m > 80")
+               .Filter("Za_m < 110 && Za_m > 80 && Zb_m < 110 && Zb_m > 80")
 
                #Dileptons
 
