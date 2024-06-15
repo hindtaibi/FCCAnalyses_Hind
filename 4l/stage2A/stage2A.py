@@ -1,6 +1,6 @@
 #Here, we are looking at the events where the second Z leptonic is on shell
 
-inputDir    = "../stage1ter/outputs"
+inputDir    = "../stage1/outputs"
 
 #Optional: output directory, default is local dir
 outputDir   = "outputs"
