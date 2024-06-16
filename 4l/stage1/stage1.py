@@ -1,37 +1,37 @@
 #Mandatory: List of processes
 
 processList = {'wzp6_ee_mumuH_HZZ_ecm240':{},   #Signal
-               'wzp6_ee_mumuH_HWW_ecm240':{},
-               'wzp6_ee_mumuH_HZa_ecm240':{},
-               'wzp6_ee_mumuH_Haa_ecm240':{},
-               'wzp6_ee_mumuH_Hbb_ecm240':{},
-               'wzp6_ee_mumuH_Hcc_ecm240':{},
-               'wzp6_ee_mumuH_Hgg_ecm240':{},
-               'wzp6_ee_mumuH_Hmumu_ecm240':{},
-               'wzp6_ee_mumuH_Hss_ecm240':{},
-               'wzp6_ee_mumuH_Htautau_ecm240':{},
-               'wzp6_ee_nunuH_HZZ_ecm240':{},
-               'wzp6_ee_nunuH_HWW_ecm240':{},
-               'wzp6_ee_nunuH_HZa_ecm240':{},
-               'wzp6_ee_nunuH_Haa_ecm240':{},
-               'wzp6_ee_nunuH_Hbb_ecm240':{},
-               'wzp6_ee_nunuH_Hcc_ecm240':{},
-               'wzp6_ee_nunuH_Hgg_ecm240':{},   
-               'wzp6_ee_nunuH_Hmumu_ecm240':{},
-               'wzp6_ee_nunuH_Hss_ecm240':{},
-               'wzp6_ee_nunuH_Htautau_ecm240':{},
-               'wzp6_ee_eeH_HZZ_ecm240':{},     #Signal
-               'wzp6_ee_eeH_HWW_ecm240':{},
-               'wzp6_ee_eeH_HZa_ecm240':{},
-               'wzp6_ee_eeH_Haa_ecm240':{},
-               'wzp6_ee_eeH_Hbb_ecm240':{},
-               'wzp6_ee_eeH_Hcc_ecm240':{},
-               'wzp6_ee_eeH_Hgg_ecm240':{},
-               'wzp6_ee_eeH_Hmumu_ecm240':{},
-               'wzp6_ee_eeH_Hss_ecm240':{},
-               'wzp6_ee_eeH_Htautau_ecm240':{},
-               'p8_ee_ZZ_ecm240':{'fraction':0.1},
-               'p8_ee_WW_ecm240':{'fraction':0.001}
+               #'wzp6_ee_mumuH_HWW_ecm240':{},
+               #'wzp6_ee_mumuH_HZa_ecm240':{},
+               #'wzp6_ee_mumuH_Haa_ecm240':{},
+               #'wzp6_ee_mumuH_Hbb_ecm240':{},
+               #'wzp6_ee_mumuH_Hcc_ecm240':{},
+               #'wzp6_ee_mumuH_Hgg_ecm240':{},
+               #'wzp6_ee_mumuH_Hmumu_ecm240':{},
+               #'wzp6_ee_mumuH_Hss_ecm240':{},
+               #'wzp6_ee_mumuH_Htautau_ecm240':{},
+               #'wzp6_ee_nunuH_HZZ_ecm240':{},
+               #'wzp6_ee_nunuH_HWW_ecm240':{},
+               #'wzp6_ee_nunuH_HZa_ecm240':{},
+               #'wzp6_ee_nunuH_Haa_ecm240':{},
+               #'wzp6_ee_nunuH_Hbb_ecm240':{},
+               #'wzp6_ee_nunuH_Hcc_ecm240':{},
+               #'wzp6_ee_nunuH_Hgg_ecm240':{},   
+               #'wzp6_ee_nunuH_Hmumu_ecm240':{},
+               #'wzp6_ee_nunuH_Hss_ecm240':{},
+               #'wzp6_ee_nunuH_Htautau_ecm240':{},
+               #'wzp6_ee_eeH_HZZ_ecm240':{},     #Signal
+               #'wzp6_ee_eeH_HWW_ecm240':{},
+               #'wzp6_ee_eeH_HZa_ecm240':{},
+               #'wzp6_ee_eeH_Haa_ecm240':{},
+               #'wzp6_ee_eeH_Hbb_ecm240':{},
+               #'wzp6_ee_eeH_Hcc_ecm240':{},
+               #'wzp6_ee_eeH_Hgg_ecm240':{},
+               #'wzp6_ee_eeH_Hmumu_ecm240':{},
+               #'wzp6_ee_eeH_Hss_ecm240':{},
+               #'wzp6_ee_eeH_Htautau_ecm240':{},
+               #'p8_ee_ZZ_ecm240':{'fraction':0.1},
+               #'p8_ee_WW_ecm240':{'fraction':0.001}
                }
 
 #Mandatory: Production tag when running over EDM4Hep centrally produced events, this points to the yaml files for getting sample statistics
@@ -87,7 +87,7 @@ class RDFanalysis():
             .Define("photons_recoil_m",     "ReconstructedParticle::get_mass(photons_recoil)")
 	    .Define("photons_tlv",          "ReconstructedParticle::get_tlv(photons)")
 
-            #We select the isolated muons/electrons within a certain range of high momentum; they should neither come from jets nor from an off shell Z
+            #We select the muons/electrons within a certain range of high momentum; they should neither come from jets nor from an off shell Z
 
             .Define("on_muons",             "ReconstructedParticle::sel_p(20,80)(muons)")
             .Define("on_electrons",         "ReconstructedParticle::sel_p(20,80)(electrons)")
@@ -155,6 +155,7 @@ class RDFanalysis():
 
             #Other
             #We repeat the same process but with the other leptons
+		#Here, we only construct one Z because ce can have one off shell leptonic Z at most
             
             .Define("other_leptons2",	           "ReconstructedParticle::remove(other_leptons, on_Z_leptons)")
             .Define("other_Z_leptons",		   "ReconstructedParticle::findZleptons(other_leptons2)")
@@ -182,7 +183,7 @@ class RDFanalysis():
             
             .Define("all_Z_leptons",		   "ReconstructedParticle::merge(on_Z_leptons, other_Z_leptons)")
             .Define("N_all_Z_leptons",             "ReconstructedParticle::get_n(all_Z_leptons)")
-            .Define("all_Z_leptons_tlv",           "ReconstructedParticle::get_n(all_Z_leptons)")
+            .Define("all_Z_leptons_tlv",           "ReconstructedParticle::get_tlv(all_Z_leptons)")
 
 	    #----------------------------------------------------------------------------------Jet construction
 
@@ -330,9 +331,7 @@ class RDFanalysis():
             "N_photons",
             "photons_recoil_m",
             "photons_tlv",
-
-            #--------------------------------------------------------------------------------------------------
-            
+		
             #-------------------------------------------------------------------------------------------Leptons
 
 	    #Preselected leptons
@@ -368,10 +367,9 @@ class RDFanalysis():
 	    "all_Z_leptons",
 	    "N_all_Z_leptons",
 	    "all_Z_leptons_tlv"
-	    
-            #--------------------------------------------------------------------------------------------------
 
             #-------------------------------------------------------------------------------------------------Z
+		
  	    "N_on_Z_leptonic",
  	    "on_Z_leptonic_recoil_m",                       
 	    "on_Z_leptonic_tlv",
@@ -379,7 +377,6 @@ class RDFanalysis():
 	    "N_other_Z_leptonic",
  	    "other_Z_leptonic_recoil_m",                       
 	    "other_Z_leptonic_tlv",
-            #--------------------------------------------------------------------------------------------------
             
             #----------------------------------------------------------------------------------------------Jets
             
@@ -443,9 +440,7 @@ class RDFanalysis():
             "dmerge_4_23",
             "dmerge_4_12",
             
-            #--------------------------------------------------------------------------------------------------
-
-            #-----------------------------------------------------------------------------Missing/Visible stuff
+            #-----------------------------------------------------------------------------Missing/Visible variables
             
             #Missing
             "emiss",
