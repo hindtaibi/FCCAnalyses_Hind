@@ -300,12 +300,12 @@ class RDFanalysis():
             .Define("off_electrons2",        "ReconstructedParticle::remove(off_electrons, on_taken_electrons)")
 
             .Define("off_taken_muons",       "ReconstructedParticle::findZleptons(off_muons2)")                #Selection of the muons (2 or 0) that could come from a Z
-            .Define("off_zed_muonic",        "ReconstructedParticle::resonanceBuilder(30)(off_taken_muons)")   #Builds resonance from 2 particles
+            .Define("off_zed_muonic",        "ReconstructedParticle::resonanceBuilder(91)(off_taken_muons)")   #Builds resonance from 2 particles
             .Define("off_extramuons",        "ReconstructedParticle::remove(off_muons2, off_taken_muons)")     #All muons not selected by findZleptons
             .Define("N_off_taken_muons",     "ReconstructedParticle::get_n(off_taken_muons)") 
             
             .Define("off_taken_electrons",   "ReconstructedParticle::findZleptons(off_electrons2)")               
-            .Define("off_zed_electronic",    "ReconstructedParticle::resonanceBuilder(30)(off_taken_electrons)")  
+            .Define("off_zed_electronic",    "ReconstructedParticle::resonanceBuilder(91)(off_taken_electrons)")  
             .Define("off_extraelectrons",    "ReconstructedParticle::remove(off_electrons2, off_taken_electrons)")     
             .Define("N_off_taken_electrons", "ReconstructedParticle::get_n(off_taken_electrons)")
 
