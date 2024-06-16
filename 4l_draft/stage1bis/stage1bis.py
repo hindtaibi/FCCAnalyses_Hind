@@ -94,7 +94,7 @@ class RDFanalysis():
 
             .Define("other_muons",          "ReconstructedParticle::sel_p(5)(muons)")
             .Define("other_electrons",      "ReconstructedParticle::sel_p(5)(electrons)")
-            .Define("other_leptons",        "ReconstructedParticle::merge(off_muons, off_electrons)")
+            .Define("other_leptons",        "ReconstructedParticle::merge(other_muons, other_electrons)")
 
             #Properties of the preselected leptons
 
