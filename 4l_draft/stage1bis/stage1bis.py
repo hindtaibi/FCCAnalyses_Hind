@@ -178,7 +178,7 @@ class RDFanalysis():
             
             #We remove all the leptons that reconstructed the previous Z
             .Define("other_muons2",          "ReconstructedParticle::remove(other_muons, on_Z_muons)")
-            .Define("other_electrons2",      "ReconstructedParticle::remove(ther_electrons, on_Z_electrons)")
+            .Define("other_electrons2",      "ReconstructedParticle::remove(other_electrons, on_Z_electrons)")
 
             .Define("other_Z_muons",         "ReconstructedParticle::findZleptons(other_muons2)")                #Selection of the muons (2 or 0) that could come from a Z
             .Define("other_Z_muonic",        "ReconstructedParticle::resonanceBuilder(91)(other_Z_muons)")       #Builds resonance from 2 particles
