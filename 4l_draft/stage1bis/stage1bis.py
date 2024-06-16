@@ -20,7 +20,7 @@ processList = {'wzp6_ee_mumuH_HZZ_ecm240':{},   #Signal
                #'wzp6_ee_nunuH_Hmumu_ecm240':{},
                #'wzp6_ee_nunuH_Hss_ecm240':{},
                #'wzp6_ee_nunuH_Htautau_ecm240':{},
-               'wzp6_ee_eeH_HZZ_ecm240':{},     #Signal
+               #'wzp6_ee_eeH_HZZ_ecm240':{},     #Signal
                #'wzp6_ee_eeH_HWW_ecm240':{},
                #'wzp6_ee_eeH_HZa_ecm240':{},
                #'wzp6_ee_eeH_Haa_ecm240':{},
@@ -82,7 +82,8 @@ class RDFanalysis():
             
             .Define("N_photons",            "ReconstructedParticle::get_n(photons)")
             .Define("photons_recoil",       "ReconstructedParticle::recoilBuilder(240)(photons)")
-	    .Define("photons_recoil_m",     "ReconstructedParticle::get_mass(photons_recoil)")
+	        .Define("photons_recoil_m",     "ReconstructedParticle::get_mass(photons_recoil)")
+            .Define("photons_tlv",          "ReconstructedParticle::get_tlv(photons)")
 
             #We select the isolated muons/electrons within a certain range of high momentum; they should neither come from jets nor from an off shell Z
 
@@ -151,24 +152,24 @@ class RDFanalysis():
             #All the leptons that reconstructed/didn't reconstruct the Z
             
             .Define("on_Z_leptons",         "ReconstructedParticle::merge(on_Z_muons, on_Z_electrons)")
-	    .Define("N_on_Z_leptons",       "ReconstructedParticle::get_n(on_Z_leptons)")
-	    .Define("on_Z_leptons_recoil",  "ReconstructedParticle::recoilBuilder(240)(on_Z_leptons)")
-	    .Define("on_Z_leptons_recoil_m","ReconstructedParticle::get_mass(on_Z_leptons_recoil)")
-	    .Define("on_Z_leptons_tlv",     "ReconstructedParticle::get_tlv(on_Z_leptons)")
+	        .Define("N_on_Z_leptons",       "ReconstructedParticle::get_n(on_Z_leptons)")
+	        .Define("on_Z_leptons_recoil",  "ReconstructedParticle::recoilBuilder(240)(on_Z_leptons)")
+	        .Define("on_Z_leptons_recoil_m","ReconstructedParticle::get_mass(on_Z_leptons_recoil)")
+	        .Define("on_Z_leptons_tlv",     "ReconstructedParticle::get_tlv(on_Z_leptons)")
 
 		
-            .Define("on_extraleptons",            "ReconstructedParticle::merge(on_extramuons, on_extraelectrons)")
-	    .Define("N_on_extraleptons",          "ReconstructedParticle::get_n(on_extraleptons)")
-	    .Define("on_extraleptons_recoil",     "ReconstructedParticle::recoilBuilder(240)(on_extraleptons)")
-	    .Define("on_extraleptons_recoil_m",   "ReconstructedParticle::get_mass(on_extraleptons_recoil)")
-            .Define("on_extraleptons_tlv",        "ReconstructedParticle::get_tlv(on_extraleptons)")
+            .Define("on_extra_leptons",            "ReconstructedParticle::merge(on_extramuons, on_extraelectrons)")
+	        .Define("N_on_extra_leptons",          "ReconstructedParticle::get_n(on_extra_leptons)")
+	        .Define("on_extra_leptons_recoil",     "ReconstructedParticle::recoilBuilder(240)(on_extra_leptons)")
+	        .Define("on_extra_leptons_recoil_m",   "ReconstructedParticle::get_mass(on_extra_leptons_recoil)")
+            .Define("on_extra_leptons_tlv",        "ReconstructedParticle::get_tlv(on_extra_leptons)")
 
             #We group the Z bosons
 
-            .Define("on_Z_leptonic",       	  "ReconstructedParticle::merge(on_Z_muonic, on_Z_electronic)")
+            .Define("on_Z_leptonic",        	  "ReconstructedParticle::merge(on_Z_muonic, on_Z_electronic)")
             .Define("N_on_Z_leptonic",            "ReconstructedParticle::get_n(on_Z_leptonic)")
-	    .Define("on_Z_leptonic_recoil",       "ReconstructedParticle::recoilBuilder(240)(on_Z_leptonic)")
-	    .Define("on_Z_leptonic_recoil_m",     "ReconstructedParticle::get_mass(on_Z_leptonic)")
+	        .Define("on_Z_leptonic_recoil",       "ReconstructedParticle::recoilBuilder(240)(on_Z_leptonic)")
+	        .Define("on_Z_leptonic_recoil_m",     "ReconstructedParticle::get_mass(on_Z_leptonic)")
             .Define("on_Z_leptonic_tlv",          "ReconstructedParticle::get_tlv(on_Z_leptonic)") 
 
             #Off
@@ -189,28 +190,28 @@ class RDFanalysis():
             .Define("other_extraelectrons",  "ReconstructedParticle::remove(other_electrons2, other_Z_electrons)")     
 
             .Define("other_Z_leptonic",     	     "ReconstructedParticle::merge(other_Z_muonic, other_Z_electronic)")
-	    .Define("N_other_Z_leptonic",    	     "ReconstructedParticle::get_n(other_Z_leptonic)")
-	    .Define("other_Z_leptonic_recoil",       "ReconstructedParticle::recoilBuilder(other_Z_leptonic)")
-	    .Define("other_Z_leptonic_recoil_m",     "ReconstructedParticle::get_mass(other_Z_leptonic_recoil)")
-	    .Define("other_Z_leptonic_tlv",    	     "ReconstructedParticle::get_tlv(other_Z_leptonic)")
+	        .Define("N_other_Z_leptonic",    	     "ReconstructedParticle::get_n(other_Z_leptonic)")
+	        .Define("other_Z_leptonic_recoil",       "ReconstructedParticle::recoilBuilder(240)(other_Z_leptonic)")
+	        .Define("other_Z_leptonic_recoil_m",     "ReconstructedParticle::get_mass(other_Z_leptonic_recoil)")
+            .Define("other_Z_leptonic_tlv",    	     "ReconstructedParticle::get_tlv(other_Z_leptonic)")
 		
-            .Define("other_extraleptons",    	     "ReconstructedParticle::merge(other_extramuons, other_extraelectrons)")
-	    .Define("N_other_extraleptons",          "ReconstructedParticle::get_n(other_extraleptons)")
-	    .Define("other_extraleptons_recoil",     "ReconstructedParticle::recoilBuilder(240)(other_extraleptons)")
-	    .Define("other_extraleptons_recoil_m",   "ReconstructedParticle::get_mass(other_extraleptons_recoil)")
-	    .Define("other_extraleptons_tlv",        "ReconstructedParticle::get_tlv(other_extraleptons)")
+            .Define("other_extra_leptons",    	     "ReconstructedParticle::merge(other_extramuons, other_extraelectrons)")
+	        .Define("N_other_extra_leptons",          "ReconstructedParticle::get_n(other_extra_leptons)")
+	        .Define("other_extra_leptons_recoil",     "ReconstructedParticle::recoilBuilder(240)(other_extra_leptons)")
+	        .Define("other_extra_leptons_recoil_m",   "ReconstructedParticle::get_mass(other_extra_leptons_recoil)")
+	        .Define("other_extra_leptons_tlv",        "ReconstructedParticle::get_tlv(other_extra_leptons)")
 		
             .Define("other_Z_leptons",               "ReconstructedParticle::merge(other_Z_muons, other_Z_electrons)")
-	    .Define("N_other_Z_leptons",             "ReconstructedParticle::get_n(other_Z_leptons)")
-	    .Define("other_Z_leptons_recoil",        "ReconstructedParticle::recoilBuilder(240)(other_Z_leptons)")
-	    .Define("other_Z_leptons_recoil_m",      "ReconstructedParticle::get_mass(other_Z_leptons_recoil)")
-	    .Define("other_Z_leptons_tlv",           "ReconstructedParticle::get_tlv(other_Z_leptons)")
+	        .Define("N_other_Z_leptons",             "ReconstructedParticle::get_n(other_Z_leptons)")
+	        .Define("other_Z_leptons_recoil",        "ReconstructedParticle::recoilBuilder(240)(other_Z_leptons)")
+	        .Define("other_Z_leptons_recoil_m",      "ReconstructedParticle::get_mass(other_Z_leptons_recoil)")
+	        .Define("other_Z_leptons_tlv",           "ReconstructedParticle::get_tlv(other_Z_leptons)")
 
             #Properties of the taken leptons
 
             .Define("all_Z_leptons",                 "ReconstructedParticle::merge(on_Z_leptons, other_Z_leptons)")
-	    .Define("N_all_Z_leptons",               "ReconstructedParticle::get_n(all_Z_leptons)")
-	    .Define("all_Z_tlv",                     "ReconstructedParticle::get_tlv(all_Z_leptons)")
+	        .Define("N_all_Z_leptons",               "ReconstructedParticle::get_n(all_Z_leptons)")
+	        .Define("all_Z_leptons_tlv",                     "ReconstructedParticle::get_tlv(all_Z_leptons)")
 
             #----------------------------------------------------------------------------------Jet construction
 
