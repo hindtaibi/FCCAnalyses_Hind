@@ -85,13 +85,13 @@ class RDFanalysis():
 	        .Define("photons_recoil_m",     "ReconstructedParticle::get_mass(photons_recoil)")
             .Define("photons_tlv",          "ReconstructedParticle::get_tlv(photons)")
 
-            #We select the isolated muons/electrons within a certain range of high momentum; they should neither come from jets nor from an off shell Z
+            #We select the muons/electrons within a certain range of high momentum; they should neither come from jets nor from an off shell Z
 
             .Define("on_muons",             "ReconstructedParticle::sel_p(20,80)(muons)")
             .Define("on_electrons",         "ReconstructedParticle::sel_p(20,80)(electrons)")
             .Define("on_leptons",           "ReconstructedParticle::merge(on_muons, on_electrons)")
 
-            #We select the isolated muons/electrons within a certain range of low momentum; they could come from an off shell Z
+            #We select the muons/electrons with p > 5 GeV; they could come from an off shell Z
 
             .Define("other_muons",          "ReconstructedParticle::sel_p(5)(muons)")
             .Define("other_electrons",      "ReconstructedParticle::sel_p(5)(electrons)")
@@ -123,18 +123,18 @@ class RDFanalysis():
             #We select 2 muons (or 0 if there are none) which are the best candidates for the Z
             #findZleptons keeps the leptons, it doesn't reconstruct the Z
             #We create the Z from these muons with resonanceBuilder
-            #We remove these muons from the selected muons and we repeat the process twice because we can have up to 2 pairs of muons coming from an on shell Z
+            #We remove these muons from the selected muons and do the process twice because we can have up to 2 pairs of muons coming from an on shell Z
 
             .Define("on_Z_muons1",          "ReconstructedParticle::findZleptons(on_muons)")               #Selection of the muons (2 or 0) that could come from a Z
-            .Define("on_Z_muonic1",         "ReconstructedParticle::resonanceBuilder(91)(on_Z_muons1)")   #Builds resonance from 2 particles
+            .Define("on_Z_muonic1",         "ReconstructedParticle::resonanceBuilder(91)(on_Z_muons1)")    #Builds resonance from 2 particles
             
             .Define("on_muons2",            "ReconstructedParticle::remove(on_muons, on_Z_muons1)")
             .Define("on_Z_muons2",          "ReconstructedParticle::findZleptons(on_muons2)")
             .Define("on_Z_muonic2",         "ReconstructedParticle::resonanceBuilder(91)(on_Z_muons2)")
 
-            .Define("on_extramuons",        "ReconstructedParticle::remove(on_muons2, on_Z_muons2)")   #All muons not selected by findZleptons
+            .Define("on_extramuons",        "ReconstructedParticle::remove(on_muons2, on_Z_muons2)")     #All muons not selected by findZleptons
             .Define("on_Z_muons",           "ReconstructedParticle::merge(on_Z_muons1, on_Z_muons2)")    #All muons selected by findZleptons
-            .Define("on_Z_muonic",          "ReconstructedParticle::merge(on_Z_muonic1, on_Z_muonic2)")
+            .Define("on_Z_muonic",          "ReconstructedParticle::merge(on_Z_muonic1, on_Z_muonic2)")  #We merge the Z muonic, their number can be 0, 1 or 2
             
             #Same process but with the electrons
 
@@ -145,11 +145,11 @@ class RDFanalysis():
             .Define("on_Z_electrons2",      "ReconstructedParticle::findZleptons(on_electrons2)")
             .Define("on_Z_electronic2",     "ReconstructedParticle::resonanceBuilder(91)(on_Z_electrons2)")
                 
-            .Define("on_extraelectrons",    "ReconstructedParticle::remove(on_electrons2, on_Z_electrons2)")   #All electrons not selected by findZleptons
+            .Define("on_extraelectrons",    "ReconstructedParticle::remove(on_electrons2, on_Z_electrons2)")     #All electrons not selected by findZleptons
             .Define("on_Z_electrons",       "ReconstructedParticle::merge(on_Z_electrons1, on_Z_electrons2)")    #All electrons selected by findZleptons
-            .Define("on_Z_electronic",      "ReconstructedParticle::merge(on_Z_electronic1, on_Z_electronic2)")
+            .Define("on_Z_electronic",      "ReconstructedParticle::merge(on_Z_electronic1, on_Z_electronic2)")  #We merge the Z electronic, their number can be 0, 1 or 2
             
-            #All the leptons that reconstructed/didn't reconstruct the Z
+            #All the leptons that reconstructed/didn't reconstruct the on shell Z
             
             .Define("on_Z_leptons",         "ReconstructedParticle::merge(on_Z_muons, on_Z_electrons)")
 	        .Define("N_on_Z_leptons",       "ReconstructedParticle::get_n(on_Z_leptons)")
@@ -164,18 +164,17 @@ class RDFanalysis():
 	        .Define("on_extra_leptons_recoil_m",   "ReconstructedParticle::get_mass(on_extra_leptons_recoil)")
             .Define("on_extra_leptons_tlv",        "ReconstructedParticle::get_tlv(on_extra_leptons)")
 
-            #We group the Z bosons
+            #We group the Z bosons previously reconstructed to get on_Z_leptonic
 
             .Define("on_Z_leptonic",        	  "ReconstructedParticle::merge(on_Z_muonic, on_Z_electronic)")
             .Define("N_on_Z_leptonic",            "ReconstructedParticle::get_n(on_Z_leptonic)")
 	        .Define("on_Z_leptonic_recoil",       "ReconstructedParticle::recoilBuilder(240)(on_Z_leptonic)")
-	        .Define("on_Z_leptonic_recoil_m",     "ReconstructedParticle::get_mass(on_Z_leptonic)")
+	        .Define("on_Z_leptonic_recoil_m",     "ReconstructedParticle::get_mass(on_Z_leptonic_recoil)")
             .Define("on_Z_leptonic_tlv",          "ReconstructedParticle::get_tlv(on_Z_leptonic)") 
 
             #Off
-            #We repeat the same process but with off leptons
-            #For off leptons, we use findZleptons only once because there is only one off shell Z
-            #The resonance here is around 30 GeV
+            #We repeat the same process but with the other leptons
+            #For the other leptons, we use findZleptons only once because there is only one off shell Z
             
             #We remove all the leptons that reconstructed the previous Z
             .Define("other_muons2",          "ReconstructedParticle::remove(other_muons, on_Z_muons)")
@@ -184,7 +183,8 @@ class RDFanalysis():
             .Define("other_Z_muons",         "ReconstructedParticle::findZleptons(other_muons2)")                #Selection of the muons (2 or 0) that could come from a Z
             .Define("other_Z_muonic",        "ReconstructedParticle::resonanceBuilder(91)(other_Z_muons)")       #Builds resonance from 2 particles
             .Define("other_extramuons",      "ReconstructedParticle::remove(other_muons2, other_Z_muons)")       #All muons not selected by findZleptons
-            
+
+	    #Same thing but with the electrons
             .Define("other_Z_electrons",     "ReconstructedParticle::findZleptons(other_electrons2)")               
             .Define("other_Z_electronic",    "ReconstructedParticle::resonanceBuilder(91)(other_Z_electrons)")  
             .Define("other_extraelectrons",  "ReconstructedParticle::remove(other_electrons2, other_Z_electrons)")     
@@ -201,7 +201,7 @@ class RDFanalysis():
 	        .Define("other_extra_leptons_recoil_m",   "ReconstructedParticle::get_mass(other_extra_leptons_recoil)")
 	        .Define("other_extra_leptons_tlv",        "ReconstructedParticle::get_tlv(other_extra_leptons)")
 		
-            .Define("other_Z_leptons",               "ReconstructedParticle::merge(other_Z_muons, other_Z_electrons)")
+            .Define("other_Z_leptons",               "ReconstructedParticle::merge(other_Z_muons, other_Z_electrons)")   #All the leptons that reconstructed the off shell Z (called the other Z)
 	        .Define("N_other_Z_leptons",             "ReconstructedParticle::get_n(other_Z_leptons)")
 	        .Define("other_Z_leptons_recoil",        "ReconstructedParticle::recoilBuilder(240)(other_Z_leptons)")
 	        .Define("other_Z_leptons_recoil_m",      "ReconstructedParticle::get_mass(other_Z_leptons_recoil)")
@@ -359,8 +359,6 @@ class RDFanalysis():
             "N_photons",
             "photons_recoil_m",
             "photons_tlv",
-
-            #--------------------------------------------------------------------------------------------------
             
             #-------------------------------------------------------------------------------------------Leptons
 
@@ -397,10 +395,9 @@ class RDFanalysis():
 	        "all_Z_leptons",
 	        "N_all_Z_leptons",
 	        "all_Z_leptons_tlv",
-	    
-            #--------------------------------------------------------------------------------------------------
 
             #-------------------------------------------------------------------------------------------------Z
+		
  	        "N_on_Z_leptonic",
  	        "on_Z_leptonic_recoil_m",                       
 	        "on_Z_leptonic_tlv",
@@ -408,7 +405,6 @@ class RDFanalysis():
 	        "N_other_Z_leptonic",
  	        "other_Z_leptonic_recoil_m",                       
 	        "other_Z_leptonic_tlv",
-            #--------------------------------------------------------------------------------------------------
             
             #----------------------------------------------------------------------------------------------Jets
             
@@ -471,10 +467,8 @@ class RDFanalysis():
             "dmerge_4_34",
             "dmerge_4_23",
             "dmerge_4_12",
-            
-            #--------------------------------------------------------------------------------------------------
 
-            #-----------------------------------------------------------------------------Missing/Visible stuff
+            #-----------------------------------------------------------------------------Missing/Visible variables
             
             #Missing
             "emiss",
@@ -486,10 +480,8 @@ class RDFanalysis():
             
             #Visible
             "visible_4vector",
-
-            #--------------------------------------------------------------------------------------------------
             
-            #------------------------------------------------------------------------------Truth about the data
+            #---------------------------------------------------------------------------------------Monte-Carlo
 
             #hzz monte carlo
             "hzz_decay",
