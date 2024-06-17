@@ -89,8 +89,8 @@ class RDFanalysis():
                .Define("ll2_theta_diff",    "abs(on_Z_leptons_tlv[2].Theta() - on_Z_leptons_tlv[3].Theta())")
                .Define("ll2_phi_diff",      "abs(on_Z_leptons_tlv[2].Phi() - on_Z_leptons_tlv[3].Phi())")
                
-               .Define("ll1_recoil_m",      "sqrt((sqrt(240)-ll1_tlv.E())*(sqrt(240)-ll1_tlv.E())-(ll1_tlv.P())*(ll1_tlv.P()))")
-               .Define("ll2_recoil_m",      "sqrt((sqrt(240)-ll2_tlv.E())*(sqrt(240)-ll2_tlv.E())-(ll2_tlv.P())*(ll2_tlv.P()))")
+               .Define("ll1_recoil_m",      "sqrt((240-ll1_tlv.E())*(240-ll1_tlv.E())-(ll1_tlv.P())*(ll1_tlv.P()))")
+               .Define("ll2_recoil_m",      "sqrt((240-ll2_tlv.E())*(240-ll2_tlv.E())-(ll2_tlv.P())*(ll2_tlv.P()))")
 
                #We take the photon with highest energy, which is the 1st photon
 
@@ -103,8 +103,7 @@ class RDFanalysis():
                .Define("photon_theta",      "photon_tlv.Theta()")
                .Define("photon_phi",        "photon_tlv.Phi()")
                .Define("photon_m",          "photon_tlv.M()")
-               .Define("photon_recoil_m",   "photons_recoil_m[0]")
-               
+                                             
                #1st dilepton + photon
 
                .Define("ll1a_tlv",          "ll1_tlv + photon_tlv")
@@ -124,7 +123,7 @@ class RDFanalysis():
                .Define("Za_pz",             "Za_tlv.Pz()")
                .Define("Za_theta",          "Za_tlv.Theta()")
                .Define("Za_phi",            "Za_tlv.Phi()")
-               .Define("Za_recoil_m",       "on_Z_leptonic_recoil_m[0]")
+               .Define("Za_recoil_m",       "sqrt((240-Za_e)*(240-Za_e)-(Za_p)*(Za_p))")
                
                #Zb (the other leptonic Z) decays into 2 leptons and is considered on shell here
                
@@ -135,7 +134,7 @@ class RDFanalysis():
                .Define("Zb_pz",             "Zb_tlv.Pz()")
                .Define("Zb_theta",          "Zb_tlv.Theta()")
                .Define("Zb_phi",            "Zb_tlv.Phi()")
-               .Define("Zb_recoil_m",       "on_Z_leptonic_recoil_m[1]")
+               .Define("Zb_recoil_m",       "sqrt((240-Zb_e)*(240-Zb_e)-(Zb_p)*(Zb_p))")
                
                #Dijet
 
@@ -209,7 +208,6 @@ class RDFanalysis():
             "photon_theta",
             "photon_phi",
             "photon_m",
-            "photon_recoil_m",
             "photon_tlv",
 
             #----------------------------------------------------------------------------------Dileptons
