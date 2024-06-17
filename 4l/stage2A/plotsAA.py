@@ -16,45 +16,47 @@ stacksig       = ['stack']
 
 variables = ['emiss',
     	     'pxmiss',
-	         'pymiss',
-	         'pzmiss',
-	         "photon_e",
-	         "photon_theta",
-	         "photon_phi",
-	         "on_lla_inv_m",
-	         "other_lla_inv_m",
-	         "Za_e",
-	         "Za_p",
-	         "Za_px",
-	         "Za_py",
-	         "Za_pz",
-	         "Za_theta",
-	         "Za_phi",
-	         "Za_m",
-	         "Za_recoil_m",
-	         "on_ll_theta_diff",
-	         "on_ll_phi_diff",
-	         "Zb_e",
-	         "Zb_p",
-	         "Zb_px",
-	         "Zb_py",
-	         "Zb_pz",
-	         "Zb_theta",
-	         "Zb_phi",
-	         "Zb_m",
-	         "Zb_recoil_m",
-	         "other_ll_theta_diff",
-	         "other_ll_phi_diff",
-	         "jj_e",
-	         "jj_p",
-	         "jj_px",
-	         "jj_py",
-	         "jj_pz",
-	         "jj_theta",
-	         "jj_phi",
-	         "jj_m",
-	         "diffthetajets_56",
-	         "diffphijets_56"
+             'pymiss',
+	     'pzmiss',
+	     "photon_e",
+	     "photon_theta",
+	     "photon_phi",
+	     "ll1a_m",
+	     "ll2a_m",
+	     "ll1jj_m",
+	     "ll2jj_m",
+	     "ll1_theta_diff",
+	     "ll1_phi_diff",
+	     "ll2_theta_diff",
+	     "ll2_phi_diff",
+	     "Za_e",
+	     "Za_p",
+	     "Za_px",
+	     "Za_py",
+	     "Za_pz",
+	     "Za_theta",
+	     "Za_phi",
+	     "Za_m",
+	     "Za_recoil_m",
+	     "Zb_e",
+	     "Zb_p",
+	     "Zb_px",
+	     "Zb_py",
+	     "Zb_pz",
+	     "Zb_theta",
+	     "Zb_phi",
+	     "Zb_m",
+	     "Zb_recoil_m",
+	     "jj_e",
+	     "jj_p",
+	     "jj_px",
+	     "jj_py",
+	     "jj_pz",
+	     "jj_theta",
+	     "jj_phi",
+	     "jj_m",
+	     "diffthetajets_56",
+	     "diffphijets_56"
              ]
 
 
@@ -66,10 +68,10 @@ selections['finalAA']   = ["precuts",
                            "precuts_emiss_photon_e_jj_m"]
 
 extralabel = {}
-extralabel["precuts"] = "Precuts: 2 leptonic Z and 80 < m_{ll}_{b} < 110"
+extralabel["precuts"] = "Precuts: 2 leptonic Z with mass 80 < m_{ll} < 110"
 extralabel["precuts_emiss"] = "Precuts + emiss < 8"
-extralabel["precuts_emiss_photon_e"] = "Precuts + emiss < 8 + photon_e < 30"
-extralabel["precuts_emiss_photon_e_jj_m"] = "Precuts + emiss < 8 + photon_e < 30 + jj_m > 2"
+extralabel["precuts_emiss_photon_e"] = "Precuts + emiss < 8 + photon_e < 20"
+extralabel["precuts_emiss_photon_e_jj_m"] = "Precuts + emiss < 8 + photon_e < 20 + jj_m > 2"
 
 
 colors = {}
@@ -82,7 +84,7 @@ colors['Htautau'] = ROOT.kCyan+2
 #colors['Hqq'] = ROOT.kPink-9
 colors['Hmumu'] = ROOT.kViolet
 colors['HZa'] = ROOT.kOrange+6
-#colors['VV'] = ROOT.kGreen+3
+colors['ZZ'] = ROOT.kGreen+3
 
 plots = {}                                  
 plots['finalAA'] = {'signal':{'Signal,HZZ':['wzp6_ee_mumuH_HZZ_ecm240',
@@ -98,14 +100,16 @@ plots['finalAA'] = {'signal':{'Signal,HZZ':['wzp6_ee_mumuH_HZZ_ecm240',
                                            'wzp6_ee_eeH_Hmumu_ecm240'],
  
                                   'HZa':['wzp6_ee_mumuH_HZa_ecm240', 
-                                         'wzp6_ee_eeH_HZa_ecm240']
+                                         'wzp6_ee_eeH_HZa_ecm240'],
+
+				  'ZZ':['p8_ee_ZZ_ecm240']
                                   }
                    }         
 
 legend = {}
 legend['Signal,HZZ'] = 'Signal'
 legend['HWW'] = 'H#rightarrowWW'
-#legend['ZZ'] = 'ZZ'
+legend['ZZ'] = 'ZZ'
 legend['Htautau'] = 'H#rightarrow#tau#tau'
 legend['Hmumu'] = 'H#rightarrow#mu#mu'
 legend['HZa'] = 'H#rightarrowZa'
