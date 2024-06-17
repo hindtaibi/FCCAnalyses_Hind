@@ -1,35 +1,37 @@
 #Mandatory: List of processes
 
 processList = {'wzp6_ee_mumuH_HZZ_ecm240':{},   #Signal
-               'wzp6_ee_mumuH_HWW_ecm240':{},
-               'wzp6_ee_mumuH_HZa_ecm240':{},
-               'wzp6_ee_mumuH_Haa_ecm240':{},
-               'wzp6_ee_mumuH_Hbb_ecm240':{},
-               'wzp6_ee_mumuH_Hcc_ecm240':{},
-               'wzp6_ee_mumuH_Hgg_ecm240':{},
-               'wzp6_ee_mumuH_Hmumu_ecm240':{},
-               'wzp6_ee_mumuH_Hss_ecm240':{},
-               'wzp6_ee_mumuH_Htautau_ecm240':{},
-               'wzp6_ee_nunuH_HZZ_ecm240':{},
-               'wzp6_ee_nunuH_HWW_ecm240':{},
-               'wzp6_ee_nunuH_HZa_ecm240':{},
-               'wzp6_ee_nunuH_Haa_ecm240':{},
-               'wzp6_ee_nunuH_Hbb_ecm240':{},
-               'wzp6_ee_nunuH_Hcc_ecm240':{},
-               'wzp6_ee_nunuH_Hgg_ecm240':{},   
-               'wzp6_ee_nunuH_Hmumu_ecm240':{},
-               'wzp6_ee_nunuH_Hss_ecm240':{},
-               'wzp6_ee_nunuH_Htautau_ecm240':{},
+               #'wzp6_ee_mumuH_HWW_ecm240':{},
+               #'wzp6_ee_mumuH_HZa_ecm240':{},
+               #'wzp6_ee_mumuH_Haa_ecm240':{},
+               #'wzp6_ee_mumuH_Hbb_ecm240':{},
+               #'wzp6_ee_mumuH_Hcc_ecm240':{},
+               #'wzp6_ee_mumuH_Hgg_ecm240':{},
+               #'wzp6_ee_mumuH_Hmumu_ecm240':{},
+               #'wzp6_ee_mumuH_Hss_ecm240':{},
+               #'wzp6_ee_mumuH_Htautau_ecm240':{},
+               #'wzp6_ee_nunuH_HZZ_ecm240':{},
+               #'wzp6_ee_nunuH_HWW_ecm240':{},
+               #'wzp6_ee_nunuH_HZa_ecm240':{},
+               #'wzp6_ee_nunuH_Haa_ecm240':{},
+               #'wzp6_ee_nunuH_Hbb_ecm240':{},
+               #'wzp6_ee_nunuH_Hcc_ecm240':{},
+               #'wzp6_ee_nunuH_Hgg_ecm240':{},   
+               #'wzp6_ee_nunuH_Hmumu_ecm240':{},
+               #'wzp6_ee_nunuH_Hss_ecm240':{},
+               #'wzp6_ee_nunuH_Htautau_ecm240':{},
                'wzp6_ee_eeH_HZZ_ecm240':{},     #Signal
-               'wzp6_ee_eeH_HWW_ecm240':{},
-               'wzp6_ee_eeH_HZa_ecm240':{},
-               'wzp6_ee_eeH_Haa_ecm240':{},
-               'wzp6_ee_eeH_Hbb_ecm240':{},
-               'wzp6_ee_eeH_Hcc_ecm240':{},
-               'wzp6_ee_eeH_Hgg_ecm240':{},
-               'wzp6_ee_eeH_Hmumu_ecm240':{},
-               'wzp6_ee_eeH_Hss_ecm240':{},
-               'wzp6_ee_eeH_Htautau_ecm240':{}
+               #'wzp6_ee_eeH_HWW_ecm240':{},
+               #'wzp6_ee_eeH_HZa_ecm240':{},
+               #'wzp6_ee_eeH_Haa_ecm240':{},
+               #'wzp6_ee_eeH_Hbb_ecm240':{},
+               #'wzp6_ee_eeH_Hcc_ecm240':{},
+               #'wzp6_ee_eeH_Hgg_ecm240':{},
+               #'wzp6_ee_eeH_Hmumu_ecm240':{},
+               #'wzp6_ee_eeH_Hss_ecm240':{},
+               #'wzp6_ee_eeH_Htautau_ecm240':{},
+               #'p8_ee_ZZ_ecm240':{'fraction':0.1},
+               #'p8_ee_WW_ecm240':{'fraction':0.001}
                }
 
 #Mandatory: Production tag when running over EDM4Hep centrally produced events, this points to the yaml files for getting sample statistics
@@ -81,18 +83,11 @@ class RDFanalysis():
             #We collect information about the photons
             
             .Define("N_photons",            "ReconstructedParticle::get_n(photons)")
-            .Define("photons_e",            "ReconstructedParticle::get_e(photons)")
-	    .Define("photons_p",            "ReconstructedParticle::get_p(photons)")
-	    .Define("photons_px",           "ReconstructedParticle::get_px(photons)")
-	    .Define("photons_py",           "ReconstructedParticle::get_py(photons)")
-	    .Define("photons_pz",           "ReconstructedParticle::get_pz(photons)")
-	    .Define("photons_theta",        "ReconstructedParticle::get_theta(photons)")
-	    .Define("photons_phi",          "ReconstructedParticle::get_phi(photons)")
             .Define("photons_recoil",       "ReconstructedParticle::recoilBuilder(240)(photons)")
             .Define("photons_recoil_m",     "ReconstructedParticle::get_mass(photons_recoil)")
-	    .Define("photons_tlv",          "ReconstructedParticle::get_tlv(photons)")
+	        .Define("photons_tlv",          "ReconstructedParticle::get_tlv(photons)")
 
-            #We select the isolated muons/electrons within a certain range of high momentum; they should neither come from jets nor from an off shell Z
+            #We select the muons/electrons within a certain range of high momentum; they should neither come from jets nor from an off shell Z
 
             .Define("on_muons",             "ReconstructedParticle::sel_p(20,80)(muons)")
             .Define("on_electrons",         "ReconstructedParticle::sel_p(20,80)(electrons)")
@@ -131,52 +126,36 @@ class RDFanalysis():
             #findZleptons keeps the leptons, it doesn't reconstruct the Z
             #We create the Z from these leptons with resonanceBuilder
 
-            .Define("on_Z_leptons",                "ReconstructedParticle::findZleptons(on_leptons)")               #Selection of the leptons (2 or 0) that could come from a Z
-            .Define("on_Z_leptonic",       	   "ReconstructedParticle::resonanceBuilder(91)(on_Z_leptons)")     #Builds resonance from 2 particles
+            .Define("on_Z_leptons1",               "ReconstructedParticle::findZleptons(on_leptons)")               #Selection of the leptons (2 or 0) that could come from a Z
+            .Define("on_Z_leptonic1",       	   "ReconstructedParticle::resonanceBuilder(91)(on_Z_leptons1)")    #Builds resonance from 2 particles
+            #We repeat the process because we can have up to 2 on shell Z bosons
+            .Define("on_leptons2",                 "ReconstructedParticle::remove(on_leptons, on_Z_leptons1)")
+            .Define("on_Z_leptons2",               "ReconstructedParticle::findZleptons(on_leptons2)")
+            .Define("on_Z_leptonic2",       	   "ReconstructedParticle::resonanceBuilder(91)(on_Z_leptons2)")
+            #We merge the Z leptons and the leptonic Z together
+            .Define("on_Z_leptons",                "ReconstructedParticle::merge(on_Z_leptons1, on_Z_leptons2)")
+            .Define("on_Z_leptonic",               "ReconstructedParticle::merge(on_Z_leptonic1, on_Z_leptonic2)")
 
-	    #We collect the kinematic information
+	        #We collect the kinematic information
             .Define("N_on_Z_leptons",       	   "ReconstructedParticle::get_n(on_Z_leptons)")
-	    .Define("on_Z_leptons_e",       	   "ReconstructedParticle::get_e(on_Z_leptons)")
-	    .Define("on_Z_leptons_p",       	   "ReconstructedParticle::get_p(on_Z_leptons)")
-	    .Define("on_Z_leptons_px",       	   "ReconstructedParticle::get_px(on_Z_leptons)")
-	    .Define("on_Z_leptons_py",       	   "ReconstructedParticle::get_py(on_Z_leptons)")
-	    .Define("on_Z_leptons_pz",       	   "ReconstructedParticle::get_pz(on_Z_leptons)")
-	    .Define("on_Z_leptons_theta",          "ReconstructedParticle::get_theta(on_Z_leptons)")
-	    .Define("on_Z_leptons_phi",       	   "ReconstructedParticle::get_phi(on_Z_leptons)")
-	    .Define("on_Z_leptons_m",       	   "ReconstructedParticle::get_mass(on_Z_leptons)")
             .Define("on_Z_leptons_recoil",         "ReconstructedParticle::recoilBuilder(240)(on_Z_leptons)")
             .Define("on_Z_leptons_recoil_m",       "ReconstructedParticle::get_mass(on_Z_leptons_recoil)")
-	    .Define("on_Z_leptons_tlv",            "ReconstructedParticle::get_tlv(on_Z_leptons)")
+	        .Define("on_Z_leptons_tlv",            "ReconstructedParticle::get_tlv(on_Z_leptons)")
             
             .Define("N_on_Z_leptonic",             "ReconstructedParticle::get_n(on_Z_leptonic)")
-	    .Define("on_Z_leptonic_e",             "ReconstructedParticle::get_e(on_Z_leptonic)")
-	    .Define("on_Z_leptonic_p",             "ReconstructedParticle::get_p(on_Z_leptonic)")
-	    .Define("on_Z_leptonic_px",            "ReconstructedParticle::get_px(on_Z_leptonic)")
-	    .Define("on_Z_leptonic_py",            "ReconstructedParticle::get_py(on_Z_leptonic)")
-	    .Define("on_Z_leptonic_pz",            "ReconstructedParticle::get_pz(on_Z_leptonic)")
-	    .Define("on_Z_leptonic_theta",         "ReconstructedParticle::get_theta(on_Z_leptonic)")
-	    .Define("on_Z_leptonic_phi",           "ReconstructedParticle::get_phi(on_Z_leptonic)")
-	    .Define("on_Z_leptonic_m",             "ReconstructedParticle::get_mass(on_Z_leptonic)")
             .Define("on_Z_leptonic_recoil",        "ReconstructedParticle::recoilBuilder(240)(on_Z_leptonic)")
             .Define("on_Z_leptonic_recoil_m",      "ReconstructedParticle::get_mass(on_Z_leptonic_recoil)")
-	    .Define("on_Z_leptonic_tlv",    	   "ReconstructedParticle::get_tlv(on_Z_leptonic)")
+	        .Define("on_Z_leptonic_tlv",    	   "ReconstructedParticle::get_tlv(on_Z_leptonic)")
 
             .Define("on_extra_leptons",     	   "ReconstructedParticle::remove(on_leptons, on_Z_leptons)")       #The leptons that didn't reconstruct the on shell Z
-	    .Define("N_on_extra_leptons",          "ReconstructedParticle::get_n(on_extra_leptons)")
-	    .Define("on_extra_leptons_e",          "ReconstructedParticle::get_e(on_extra_leptons)")
-	    .Define("on_extra_leptons_p",          "ReconstructedParticle::get_p(on_extra_leptons)")
-	    .Define("on_extra_leptons_px",         "ReconstructedParticle::get_px(on_extra_leptons)")
-	    .Define("on_extra_leptons_py",         "ReconstructedParticle::get_py(on_extra_leptons)")
-	    .Define("on_extra_leptons_pz",         "ReconstructedParticle::get_pz(on_extra_leptons)")
-	    .Define("on_extra_leptons_theta",      "ReconstructedParticle::get_theta(on_extra_leptons)")
-	    .Define("on_extra_leptons_phi",        "ReconstructedParticle::get_phi(on_extra_leptons)")
-	    .Define("on_extra_leptons_m",          "ReconstructedParticle::get_mass(on_extra_leptons)")
+	        .Define("N_on_extra_leptons",          "ReconstructedParticle::get_n(on_extra_leptons)")
             .Define("on_extra_leptons_recoil",     "ReconstructedParticle::recoilBuilder(240)(on_extra_leptons)")
             .Define("on_extra_leptons_recoil_m",   "ReconstructedParticle::get_mass(on_extra_leptons_recoil)")
-	    .Define("on_extra_leptons_tlv",        "ReconstructedParticle::get_tlv(on_extra_leptons)")            
+	        .Define("on_extra_leptons_tlv",        "ReconstructedParticle::get_tlv(on_extra_leptons)")            
 
             #Other
             #We repeat the same process but with the other leptons
+		    #Here, we only construct one Z because ce can have one off shell leptonic Z at most
             
             .Define("other_leptons2",	           "ReconstructedParticle::remove(other_leptons, on_Z_leptons)")
             .Define("other_Z_leptons",		   "ReconstructedParticle::findZleptons(other_leptons2)")
@@ -184,180 +163,158 @@ class RDFanalysis():
 
             .Define("other_extra_leptons",         "ReconstructedParticle::remove(other_leptons2, other_Z_leptons)")
 		
-	    #We collect the kinematic information
+	        #We collect the kinematic information
             .Define("N_other_Z_leptons",       	   "ReconstructedParticle::get_n(other_Z_leptons)")
-	    .Define("other_Z_leptons_e",       	   "ReconstructedParticle::get_e(other_Z_leptons)")
-	    .Define("other_Z_leptons_p",       	   "ReconstructedParticle::get_p(other_Z_leptons)")
-	    .Define("other_Z_leptons_px",          "ReconstructedParticle::get_px(other_Z_leptons)")
-	    .Define("other_Z_leptons_py",          "ReconstructedParticle::get_py(other_Z_leptons)")
-	    .Define("other_Z_leptons_pz",          "ReconstructedParticle::get_pz(other_Z_leptons)")
-	    .Define("other_Z_leptons_theta",       "ReconstructedParticle::get_theta(other_Z_leptons)")
-	    .Define("other_Z_leptons_phi",         "ReconstructedParticle::get_phi(other_Z_leptons)")
-	    .Define("other_Z_leptons_m",       	   "ReconstructedParticle::get_mass(other_Z_leptons)")
             .Define("other_Z_leptons_recoil",      "ReconstructedParticle::recoilBuilder(240)(other_Z_leptons)")
             .Define("other_Z_leptons_recoil_m",    "ReconstructedParticle::get_mass(other_Z_leptons_recoil)")
-	    .Define("other_Z_leptons_tlv",         "ReconstructedParticle::get_tlv(other_Z_leptons)")
+	        .Define("other_Z_leptons_tlv",         "ReconstructedParticle::get_tlv(other_Z_leptons)")
             
-            .Define("N_other_Z_leptonic",             "ReconstructedParticle::get_n(other_Z_leptonic)")
-	    .Define("other_Z_leptonic_e",             "ReconstructedParticle::get_e(other_Z_leptonic)")
-	    .Define("other_Z_leptonic_p",             "ReconstructedParticle::get_p(other_Z_leptonic)")
-	    .Define("other_Z_leptonic_px",            "ReconstructedParticle::get_px(other_Z_leptonic)")
-	    .Define("other_Z_leptonic_py",            "ReconstructedParticle::get_py(other_Z_leptonic)")
-	    .Define("other_Z_leptonic_pz",            "ReconstructedParticle::get_pz(other_Z_leptonic)")
-	    .Define("other_Z_leptonic_theta",         "ReconstructedParticle::get_theta(other_Z_leptonic)")
-	    .Define("other_Z_leptonic_phi",           "ReconstructedParticle::get_phi(other_Z_leptonic)")
-	    .Define("other_Z_leptonic_m",             "ReconstructedParticle::get_mass(other_Z_leptonic)")
-            .Define("other_Z_leptonic_recoil",        "ReconstructedParticle::recoilBuilder(240)(other_Z_leptonic)")
-            .Define("other_Z_leptonic_recoil_m",      "ReconstructedParticle::get_mass(other_Z_leptonic_recoil)")
-	    .Define("other_Z_leptonic_tlv",    	      "ReconstructedParticle::get_tlv(other_Z_leptonic)")
+            .Define("N_other_Z_leptonic",          "ReconstructedParticle::get_n(other_Z_leptonic)")
+            .Define("other_Z_leptonic_recoil",     "ReconstructedParticle::recoilBuilder(240)(other_Z_leptonic)")
+            .Define("other_Z_leptonic_recoil_m",   "ReconstructedParticle::get_mass(other_Z_leptonic_recoil)")
+	        .Define("other_Z_leptonic_tlv",    	   "ReconstructedParticle::get_tlv(other_Z_leptonic)")
 
-	    .Define("N_other_extra_leptons",          "ReconstructedParticle::get_n(other_extra_leptons)")
-	    .Define("other_extra_leptons_e",          "ReconstructedParticle::get_e(other_extra_leptons)")
-	    .Define("other_extra_leptons_p",          "ReconstructedParticle::get_p(other_extra_leptons)")
-	    .Define("other_extra_leptons_px",         "ReconstructedParticle::get_px(other_extra_leptons)")
-	    .Define("other_extra_leptons_py",         "ReconstructedParticle::get_py(other_extra_leptons)")
-	    .Define("other_extra_leptons_pz",         "ReconstructedParticle::get_pz(other_extra_leptons)")
-	    .Define("other_extra_leptons_theta",      "ReconstructedParticle::get_theta(other_extra_leptons)")
-	    .Define("other_extra_leptons_phi",        "ReconstructedParticle::get_phi(other_extra_leptons)")
-	    .Define("other_extra_leptons_m",          "ReconstructedParticle::get_mass(other_extra_leptons)")
-            .Define("other_extra_leptons_recoil",     "ReconstructedParticle::recoilBuilder(240)(other_extra_leptons)")
-            .Define("other_extra_leptons_recoil_m",   "ReconstructedParticle::get_mass(other_extra_leptons_recoil)")
-	    .Define("other_extra_leptons_tlv",        "ReconstructedParticle::get_tlv(other_extra_leptons)") 
+	        .Define("N_other_extra_leptons",       "ReconstructedParticle::get_n(other_extra_leptons)")
+            .Define("other_extra_leptons_recoil",  "ReconstructedParticle::recoilBuilder(240)(other_extra_leptons)")
+            .Define("other_extra_leptons_recoil_m","ReconstructedParticle::get_mass(other_extra_leptons_recoil)")
+	        .Define("other_extra_leptons_tlv",     "ReconstructedParticle::get_tlv(other_extra_leptons)") 
 	            
             #All particles that reconstructed Z bosons
             
             .Define("all_Z_leptons",		   "ReconstructedParticle::merge(on_Z_leptons, other_Z_leptons)")
+            .Define("N_all_Z_leptons",             "ReconstructedParticle::get_n(all_Z_leptons)")
+            .Define("all_Z_leptons_tlv",           "ReconstructedParticle::get_tlv(all_Z_leptons)")
 
-	    #----------------------------------------------------------------------------------Jet construction
+	        #----------------------------------------------------------------------------------Jet construction
 
             #We select all the particles minus the particles used for the Z bosons and the photons to reconstruct the jets then we create the pseudojets with them 
             
-	    .Define("my_recoparticles1",    "ReconstructedParticle::remove(ReconstructedParticles, photons)")
-            .Define("my_recoparticles",     "ReconstructedParticle::remove(my_recoparticles1, all_Z_leptons)")
-            .Define("RP_px",                "ReconstructedParticle::get_px(my_recoparticles)")
-            .Define("RP_py",                "ReconstructedParticle::get_py(my_recoparticles)")
-            .Define("RP_pz",                "ReconstructedParticle::get_pz(my_recoparticles)")
-            .Define("RP_e",                 "ReconstructedParticle::get_e(my_recoparticles)")
-            .Define("pseudo_jets",          "JetClusteringUtils::set_pseudoJets(RP_px, RP_py, RP_pz, RP_e)")
+	        .Define("my_recoparticles1",    	   "ReconstructedParticle::remove(ReconstructedParticles, photons)")
+            .Define("my_recoparticles",    	   "ReconstructedParticle::remove(my_recoparticles1, all_Z_leptons)")
+            .Define("RP_px",              	   "ReconstructedParticle::get_px(my_recoparticles)")
+            .Define("RP_py",             	   "ReconstructedParticle::get_py(my_recoparticles)")
+            .Define("RP_pz",            	   "ReconstructedParticle::get_pz(my_recoparticles)")
+            .Define("RP_e",                	   "ReconstructedParticle::get_e(my_recoparticles)")
+            .Define("pseudo_jets",        	   "JetClusteringUtils::set_pseudoJets(RP_px, RP_py, RP_pz, RP_e)")
 
             #Durham N=2
             #N is the number of jets we want to reconstruct. For example, in the final state ll ll jj we have two jets (N=2)
             #Construction des jets selon l'algo durham kt pour N=2 + (ligne2) mise en objet "pseudo_jets", dont on peut extraire des informations cinematiques
             
-            .Define("FCCAnalysesJets_ee_genkt2",    "JetClustering::clustering_ee_kt(2, 2, 1, 0)(pseudo_jets)")          #Contrcution of the jets
-            .Define("jets_ee_genkt2",               "JetClusteringUtils::get_pseudoJets(FCCAnalysesJets_ee_genkt2)")     #Mise en objet pour pouvoir en extraire les proprietes
+            .Define("FCCAnalysesJets_ee_genkt2",   "JetClustering::clustering_ee_kt(2, 2, 1, 0)(pseudo_jets)")          #Contrcution of the jets
+            .Define("jets_ee_genkt2",              "JetClusteringUtils::get_pseudoJets(FCCAnalysesJets_ee_genkt2)")     #Mise en objet pour pouvoir en extraire les proprietes
             #Properties of the two jets
-            .Define("jets_px2",                     "JetClusteringUtils::get_px(jets_ee_genkt2)")
-            .Define("jets_py2",                     "JetClusteringUtils::get_py(jets_ee_genkt2)")
-            .Define("jets_pz2",                     "JetClusteringUtils::get_pz(jets_ee_genkt2)")
-            .Define("jets_p2",                      "JetClusteringUtils::get_p(jets_ee_genkt2)")
-            .Define("jets_e2",                      "JetClusteringUtils::get_e(jets_ee_genkt2)")
-            .Define("jets_m2",                      "JetClusteringUtils::get_m(jets_ee_genkt2)")
-            .Define("jets_pt2",                     "JetClusteringUtils::get_pt(jets_ee_genkt2)")
-            .Define("jets_y2",                      "JetClusteringUtils::get_y(jets_ee_genkt2)")
-            .Define("jets_eta2",                    "JetClusteringUtils::get_eta(jets_ee_genkt2)")
-            .Define("jets_theta2",                  "JetClusteringUtils::get_theta(jets_ee_genkt2)")
-            .Define("jets_phi2",                    "JetClusteringUtils::get_phi(jets_ee_genkt2)")
+            .Define("jets_px2",                    "JetClusteringUtils::get_px(jets_ee_genkt2)")
+            .Define("jets_py2",                    "JetClusteringUtils::get_py(jets_ee_genkt2)")
+            .Define("jets_pz2",                    "JetClusteringUtils::get_pz(jets_ee_genkt2)")
+            .Define("jets_p2",                     "JetClusteringUtils::get_p(jets_ee_genkt2)")
+            .Define("jets_e2",                     "JetClusteringUtils::get_e(jets_ee_genkt2)")
+            .Define("jets_m2",                     "JetClusteringUtils::get_m(jets_ee_genkt2)")
+            .Define("jets_pt2",                    "JetClusteringUtils::get_pt(jets_ee_genkt2)")
+            .Define("jets_y2",                     "JetClusteringUtils::get_y(jets_ee_genkt2)")
+            .Define("jets_eta2",                   "JetClusteringUtils::get_eta(jets_ee_genkt2)")
+            .Define("jets_theta2",                 "JetClusteringUtils::get_theta(jets_ee_genkt2)")
+            .Define("jets_phi2",                   "JetClusteringUtils::get_phi(jets_ee_genkt2)")
 
-            .Define("jetconstituents_ee_genkt2",    "JetClusteringUtils::get_constituents(FCCAnalysesJets_ee_genkt2)")
-            .Define("jetconstituents_ee_2",         "JetConstituentsUtils::build_constituents_cluster(my_recoparticles, jetconstituents_ee_genkt2)")
-            .Define("jetconstituents_2",            "JetConstituentsUtils::count_consts(jetconstituents_ee_2)")
+            .Define("jetconstituents_ee_genkt2",   "JetClusteringUtils::get_constituents(FCCAnalysesJets_ee_genkt2)")
+            .Define("jetconstituents_ee_2",        "JetConstituentsUtils::build_constituents_cluster(my_recoparticles, jetconstituents_ee_genkt2)")
+            .Define("jetconstituents_2",           "JetConstituentsUtils::count_consts(jetconstituents_ee_2)")
 
             #La fonction get_constituents donne le nombre de particules dans le jet ? 
 
-            .Define("dmerge_2_45",                  "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt2, 4)")
-            .Define("dmerge_2_34",                  "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt2, 3)")
-            .Define("dmerge_2_23",                  "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt2, 2)")
-            .Define("dmerge_2_12",                  "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt2, 1)")
+            .Define("dmerge_2_45",                 "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt2, 4)")
+            .Define("dmerge_2_34",                 "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt2, 3)")
+            .Define("dmerge_2_23",                 "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt2, 2)")
+            .Define("dmerge_2_12",                 "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt2, 1)")
             
             #Durham N=3
             
-            .Define("FCCAnalysesJets_ee_genkt3",    "JetClustering::clustering_ee_kt(2, 3, 1, 0)(pseudo_jets)")
-            .Define("jets_ee_genkt3",               "JetClusteringUtils::get_pseudoJets(FCCAnalysesJets_ee_genkt3)")
+            .Define("FCCAnalysesJets_ee_genkt3",   "JetClustering::clustering_ee_kt(2, 3, 1, 0)(pseudo_jets)")
+            .Define("jets_ee_genkt3",              "JetClusteringUtils::get_pseudoJets(FCCAnalysesJets_ee_genkt3)")
 
-            .Define("jets_px3",                     "JetClusteringUtils::get_px(jets_ee_genkt3)")
-            .Define("jets_py3",                     "JetClusteringUtils::get_py(jets_ee_genkt3)")
-            .Define("jets_pz3",                     "JetClusteringUtils::get_pz(jets_ee_genkt3)")
-            .Define("jets_p3",                      "JetClusteringUtils::get_p(jets_ee_genkt3)")
-            .Define("jets_e3",                      "JetClusteringUtils::get_e(jets_ee_genkt3)")
-            .Define("jets_m3",                      "JetClusteringUtils::get_m(jets_ee_genkt3)")
-            .Define("jets_pt3",                     "JetClusteringUtils::get_pt(jets_ee_genkt3)")
-            .Define("jets_y3",                      "JetClusteringUtils::get_y(jets_ee_genkt3)")
-            .Define("jets_eta3",                    "JetClusteringUtils::get_eta(jets_ee_genkt3)")
-            .Define("jets_theta3",                  "JetClusteringUtils::get_theta(jets_ee_genkt3)")
-            .Define("jets_phi3",                    "JetClusteringUtils::get_phi(jets_ee_genkt3)")
+            .Define("jets_px3",                    "JetClusteringUtils::get_px(jets_ee_genkt3)")
+            .Define("jets_py3",                    "JetClusteringUtils::get_py(jets_ee_genkt3)")
+            .Define("jets_pz3",                    "JetClusteringUtils::get_pz(jets_ee_genkt3)")
+            .Define("jets_p3",                     "JetClusteringUtils::get_p(jets_ee_genkt3)")
+            .Define("jets_e3",                     "JetClusteringUtils::get_e(jets_ee_genkt3)")
+            .Define("jets_m3",                     "JetClusteringUtils::get_m(jets_ee_genkt3)")
+            .Define("jets_pt3",                    "JetClusteringUtils::get_pt(jets_ee_genkt3)")
+            .Define("jets_y3",                     "JetClusteringUtils::get_y(jets_ee_genkt3)")
+            .Define("jets_eta3",                   "JetClusteringUtils::get_eta(jets_ee_genkt3)")
+            .Define("jets_theta3",                 "JetClusteringUtils::get_theta(jets_ee_genkt3)")
+            .Define("jets_phi3",                   "JetClusteringUtils::get_phi(jets_ee_genkt3)")
 
-            .Define("jetconstituents_ee_genkt3",    "JetClusteringUtils::get_constituents(FCCAnalysesJets_ee_genkt3)")
-            .Define("jetconstituents_ee_3",         "JetConstituentsUtils::build_constituents_cluster(my_recoparticles, jetconstituents_ee_genkt3)")
-            .Define("jetconstituents_3",            "JetConstituentsUtils::count_consts(jetconstituents_ee_3)")
+            .Define("jetconstituents_ee_genkt3",   "JetClusteringUtils::get_constituents(FCCAnalysesJets_ee_genkt3)")
+            .Define("jetconstituents_ee_3",        "JetConstituentsUtils::build_constituents_cluster(my_recoparticles, jetconstituents_ee_genkt3)")
+            .Define("jetconstituents_3",           "JetConstituentsUtils::count_consts(jetconstituents_ee_3)")
 
-            .Define("dmerge_3_45",                  "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt3, 4)")
-            .Define("dmerge_3_34",                  "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt3, 3)")
-            .Define("dmerge_3_23",                  "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt3, 2)")
-            .Define("dmerge_3_12",                  "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt3, 1)")
+            .Define("dmerge_3_45",                 "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt3, 4)")
+            .Define("dmerge_3_34",                 "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt3, 3)")
+            .Define("dmerge_3_23",                 "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt3, 2)")
+            .Define("dmerge_3_12",                 "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt3, 1)")
             
             #Durham N=4
             
-            .Define("FCCAnalysesJets_ee_genkt4",    "JetClustering::clustering_ee_kt(2, 4, 1, 0)(pseudo_jets)")
-            .Define("jets_ee_genkt4",               "JetClusteringUtils::get_pseudoJets(FCCAnalysesJets_ee_genkt4)")
+            .Define("FCCAnalysesJets_ee_genkt4",   "JetClustering::clustering_ee_kt(2, 4, 1, 0)(pseudo_jets)")
+            .Define("jets_ee_genkt4",              "JetClusteringUtils::get_pseudoJets(FCCAnalysesJets_ee_genkt4)")
 
-            .Define("jets_px4",                     "JetClusteringUtils::get_px(jets_ee_genkt4)")
-            .Define("jets_py4",                     "JetClusteringUtils::get_py(jets_ee_genkt4)")
-            .Define("jets_pz4",                     "JetClusteringUtils::get_pz(jets_ee_genkt4)")
-            .Define("jets_p4",                      "JetClusteringUtils::get_p(jets_ee_genkt4)")
-            .Define("jets_e4",                      "JetClusteringUtils::get_e(jets_ee_genkt4)")
-            .Define("jets_m4",                      "JetClusteringUtils::get_m(jets_ee_genkt4)")
-            .Define("jets_pt4",                     "JetClusteringUtils::get_pt(jets_ee_genkt4)")
-            .Define("jets_y4",                      "JetClusteringUtils::get_y(jets_ee_genkt4)")
-            .Define("jets_eta4",                    "JetClusteringUtils::get_eta(jets_ee_genkt4)")
-            .Define("jets_theta4",                  "JetClusteringUtils::get_theta(jets_ee_genkt4)")
-            .Define("jets_phi4",                    "JetClusteringUtils::get_phi(jets_ee_genkt4)")
+            .Define("jets_px4",                    "JetClusteringUtils::get_px(jets_ee_genkt4)")
+            .Define("jets_py4",                    "JetClusteringUtils::get_py(jets_ee_genkt4)")
+            .Define("jets_pz4",                    "JetClusteringUtils::get_pz(jets_ee_genkt4)")
+            .Define("jets_p4",                     "JetClusteringUtils::get_p(jets_ee_genkt4)")
+            .Define("jets_e4",                     "JetClusteringUtils::get_e(jets_ee_genkt4)")
+            .Define("jets_m4",                     "JetClusteringUtils::get_m(jets_ee_genkt4)")
+            .Define("jets_pt4",                    "JetClusteringUtils::get_pt(jets_ee_genkt4)")
+            .Define("jets_y4",                     "JetClusteringUtils::get_y(jets_ee_genkt4)")
+            .Define("jets_eta4",                   "JetClusteringUtils::get_eta(jets_ee_genkt4)")
+            .Define("jets_theta4",                 "JetClusteringUtils::get_theta(jets_ee_genkt4)")
+            .Define("jets_phi4",                   "JetClusteringUtils::get_phi(jets_ee_genkt4)")
 
-            .Define("jetconstituents_ee_genkt4",    "JetClusteringUtils::get_constituents(FCCAnalysesJets_ee_genkt4)")
-            .Define("jetconstituents_ee_4",         "JetConstituentsUtils::build_constituents_cluster(my_recoparticles, jetconstituents_ee_genkt4)")
-            .Define("jetconstituents_4",            "JetConstituentsUtils::count_consts(jetconstituents_ee_4)")
+            .Define("jetconstituents_ee_genkt4",   "JetClusteringUtils::get_constituents(FCCAnalysesJets_ee_genkt4)")
+            .Define("jetconstituents_ee_4",        "JetConstituentsUtils::build_constituents_cluster(my_recoparticles, jetconstituents_ee_genkt4)")
+            .Define("jetconstituents_4",           "JetConstituentsUtils::count_consts(jetconstituents_ee_4)")
 
-            .Define("dmerge_4_45",                  "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt4, 4)")
-            .Define("dmerge_4_34",                  "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt4, 3)")
-            .Define("dmerge_4_23",                  "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt4, 2)")
-            .Define("dmerge_4_12",                  "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt4, 1)")
+            .Define("dmerge_4_45",                 "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt4, 4)")
+            .Define("dmerge_4_34",                 "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt4, 3)")
+            .Define("dmerge_4_23",                 "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt4, 2)")
+            .Define("dmerge_4_12",                 "JetClusteringUtils::get_exclusive_dmerge(FCCAnalysesJets_ee_genkt4, 1)")
             
             #-----------------------------------------------------------------------------------Missing/Visible
 
             #Missing energy and momentum
 
-            .Define("emiss",                        "MissingET.energy[0]")
-            .Define("pxmiss",                       "MissingET.momentum.x[0]")
-            .Define("pymiss",                       "MissingET.momentum.y[0]")
-            .Define("pzmiss",                       "MissingET.momentum.z[0]")
-            .Define("missing_tlv",                  "ReconstructedParticle::get_tlv(MissingET)")
-            .Define("etmiss",                       "sqrt((MissingET.momentum.x[0])*(MissingET.momentum.x[0]) + (MissingET.momentum.y[0])*(MissingET.momentum.y[0]))")
+            .Define("emiss",                       "MissingET.energy[0]")
+            .Define("pxmiss",                      "MissingET.momentum.x[0]")
+            .Define("pymiss",                      "MissingET.momentum.y[0]")
+            .Define("pzmiss",                      "MissingET.momentum.z[0]")
+            .Define("missing_tlv",                 "ReconstructedParticle::get_tlv(MissingET)")
+            .Define("etmiss",                      "sqrt((MissingET.momentum.x[0])*(MissingET.momentum.x[0]) + (MissingET.momentum.y[0])*(MissingET.momentum.y[0]))")
             
             #Visible mass
-            .Define("visible_4vector",              "ReconstructedParticle::get_P4vis(ReconstructedParticles)")           
+            .Define("visible_4vector",             "ReconstructedParticle::get_P4vis(ReconstructedParticles)")           
 
             #hzz monte carlo
             #---------------------------------------------------------------------------------------------------------------------------------------Truth about the data
-            .Alias("Particle1",                     "Particle#1.index")
-            .Define("hzz_decay",                    "MCParticle::fill_ZHZZ_decay(Particle, Particle1)")
+            .Alias("Particle1",                    "Particle#1.index")
+            .Define("hzz_decay",                   "MCParticle::fill_ZHZZ_decay(Particle, Particle1)")
 
-            .Define("inv_mass_Z",                   "MCParticle::invariant_mass(hzz_decay.Z_decay)")
-            .Define("pdg_Z",                        "MCParticle::get_pdg(hzz_decay.Z_decay)")
-            .Define("Z_true_p",                     "MCParticle::get_p(hzz_decay.Z_decay)")
-            .Define("Z_true_e",                     "MCParticle::get_e(hzz_decay.Z_decay)")
-            .Define("Z_true_m",                     "MCParticle::get_mass(hzz_decay.Z_decay)")
+            .Define("inv_mass_Z",                  "MCParticle::invariant_mass(hzz_decay.Z_decay)")
+            .Define("pdg_Z",                       "MCParticle::get_pdg(hzz_decay.Z_decay)")
+            .Define("Z_true_p",                    "MCParticle::get_p(hzz_decay.Z_decay)")
+            .Define("Z_true_e",                    "MCParticle::get_e(hzz_decay.Z_decay)")
+            .Define("Z_true_m",                    "MCParticle::get_mass(hzz_decay.Z_decay)")
 
-            .Define("inv_mass_Z1",                  "MCParticle::invariant_mass(hzz_decay.Z1_decay)")
-            .Define("pdg_Z1",                       "MCParticle::get_pdg(hzz_decay.Z1_decay)")
-            .Define("Z1_true_p",                    "MCParticle::get_p(hzz_decay.Z1_decay)")
-            .Define("Z1_true_e",                    "MCParticle::get_e(hzz_decay.Z1_decay)")
-            .Define("Z1_true_m",                    "MCParticle::get_mass(hzz_decay.Z1_decay)")
+            .Define("inv_mass_Z1",                 "MCParticle::invariant_mass(hzz_decay.Z1_decay)")
+            .Define("pdg_Z1",                      "MCParticle::get_pdg(hzz_decay.Z1_decay)")
+            .Define("Z1_true_p",                   "MCParticle::get_p(hzz_decay.Z1_decay)")
+            .Define("Z1_true_e",                   "MCParticle::get_e(hzz_decay.Z1_decay)")
+            .Define("Z1_true_m",                   "MCParticle::get_mass(hzz_decay.Z1_decay)")
 
-            .Define("inv_mass_Z2",                  "MCParticle::invariant_mass(hzz_decay.Z2_decay)")
-            .Define("pdg_Z2",                       "MCParticle::get_pdg(hzz_decay.Z2_decay)")
-            .Define("Z2_true_p",                    "MCParticle::get_p(hzz_decay.Z2_decay)")
-            .Define("Z2_true_e",                    "MCParticle::get_e(hzz_decay.Z2_decay)")
-            .Define("Z2_true_m",                    "MCParticle::get_mass(hzz_decay.Z2_decay)")
+            .Define("inv_mass_Z2",                 "MCParticle::invariant_mass(hzz_decay.Z2_decay)")
+            .Define("pdg_Z2",                      "MCParticle::get_pdg(hzz_decay.Z2_decay)")
+            .Define("Z2_true_p",                   "MCParticle::get_p(hzz_decay.Z2_decay)")
+            .Define("Z2_true_e",                   "MCParticle::get_e(hzz_decay.Z2_decay)")
+            .Define("Z2_true_m",                   "MCParticle::get_mass(hzz_decay.Z2_decay)")
             
             #-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -372,109 +329,54 @@ class RDFanalysis():
             #-------------------------------------------------------------------------------------------Photons
            
             "N_photons",
-            "photons_e",
-	    "photons_p",
-	    "photons_px",
-	    "photons_py",
-	    "photons_pz",
-	    "photons_theta",
-	    "photons_phi",
             "photons_recoil_m",
             "photons_tlv",
-
-            #--------------------------------------------------------------------------------------------------
-            
+		
             #-------------------------------------------------------------------------------------------Leptons
 
-	    #Preselected leptons
+	        #Preselected leptons
             "N_on_muons",
-	    "N_on_electrons",
-	    "N_on_leptons",
-	    "N_other_muons",
-	    "N_other_electrons",
-	    "N_other_leptons",
-	    "on_muons_tlv",
-	    "on_electrons_tlv",
-	    "on_leptons_tlv",
-	    "other_muons_tlv",
-	    "other_electrons_tlv",
-	    "other_leptons_tlv",
+	        "N_on_electrons",
+	        "N_on_leptons",
+	        "N_other_muons",
+	        "N_other_electrons",
+	        "N_other_leptons",
+	        "on_muons_tlv",
+	        "on_electrons_tlv",
+	        "on_leptons_tlv",
+	        "other_muons_tlv",
+	        "other_electrons_tlv",
+	        "other_leptons_tlv",
 
        	    "N_on_Z_leptons",
-       	    "on_Z_leptons_e",
-	    "on_Z_leptons_p",
-	    "on_Z_leptons_px",
-	    "on_Z_leptons_py",
-	    "on_Z_leptons_pz",
-	    "on_Z_leptons_theta",
-	    "on_Z_leptons_phi",
-	    "on_Z_leptons_m",
        	    "on_Z_leptons_recoil_m",
-	    "on_Z_leptons_tlv",
+	        "on_Z_leptons_tlv",
        	    
        	    "N_on_extra_leptons",
-       	    "on_extra_leptons_e",
-	    "on_extra_leptons_p",
-	    "on_extra_leptons_px",
-	    "on_extra_leptons_py",
-	    "on_extra_leptons_pz",
-	    "on_extra_leptons_theta",
-	    "on_extra_leptons_phi",
-	    "on_extra_leptons_m",
        	    "on_extra_leptons_recoil_m",
-	    "on_extra_leptons_tlv",
+	        "on_extra_leptons_tlv",
        	    
        	    "N_other_Z_leptons",
-       	    "other_Z_leptons_e",
-	    "other_Z_leptons_p",
-	    "other_Z_leptons_px",
-	    "other_Z_leptons_py",
-	    "other_Z_leptons_pz",
-	    "other_Z_leptons_theta",
-	    "other_Z_leptons_phi",
-	    "other_Z_leptons_m",
        	    "other_Z_leptons_recoil_m",
-	    "other_Z_leptons_tlv",
+	        "other_Z_leptons_tlv",
        	    
        	    "N_other_extra_leptons",
-       	    "other_extra_leptons_e",
-	    "other_extra_leptons_p",
-	    "other_extra_leptons_px",
-	    "other_extra_leptons_py",
-	    "other_extra_leptons_pz",
-	    "other_extra_leptons_theta",
-	    "other_extra_leptons_phi",
-	    "other_extra_leptons_m",
        	    "other_extra_leptons_recoil_m",
-	    "other_extra_leptons_tlv",
+	        "other_extra_leptons_tlv",
 	    
-            #--------------------------------------------------------------------------------------------------
+	        "all_Z_leptons",
+	        "N_all_Z_leptons",
+	        "all_Z_leptons_tlv",
 
             #-------------------------------------------------------------------------------------------------Z
- 	    "N_on_Z_leptonic",
- 	    "on_Z_leptonic_e",
-	    "on_Z_leptonic_p",
-	    "on_Z_leptonic_px",
-	    "on_Z_leptonic_py",
-	    "on_Z_leptonic_pz",
-	    "on_Z_leptonic_theta",
-	    "on_Z_leptonic_phi",
-	    "on_Z_leptonic_m",
- 	    "on_Z_leptonic_recoil_m",                       
-	    "on_Z_leptonic_tlv",
 		
-	    "N_other_Z_leptonic",
- 	    "other_Z_leptonic_e",
-	    "other_Z_leptonic_p",
-	    "other_Z_leptonic_px",
-	    "other_Z_leptonic_py",
-	    "other_Z_leptonic_pz",
-	    "other_Z_leptonic_theta",
-	    "other_Z_leptonic_phi",
-	    "other_Z_leptonic_m",
- 	    "other_Z_leptonic_recoil_m",                       
-	    "other_Z_leptonic_tlv",
-            #--------------------------------------------------------------------------------------------------
+ 	        "N_on_Z_leptonic",
+ 	        "on_Z_leptonic_recoil_m",                       
+	        "on_Z_leptonic_tlv",
+		
+	        "N_other_Z_leptonic",
+ 	        "other_Z_leptonic_recoil_m",                       
+	        "other_Z_leptonic_tlv",
             
             #----------------------------------------------------------------------------------------------Jets
             
@@ -484,7 +386,7 @@ class RDFanalysis():
             "jets_pz2",
             "jets_p2",
             "jets_e2",
-	    "jets_m2",
+	        "jets_m2",
             "jets_pt2",
             "jets_y2",
             "jets_eta2",
@@ -538,9 +440,7 @@ class RDFanalysis():
             "dmerge_4_23",
             "dmerge_4_12",
             
-            #--------------------------------------------------------------------------------------------------
-
-            #-----------------------------------------------------------------------------Missing/Visible stuff
+            #-----------------------------------------------------------------------------Missing/Visible variables
             
             #Missing
             "emiss",

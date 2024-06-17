@@ -88,6 +88,9 @@ class RDFanalysis():
                
                .Define("ll2_theta_diff",    "abs(on_Z_leptons_tlv[2].Theta() - on_Z_leptons_tlv[3].Theta())")
                .Define("ll2_phi_diff",      "abs(on_Z_leptons_tlv[2].Phi() - on_Z_leptons_tlv[3].Phi())")
+               
+               .Define("ll1_recoil_m"       "sqrt((sqrt(240)-ll1_tlv.E())*(sqrt(240)-ll1_tlv.E())-(ll1_tlv.P())*(ll1_tlv.P())")
+               .Define("ll2_recoil_m"       "sqrt((sqrt(240)-ll2_tlv.E())*(sqrt(240)-ll2_tlv.E())-(ll2_tlv.P())*(ll2_tlv.P())")
 
                #We take the photon with highest energy, which is the 1st photon
 
@@ -218,6 +221,9 @@ class RDFanalysis():
             "ll2_theta_diff",
             "ll2_phi_diff",
             "ll2_tlv",
+            
+            "ll1_recoil_m",
+            "ll2_recoil_m",
 
             "ll1a_m",
             "ll1a_tlv",
