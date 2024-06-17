@@ -83,11 +83,11 @@ class RDFanalysis():
                .Define("ll1_tlv",           "on_Z_leptons_tlv[0] + on_Z_leptons_tlv[1]")
                .Define("ll2_tlv",           "on_Z_leptons_tlv[2] + on_Z_leptons_tlv[3]")
 
-               .Define("ll1_theta_diff",    "abs(on_Z_leptons_tlv.Theta()[0] - on_Z_leptons_tlv.Theta()[1])")
-               .Define("ll1_phi_diff",      "abs(on_Z_leptons_tlv.Phi()[0] - on_Z_leptons_tlv.Phi()[1])")
+               .Define("ll1_theta_diff",    "abs(on_Z_leptons_tlv[0].Theta() - on_Z_leptons_tlv[1].Theta())")
+               .Define("ll1_phi_diff",      "abs(on_Z_leptons_tlv[0].Phi() - on_Z_leptons_tlv[1].Phi())")
                
-               .Define("ll2_theta_diff",    "abs(on_Z_leptons_tlv.Theta()[2] - on_Z_leptons_tlv.Theta()[3])")
-               .Define("ll2_phi_diff",      "abs(on_Z_leptons_tlv.Phi()[2] - on_Z_leptons_tlv.Phi()[3])")
+               .Define("ll2_theta_diff",    "abs(on_Z_leptons_tlv[2].Theta() - on_Z_leptons_tlv[3].Theta())")
+               .Define("ll2_phi_diff",      "abs(on_Z_leptons_tlv[2].Phi() - on_Z_leptons_tlv[3].Phi())")
 
                #We take the photon with highest energy, which is the 1st photon
 
@@ -303,4 +303,3 @@ class RDFanalysis():
         ]        
 
         return branchList
-
