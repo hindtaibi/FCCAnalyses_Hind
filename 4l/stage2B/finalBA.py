@@ -64,20 +64,20 @@ histoList = {
 
     #Photon
     
-    "photon_e":       {"name":"photon_e",          "title":"Energy of the photon [GeV]",                       "bin":100,  "xmin":0,      "xmax":100},
+    "photon_e":       {"name":"photon_e",          "title":"Energy of the photon [GeV]",                       "bin":100,  "xmin":0,      "xmax":80},
     "photon_theta":   {"name":"photon_theta",      "title":"#theta of the photon",               		       "bin":100,  "xmin":0,      "xmax":3.5}, 
     "photon_phi":     {"name":"photon_phi",        "title":"#varphi of the photon",             	      	   "bin":100,  "xmin":-3.5,   "xmax":3.5},
    
     #Dilepton
     
-    "ll1a_m":         {"name":"ll1a_m",            "title":"Mass of the 1st Dilepton + Photon [GeV]",          "bin":100,  "xmin":20,     "xmax":150},
-    "ll2a_m":         {"name":"ll2a_m",            "title":"Mass of the 2nd Dilepton + Photon [GeV]",          "bin":100,  "xmin":20,     "xmax":150},
+    "ll1a_m":         {"name":"ll1a_m",            "title":"Mass of the 1st Dilepton + Photon [GeV]",          "bin":100,  "xmin":60,     "xmax":180},
+    "ll2a_m":         {"name":"ll2a_m",            "title":"Mass of the 2nd Dilepton + Photon [GeV]",          "bin":100,  "xmin":0,      "xmax":130},
 
-    "ll1jj_m":        {"name":"ll1jj_m",           "title":"Mass of the 1st Dilepton + Dijet [GeV]",           "bin":100,  "xmin":20,     "xmax":180},
-    "ll2jj_m":        {"name":"ll2jj_m",           "title":"Mass of the 2nd Dilepton + Dijet [GeV]",           "bin":100,  "xmin":20,     "xmax":180},
+    "ll1jj_m":        {"name":"ll1jj_m",           "title":"Mass of the 1st Dilepton + Dijet [GeV]",           "bin":100,  "xmin":60,     "xmax":240},
+    "ll2jj_m":        {"name":"ll2jj_m",           "title":"Mass of the 2nd Dilepton + Dijet [GeV]",           "bin":100,  "xmin":0,      "xmax":160},
     
-    "ll1miss_m":      {"name":"ll1miss_m",         "title":"Mass of the 1st Dilepton + Missing tlv [GeV]",     "bin":100,  "xmin":20,     "xmax":180},
-    "ll2miss_m":      {"name":"ll2miss_m",         "title":"Mass of the 2nd Dilepton + Missing tlv [GeV]",     "bin":100,  "xmin":20,     "xmax":180},
+    "ll1miss_m":      {"name":"ll1miss_m",         "title":"Mass of the 1st Dilepton + Missing tlv [GeV]",     "bin":100,  "xmin":60,     "xmax":200},
+    "ll2miss_m":      {"name":"ll2miss_m",         "title":"Mass of the 2nd Dilepton + Missing tlv [GeV]",     "bin":100,  "xmin": 0,     "xmax":150},
 
     "ll1_theta_diff": {"name":"ll1_theta_diff",    "title":"Angular Difference (#theta) of the 1st Dilepton",  "bin":100,  "xmin":0,      "xmax":3.5},
     "ll1_phi_diff":   {"name":"ll1_phi_diff",      "title":"Angular Difference (#varphi) of the 1st Dilepton", "bin":100,  "xmin":0,      "xmax":7},
@@ -89,46 +89,46 @@ histoList = {
     
     #Za (1st dilepton) and Zb (2nd dilepton)
     
-    "Za_e":           {"name":"Za_e",              "title":"Za_e [GeV]",               	         "bin":100,  "xmin":20,     "xmax":120},
-    "Za_p":           {"name":"Za_p",              "title":"Za_p [GeV]",               			 "bin":100,  "xmin":0,      "xmax":120},
+    "Za_e":           {"name":"Za_e",              "title":"Za_e [GeV]",               	         "bin":100,  "xmin":80,     "xmax":130},
+    "Za_p":           {"name":"Za_p",              "title":"Za_p [GeV]",               			 "bin":100,  "xmin":0,      "xmax":100},
     "Za_px":          {"name":"Za_px",             "title":"Za_px [GeV]",               		 "bin":100,  "xmin":-70,    "xmax":70},
     "Za_py":          {"name":"Za_py",             "title":"Za_py [GeV]",               		 "bin":100,  "xmin":-70,    "xmax":70},
     "Za_pz":          {"name":"Za_pz",             "title":"Za_pz [GeV]",               		 "bin":100,  "xmin":-70,    "xmax":70},
     "Za_theta":       {"name":"Za_theta",          "title":"Za_theta",               			 "bin":100,  "xmin":0,      "xmax":3.5},
     "Za_phi":         {"name":"Za_phi",            "title":"Za_phi",               			     "bin":100,  "xmin":-3.5,   "xmax":3.5},
-    "Za_m":           {"name":"Za_m",              "title":"Za_m [GeV]",               			 "bin":70,   "xmin":20,     "xmax":150},
-    "Za_recoil_m":    {"name":"Za_recoil_m",       "title":"Za_recoil_m [GeV]",                  "bin":100,  "xmin":40,     "xmax":170},
+    "Za_m":           {"name":"Za_m",              "title":"Za_m [GeV]",               			 "bin":70,   "xmin":70,     "xmax":120},
+    "Za_recoil_m":    {"name":"Za_recoil_m",       "title":"Za_recoil_m [GeV]",                  "bin":100,  "xmin":70,     "xmax":160},
     
-    "Zb_e":           {"name":"Zb_e",              "title":"Zb_e [GeV]",               			 "bin":100,  "xmin":20,     "xmax":120},
-    "Zb_p":           {"name":"Zb_p",              "title":"Zb_p [GeV]",               			 "bin":100,  "xmin":0,      "xmax":120},
-    "Zb_px":          {"name":"Zb_px",             "title":"Zb_px [GeV]",               		 "bin":100,  "xmin":-60,    "xmax":60},
-    "Zb_py":          {"name":"Zb_py",             "title":"Zb_py [GeV]",               		 "bin":100,  "xmin":-60,    "xmax":60},
-    "Zb_pz":          {"name":"Zb_pz",             "title":"Zb_pz [GeV]",               		 "bin":100,  "xmin":-60,    "xmax":60},
+    "Zb_e":           {"name":"Zb_e",              "title":"Zb_e [GeV]",               			 "bin":100,  "xmin":0,      "xmax":120},
+    "Zb_p":           {"name":"Zb_p",              "title":"Zb_p [GeV]",               			 "bin":100,  "xmin":0,      "xmax":100},
+    "Zb_px":          {"name":"Zb_px",             "title":"Zb_px [GeV]",               		 "bin":100,  "xmin":-100,   "xmax":100},
+    "Zb_py":          {"name":"Zb_py",             "title":"Zb_py [GeV]",               		 "bin":100,  "xmin":-100,   "xmax":100},
+    "Zb_pz":          {"name":"Zb_pz",             "title":"Zb_pz [GeV]",               		 "bin":100,  "xmin":-100,   "xmax":100},
     "Zb_theta":       {"name":"Zb_theta",          "title":"Zb_theta",               			 "bin":100,  "xmin":0,      "xmax":3.5},
     "Zb_phi":         {"name":"Zb_phi",            "title":"Zb_phi",               			     "bin":100,  "xmin":-3.5,   "xmax":3.5},
-    "Zb_m":           {"name":"Zb_m",              "title":"Zb_m [GeV]",               			 "bin":100,  "xmin":70,     "xmax":120},
-    "Zb_recoil_m":    {"name":"Zb_recoil_m",       "title":"Zb_recoil_m [GeV]",                  "bin":100,  "xmin":20,    "xmax":170},
+    "Zb_m":           {"name":"Zb_m",              "title":"Zb_m [GeV]",               			 "bin":100,  "xmin":10,     "xmax":90},
+    "Zb_recoil_m":    {"name":"Zb_recoil_m",       "title":"Zb_recoil_m [GeV]",                  "bin":100,  "xmin":100,    "xmax":230},
     
     #Dijet
   
-    "jj_e":           {"name":"jj_e",          "title":"jj_e [GeV]",               			 "bin":100,  "xmin":0,     "xmax":60},
-    "jj_p":           {"name":"jj_p",          "title":"jj_p [GeV]",               			 "bin":100,  "xmin":0,     "xmax":50},
-    "jj_px":          {"name":"jj_px",         "title":"jj_px [GeV]",               		 "bin":100,  "xmin":-40,   "xmax":40},
-    "jj_py":          {"name":"jj_py",         "title":"jj_py [GeV]",               		 "bin":100,  "xmin":-40,   "xmax":40},
-    "jj_pz":          {"name":"jj_pz",         "title":"jj_pz [GeV]",               		 "bin":100,  "xmin":-40,   "xmax":40},
+    "jj_e":           {"name":"jj_e",          "title":"jj_e [GeV]",               			 "bin":100,  "xmin":0,     "xmax":120},
+    "jj_p":           {"name":"jj_p",          "title":"jj_p [GeV]",               			 "bin":100,  "xmin":0,     "xmax":80},
+    "jj_px":          {"name":"jj_px",         "title":"jj_px [GeV]",               		 "bin":100,  "xmin":-80,   "xmax":80},
+    "jj_py":          {"name":"jj_py",         "title":"jj_py [GeV]",               		 "bin":100,  "xmin":-80,   "xmax":80},
+    "jj_pz":          {"name":"jj_pz",         "title":"jj_pz [GeV]",               		 "bin":100,  "xmin":-80,   "xmax":80},
     "jj_theta":       {"name":"jj_theta",      "title":"jj_theta",               			 "bin":100,  "xmin":0,     "xmax":3.5},
     "jj_phi":         {"name":"jj_phi",        "title":"jj_phi",               			     "bin":100,  "xmin":-3.5,  "xmax":3.5},
-    "jj_m":           {"name":"jj_m",          "title":"jj_m [GeV]",               			 "bin":100,  "xmin":0,     "xmax":50},
+    "jj_m":           {"name":"jj_m",          "title":"jj_m [GeV]",               			 "bin":100,  "xmin":0,     "xmax":100},
     
     "diffthetajets_34": {"name":"diffthetajets_34",   "title":"diffthetajets_34",               "bin":100,  "xmin":0,     "xmax":3.5},
     "diffphijets_34":   {"name":"diffphijets_34",     "title":"diffphijets_34",                 "bin":100,  "xmin":0,     "xmax":7},
     
     #Missing Energy
         
-    "emiss":          {"name":"emiss",          "title":"Missing energy [GeV]",                  		 "bin":100,  "xmin":0,     "xmax":80},
-    "pxmiss":         {"name":"pxmiss",         "title":"Missing p_{x} [GeV]",               			 "bin":100,  "xmin":-40,   "xmax":40},
-    "pymiss":         {"name":"pymiss",         "title":"Missing p_{y} [GeV]",               			 "bin":100,  "xmin":-40,   "xmax":40},
-    "pzmiss":         {"name":"pzmiss",         "title":"Missing p_{z} [GeV]",               			 "bin":100,  "xmin":-40,   "xmax":40}
+    "emiss":          {"name":"emiss",          "title":"Missing energy [GeV]",                  		 "bin":100,  "xmin":0,     "xmax":90},
+    "pxmiss":         {"name":"pxmiss",         "title":"Missing p_{x} [GeV]",               			 "bin":100,  "xmin":-80,   "xmax":80},
+    "pymiss":         {"name":"pymiss",         "title":"Missing p_{y} [GeV]",               			 "bin":100,  "xmin":-80,   "xmax":80},
+    "pzmiss":         {"name":"pzmiss",         "title":"Missing p_{z} [GeV]",               			 "bin":100,  "xmin":-80,   "xmax":80}
 }
 
 
