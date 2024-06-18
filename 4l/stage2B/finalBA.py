@@ -56,7 +56,9 @@ doScale = False
 
 #Dictionnay of the list of cuts. The key is the name of the selection that will be added to the output file
 cutList = {"precuts":"emiss > -10",  
-           "precuts_emiss":"emiss < 8"
+           "precuts_emiss":"emiss < 8",
+           "precuts_emiss_jj_m":"emiss < 8 && jj_m > 5",
+           "precuts_emiss_jj_m_Za_recoil":"emiss < 8 && jj_m > 5 && Za_recoil_m > 120"
            }
 
 #Dictionary for the ouput variable/hitograms. The key is the name of the variable in the output files. "name" is the name of the variable in the input file, "title" is the x-axis label of the histogram, "bin" the number of bins of the histogram, "xmin" the minimum x-axis value and "xmax" the maximum x-axis value.
@@ -130,5 +132,3 @@ histoList = {
     "pymiss":         {"name":"pymiss",         "title":"Missing p_{y} [GeV]",               			 "bin":100,  "xmin":-80,   "xmax":80},
     "pzmiss":         {"name":"pzmiss",         "title":"Missing p_{z} [GeV]",               			 "bin":100,  "xmin":-80,   "xmax":80}
 }
-
-
