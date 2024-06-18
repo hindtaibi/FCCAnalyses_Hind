@@ -120,8 +120,8 @@ histoList = {
     "jj_phi":         {"name":"jj_phi",        "title":"jj_phi",               			     "bin":100,  "xmin":-3.5,  "xmax":3.5},
     "jj_m":           {"name":"jj_m",          "title":"jj_m [GeV]",               			 "bin":100,  "xmin":0,     "xmax":50},
     
-    "diffthetajets_34": {"name":"diffthetajets_56",   "title":"diffthetajets_34",               "bin":100,  "xmin":0,     "xmax":3.5},
-    "diffphijets_34":   {"name":"diffphijets_56",     "title":"diffphijets_34",                 "bin":100,  "xmin":0,     "xmax":7},
+    "diffthetajets_34": {"name":"diffthetajets_34",   "title":"diffthetajets_34",               "bin":100,  "xmin":0,     "xmax":3.5},
+    "diffphijets_34":   {"name":"diffphijets_34",     "title":"diffphijets_34",                 "bin":100,  "xmin":0,     "xmax":7},
     
     #Missing Energy
         
