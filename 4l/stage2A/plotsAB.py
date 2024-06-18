@@ -1,6 +1,6 @@
 import ROOT
 
-inputDir       = "../finalAA/outputs/"
+inputDir       = "../finalAB/outputs/"
 outdir         = "outputs"
 
 # global parameters
