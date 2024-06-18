@@ -117,16 +117,6 @@ class RDFanalysis():
                .Define("ll2a_tlv",          "ll2_tlv + photon_tlv")
                .Define("ll2a_m",            "ll2a_tlv.M()")
                
-               #1st dilepton + missing tlv
-               
-               .Define("ll1miss_tlv",       "ll1_tlv + missing_tlv")
-               .Define("ll1miss_m",         "ll1miss_tlv.M()")
-               
-               #2nd dilepton + missing tlv
-               
-               .Define("ll2miss_tlv",       "ll2_tlv + missing_tlv")
-               .Define("ll2miss_m",         "ll2miss_tlv.M()")
-               
                #Za (the on shell Z) decays into 2 leptons
 
                .Define("Za_e",              "Za_tlv.E()")
@@ -245,11 +235,6 @@ class RDFanalysis():
             "ll1jj_tlv",
             "ll2jj_m",
             "ll2jj_tlv",
-            
-            "ll1miss_m",
-            "ll1miss_tlv",
-            "ll2miss_m",
-            "ll2miss_tlv",
             
             #-----------------------------------------------------------------------------------------On shell Z
 
