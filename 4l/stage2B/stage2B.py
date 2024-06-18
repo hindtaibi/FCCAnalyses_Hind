@@ -67,7 +67,7 @@ class RDFanalysis():
     def analysers(df):
         df2 = (df 
                
-               #Filter to have two leptonic on shell Z bosons               
+               #Filter to have two leptonic Z bosons : one on shell (Za) and on off shell (Zb)               
                .Filter("N_other_Z_leptonic == 1 && N_on_Z_leptonic == 1")
 
                .Define("Za_tlv",            "on_Z_leptonic_tlv[0]")
@@ -76,18 +76,24 @@ class RDFanalysis():
                .Define("Zb_m",              "Zb_tlv.M()")
 
                #We filter to have the invariant masses that correspond to on shell Z
-               .Filter("Za_m < 110 && Za_m > 80 && Zb_m < 110 && Zb_m > 80")
+               .Filter("Za_m < 110 && Za_m > 80 && Zb_m < 80 && Zb_m > 20")
 
                #Dileptons
-
+		
+	           #Dileptons tlv
                .Define("ll1_tlv",           "on_Z_leptons_tlv[0] + on_Z_leptons_tlv[1]")
-               .Define("ll2_tlv",           "on_Z_leptons_tlv[2] + on_Z_leptons_tlv[3]")
-
-               .Define("ll1_theta_diff",    "abs(on_Z_leptons_tlv.Theta()[0] - on_Z_leptons_tlv.Theta()[1])")
-               .Define("ll1_phi_diff",      "abs(on_Z_leptons_tlv.Phi()[0] - on_Z_leptons_tlv.Phi()[1])")
+               .Define("ll2_tlv",           "other_Z_leptons_tlv[0] + other_Z_leptons_tlv[1]")
+		
+	           #Dileptons angular difference	
+               .Define("ll1_theta_diff",    "abs(on_Z_leptons_tlv[0].Theta() - on_Z_leptons_tlv[1].Theta())")
+               .Define("ll1_phi_diff",      "abs(on_Z_leptons_tlv[0].Phi() - on_Z_leptons_tlv[1].Phi())")
                
-               .Define("ll2_theta_diff",    "abs(on_Z_leptons_tlv.Theta()[2] - on_Z_leptons_tlv.Theta()[3])")
-               .Define("ll2_phi_diff",      "abs(on_Z_leptons_tlv.Phi()[2] - on_Z_leptons_tlv.Phi()[3])")
+               .Define("ll2_theta_diff",    "abs(other_Z_leptons_tlv[0].Theta() - other_Z_leptons_tlv[1].Theta())")
+               .Define("ll2_phi_diff",      "abs(other_Z_leptons_tlv[0].Phi() - other_Z_leptons_tlv[1].Phi())")
+               
+               #Dileptons recoil mass
+               .Define("ll1_recoil_m",      "sqrt((240-ll1_tlv.E())*(240-ll1_tlv.E())-(ll1_tlv.P())*(ll1_tlv.P()))")
+               .Define("ll2_recoil_m",      "sqrt((240-ll2_tlv.E())*(240-ll2_tlv.E())-(ll2_tlv.P())*(ll2_tlv.P()))")
 
                #We take the photon with highest energy, which is the 1st photon
 
@@ -100,8 +106,7 @@ class RDFanalysis():
                .Define("photon_theta",      "photon_tlv.Theta()")
                .Define("photon_phi",        "photon_tlv.Phi()")
                .Define("photon_m",          "photon_tlv.M()")
-               .Define("photon_recoil_m",   "photons_recoil_m[0]")
-               
+                                             
                #1st dilepton + photon
 
                .Define("ll1a_tlv",          "ll1_tlv + photon_tlv")
@@ -112,6 +117,16 @@ class RDFanalysis():
                .Define("ll2a_tlv",          "ll2_tlv + photon_tlv")
                .Define("ll2a_m",            "ll2a_tlv.M()")
                
+               #1st dilepton + missing tlv
+               
+               .Define("ll1miss_tlv",       "ll1_tlv + missing_tlv[0]")
+               .Define("ll1miss_m",         "ll1miss_tlv.M()")
+               
+               #2nd dilepton + missing tlv
+               
+               .Define("ll2miss_tlv",       "ll2_tlv + missing_tlv[0]")
+               .Define("ll2miss_m",         "ll2miss_tlv.M()")
+               
                #Za (the on shell Z) decays into 2 leptons
 
                .Define("Za_e",              "Za_tlv.E()")
@@ -121,7 +136,7 @@ class RDFanalysis():
                .Define("Za_pz",             "Za_tlv.Pz()")
                .Define("Za_theta",          "Za_tlv.Theta()")
                .Define("Za_phi",            "Za_tlv.Phi()")
-               .Define("Za_recoil_m",       "on_Z_leptonic_recoil_m[0]")
+               .Define("Za_recoil_m",       "sqrt((240-Za_e)*(240-Za_e)-(Za_p)*(Za_p))")
                
                #Zb (the other leptonic Z) decays into 2 leptons and is considered on shell here
                
@@ -132,7 +147,7 @@ class RDFanalysis():
                .Define("Zb_pz",             "Zb_tlv.Pz()")
                .Define("Zb_theta",          "Zb_tlv.Theta()")
                .Define("Zb_phi",            "Zb_tlv.Phi()")
-               .Define("Zb_recoil_m",       "on_Z_leptonic_recoil_m[1]")
+               .Define("Zb_recoil_m",       "sqrt((240-Zb_e)*(240-Zb_e)-(Zb_p)*(Zb_p))")
                
                #Dijet
 
@@ -159,34 +174,34 @@ class RDFanalysis():
                
                #Information about each jet (Durham N = 2)
                
-               .Define("j5_e",              "jets_e2[0]")
-               .Define("j5_p",              "jets_p2[0]")              
-               .Define("j5_px",             "jets_px2[0]")
-               .Define("j5_py",             "jets_py2[0]")
-               .Define("j5_pz",             "jets_pz2[0]")
-               .Define("j5_pt",             "jets_pt2[0]")
-               .Define("j5_theta",          "jets_theta2[0]")
-               .Define("j5_phi",            "jets_phi2[0]")
-               .Define("j5_m",              "jets_m2[0]")
+               .Define("j3_e",              "jets_e2[0]")
+               .Define("j3_p",              "jets_p2[0]")              
+               .Define("j3_px",             "jets_px2[0]")
+               .Define("j3_py",             "jets_py2[0]")
+               .Define("j3_pz",             "jets_pz2[0]")
+               .Define("j3_pt",             "jets_pt2[0]")
+               .Define("j3_theta",          "jets_theta2[0]")
+               .Define("j3_phi",            "jets_phi2[0]")
+               .Define("j3_m",              "jets_m2[0]")
                
-               .Define("j6_e",              "jets_e2[1]")
-               .Define("j6_p",              "jets_p2[1]")                                           
-               .Define("j6_px",             "jets_px2[1]")           
-               .Define("j6_py",             "jets_py2[1]")               
-               .Define("j6_pz",             "jets_pz2[1]")
-               .Define("j6_pt",             "jets_pt2[1]")                
-               .Define("j6_theta",          "jets_theta2[1]")          
-               .Define("j6_phi",            "jets_phi2[1]")
-               .Define("j6_m",              "jets_m2[1]")
+               .Define("j4_e",              "jets_e2[1]")
+               .Define("j4_p",              "jets_p2[1]")                                           
+               .Define("j4_px",             "jets_px2[1]")           
+               .Define("j4_py",             "jets_py2[1]")               
+               .Define("j4_pz",             "jets_pz2[1]")
+               .Define("j4_pt",             "jets_pt2[1]")                
+               .Define("j4_theta",          "jets_theta2[1]")          
+               .Define("j4_phi",            "jets_phi2[1]")
+               .Define("j4_m",              "jets_m2[1]")
                
-               .Define("diffthetajets_56",  "abs(j5_theta - j6_theta)")
-               .Define("diffphijets_56",    "abs(j5_phi - j6_phi)")
+               .Define("diffthetajets_34",  "abs(j3_theta - j4_theta)")
+               .Define("diffphijets_34",    "abs(j3_phi - j4_phi)")
 
                .Define("missing_theta",     "missing_tlv[0].Theta()")
 
                .Define("angle_miss_jet",    "ReconstructedParticle::get_angle(missing_tlv[0], jets_e2, jets_px2, jets_py2, jets_pz2)")
-               .Define("angle_miss_j5",     "angle_miss_jet[0]")
-               .Define("angle_miss_j6",     "angle_miss_jet[1]")
+               .Define("angle_miss_j3",     "angle_miss_jet[0]")
+               .Define("angle_miss_j4",     "angle_miss_jet[1]")
        
                )
         return df2
@@ -206,7 +221,6 @@ class RDFanalysis():
             "photon_theta",
             "photon_phi",
             "photon_m",
-            "photon_recoil_m",
             "photon_tlv",
 
             #----------------------------------------------------------------------------------Dileptons
@@ -218,6 +232,9 @@ class RDFanalysis():
             "ll2_theta_diff",
             "ll2_phi_diff",
             "ll2_tlv",
+            
+            "ll1_recoil_m",
+            "ll2_recoil_m",
 
             "ll1a_m",
             "ll1a_tlv",
@@ -228,6 +245,11 @@ class RDFanalysis():
             "ll1jj_tlv",
             "ll2jj_m",
             "ll2jj_tlv",
+            
+            "ll1miss_m",
+            "ll1miss_tlv",
+            "ll2miss_m",
+            "ll2miss_tlv",
             
             #-----------------------------------------------------------------------------------------On shell Z
 
@@ -267,30 +289,30 @@ class RDFanalysis():
             "jj_phi",
             "jj_m",
             
-            "j5_e",
-            "j5_p",
-            "j5_px",
-            "j5_py",
-            "j5_pz",
-            "j5_pt",
-            "j5_theta",
-            "j5_phi",
-            "j5_m",
-            "angle_miss_j5",     #The missing theta
+            "j3_e",
+            "j3_p",
+            "j3_px",
+            "j3_py",
+            "j3_pz",
+            "j3_pt",
+            "j3_theta",
+            "j3_phi",
+            "j3_m",
+            "angle_miss_j3",     #The missing theta
             
-            "j6_e",
-            "j6_p",
-            "j6_px",
-            "j6_py",
-            "j6_pz",
-            "j6_pt",
-            "j6_theta",
-            "j6_phi",
-            "j6_m",
-            "angle_miss_j6",     #The missing theta
+            "j4_e",
+            "j4_p",
+            "j4_px",
+            "j4_py",
+            "j4_pz",
+            "j4_pt",
+            "j4_theta",
+            "j4_phi",
+            "j4_m",
+            "angle_miss_j4",     #The missing theta
             
-            "diffthetajets_56",
-            "diffphijets_56",
+            "diffthetajets_34",
+            "diffphijets_34",
             
             #----------------------------------------------------------------------------Missing/Visible stuff
 
@@ -303,4 +325,3 @@ class RDFanalysis():
         ]        
 
         return branchList
-
