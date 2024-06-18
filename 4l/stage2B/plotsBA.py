@@ -16,13 +16,23 @@ stacksig       = ['stack']
 
 variables = ['emiss',
     	     'pxmiss',
-	         'pymiss',
+             'pymiss',
 	         'pzmiss',
 	         "photon_e",
 	         "photon_theta",
 	         "photon_phi",
-	         "on_lla_inv_m",
-	         "other_lla_inv_m",
+	         "ll1a_m",
+	         "ll2a_m",
+             #"ll1a_ll1_m",
+             #"ll2a_ll2_m",
+	         "ll1jj_m",
+	         "ll2jj_m",
+	         "ll1miss_m",
+	         "ll2miss_m",
+	         "ll1_theta_diff",
+	         "ll1_phi_diff",
+	         "ll2_theta_diff",
+	         "ll2_phi_diff",
 	         "Za_e",
 	         "Za_p",
 	         "Za_px",
@@ -32,8 +42,6 @@ variables = ['emiss',
 	         "Za_phi",
 	         "Za_m",
 	         "Za_recoil_m",
-	         "on_ll_theta_diff",
-	         "on_ll_phi_diff",
 	         "Zb_e",
 	         "Zb_p",
 	         "Zb_px",
@@ -43,8 +51,6 @@ variables = ['emiss',
 	         "Zb_phi",
 	         "Zb_m",
 	         "Zb_recoil_m",
-	         "other_ll_theta_diff",
-	         "other_ll_phi_diff",
 	         "jj_e",
 	         "jj_p",
 	         "jj_px",
@@ -64,7 +70,7 @@ selections['finalBA']   = ["precuts",
                            "precuts_emiss"]
 
 extralabel = {}
-extralabel["precuts"] = "Precuts: 2 leptonic Z and 20 < m_{ll}_{b} < 80"
+extralabel["precuts"] = "Precuts: 2 leptonic Z: 20 < m^{b}_{ll} < 80 and 80 < m^{a}_{ll} < 110"
 extralabel["precuts_emiss"] = "Precuts + emiss < 8"
 
 
@@ -73,12 +79,13 @@ colors['Signal,HZZ'] = ROOT.kRed
 colors['HWW'] = ROOT.kGreen
 colors['nunuH,HZZ'] = ROOT.kBlue
 colors['Hgg'] = ROOT.kYellow
-colors['nunuH,Hbb'] = ROOT.kOrange-2
+#colors['nunuH,Hbb'] = ROOT.kOrange-2
 colors['Htautau'] = ROOT.kCyan+2
 colors['Hqq'] = ROOT.kPink-9
 colors['Hmumu'] = ROOT.kViolet
 colors['HZa'] = ROOT.kOrange+6
-colors['Haa'] = ROOT.kGreen+3
+#colors['Haa'] = ROOT.kGreen+3
+colors['ZZ'] = ROOT.kAzure+6
 
 plots = {}                                  
 plots['finalBA'] = {'signal':{'Signal,HZZ':['wzp6_ee_mumuH_HZZ_ecm240',
@@ -106,10 +113,8 @@ plots['finalBA'] = {'signal':{'Signal,HZZ':['wzp6_ee_mumuH_HZZ_ecm240',
                                   
                                   'Hgg':['wzp6_ee_mumuH_Hgg_ecm240',
                                          'wzp6_ee_eeH_Hgg_ecm240'],
-                                         
-                                  'nunuH,Hbb':['wzp6_ee_nunuH_Hbb_ecm240'],
                                   
-                                  'Haa':['wzp6_ee_mumuH_Haa_ecm240']
+                                  'ZZ':['p8_ee_ZZ_ecm240']
                                   }
                    }         
 
@@ -117,10 +122,11 @@ legend = {}
 legend['Signal,HZZ'] = 'Signal'
 legend['HWW'] = 'H#rightarrowWW'
 legend['nunuH,HZZ'] = '#nu#nuH, HZZ'
-legend['nunuH,Hbb'] = '#nu#nuH, Hbb'
+#legend['nunuH,Hbb'] = '#nu#nuH, Hbb'
 legend['Htautau'] = 'H#rightarrow#tau#tau'
 legend['Hmumu'] = 'H#rightarrow#mu#mu'
 legend['HZa'] = 'H#rightarrowZa'
 legend['Hqq'] = 'H#rightarrowqq (bb, ss, cc)'
 legend['Hgg'] = 'Hgg'
-legend['Haa'] = 'Haa'
+#legend['Haa'] = 'Haa'
+legend['ZZ'] = 'ZZ'

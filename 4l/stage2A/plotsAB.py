@@ -66,7 +66,7 @@ variables = ['emiss',
 
 ###Dictonnary with the analysis name as a key, and the list of selections to be plotted for this analysis. The name of the selections should be the same than in the final selection
 selections = {}
-selections['finalAA']   = ["precuts", 
+selections['finalAB']   = ["precuts", 
                            "precuts_emiss"]
 
 extralabel = {}
@@ -89,7 +89,7 @@ colors['HZa'] = ROOT.kOrange+6
 colors['ZZ'] = ROOT.kAzure+6
 
 plots = {}                                  
-plots['finalAA'] = {'signal':{'Signal,HZZ':['wzp6_ee_mumuH_HZZ_ecm240',
+plots['finalAB'] = {'signal':{'Signal,HZZ':['wzp6_ee_mumuH_HZZ_ecm240',
                                               'wzp6_ee_eeH_HZZ_ecm240']},
 
                    'backgrounds':{'HWW':['wzp6_ee_mumuH_HWW_ecm240', 
