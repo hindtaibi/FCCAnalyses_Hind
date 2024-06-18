@@ -79,16 +79,19 @@ class RDFanalysis():
                .Filter("Za_m < 110 && Za_m > 80 && Zb_m < 110 && Zb_m > 80")
 
                #Dileptons
-
+		
+	       #Dileptons tlv
                .Define("ll1_tlv",           "on_Z_leptons_tlv[0] + on_Z_leptons_tlv[1]")
                .Define("ll2_tlv",           "on_Z_leptons_tlv[2] + on_Z_leptons_tlv[3]")
-
+		
+	       #Dileptons angular difference	
                .Define("ll1_theta_diff",    "abs(on_Z_leptons_tlv[0].Theta() - on_Z_leptons_tlv[1].Theta())")
                .Define("ll1_phi_diff",      "abs(on_Z_leptons_tlv[0].Phi() - on_Z_leptons_tlv[1].Phi())")
                
                .Define("ll2_theta_diff",    "abs(on_Z_leptons_tlv[2].Theta() - on_Z_leptons_tlv[3].Theta())")
                .Define("ll2_phi_diff",      "abs(on_Z_leptons_tlv[2].Phi() - on_Z_leptons_tlv[3].Phi())")
                
+               #Dileptons recoil mass
                .Define("ll1_recoil_m",      "sqrt((240-ll1_tlv.E())*(240-ll1_tlv.E())-(ll1_tlv.P())*(ll1_tlv.P()))")
                .Define("ll2_recoil_m",      "sqrt((240-ll2_tlv.E())*(240-ll2_tlv.E())-(ll2_tlv.P())*(ll2_tlv.P()))")
 
@@ -113,6 +116,16 @@ class RDFanalysis():
 
                .Define("ll2a_tlv",          "ll2_tlv + photon_tlv")
                .Define("ll2a_m",            "ll2a_tlv.M()")
+               
+               #1st dilepton + missing tlv
+               
+               .Define("ll1miss_tlv",       "ll1_tlv + missing_tlv")
+               .Define("ll1miss_m",         "ll1miss_tlv.M()")
+               
+               #2nd dilepton + missing tlv
+               
+               .Define("ll2miss_tlv",       "ll2_tlv + missing_tlv")
+               .Define("ll2miss_m",         "ll2miss_tlv.M()")
                
                #Za (the on shell Z) decays into 2 leptons
 
@@ -232,6 +245,11 @@ class RDFanalysis():
             "ll1jj_tlv",
             "ll2jj_m",
             "ll2jj_tlv",
+            
+            "ll1miss_m",
+            "ll1miss_tlv",
+            "ll2miss_m",
+            "ll2miss_tlv",
             
             #-----------------------------------------------------------------------------------------On shell Z
 
