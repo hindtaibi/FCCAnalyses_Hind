@@ -5,7 +5,15 @@ inputDir    = "../stage1bis/outputs"
 #Optional: output directory, default is local dir
 outputDir   = "outputs"
 
-processList = {'wzp6_ee_mumuH_HZZ_ecm240':{},       #Signal
+processList = {#Signal
+	       'wzp6_ee_mumuH_HZZ_ecm240':{},   
+               'wzp6_ee_eeH_HZZ_ecm240':{},     
+               'wzp6_ee_nunuH_HZZ_ecm240':{},   
+               'wzp6_ee_qqH_HZZ_ecm240':{},
+               'wzp6_ee_ssH_HZZ_ecm240':{},
+               'wzp6_ee_bbH_HZZ_ecm240':{},
+               'wzp6_ee_ccH_HZZ_ecm240':{},
+               #Background
                'wzp6_ee_mumuH_HWW_ecm240':{},
                'wzp6_ee_mumuH_HZa_ecm240':{},
                'wzp6_ee_mumuH_Haa_ecm240':{},
@@ -15,7 +23,6 @@ processList = {'wzp6_ee_mumuH_HZZ_ecm240':{},       #Signal
                'wzp6_ee_mumuH_Hmumu_ecm240':{},
                'wzp6_ee_mumuH_Hss_ecm240':{},
                'wzp6_ee_mumuH_Htautau_ecm240':{},
-               'wzp6_ee_nunuH_HZZ_ecm240':{},
                'wzp6_ee_nunuH_HWW_ecm240':{},
                'wzp6_ee_nunuH_HZa_ecm240':{},
                'wzp6_ee_nunuH_Haa_ecm240':{},
@@ -25,7 +32,6 @@ processList = {'wzp6_ee_mumuH_HZZ_ecm240':{},       #Signal
                'wzp6_ee_nunuH_Hmumu_ecm240':{},
                'wzp6_ee_nunuH_Hss_ecm240':{},
                'wzp6_ee_nunuH_Htautau_ecm240':{},
-               'wzp6_ee_eeH_HZZ_ecm240':{},         #Signal
                'wzp6_ee_eeH_HWW_ecm240':{},
                'wzp6_ee_eeH_HZa_ecm240':{},
                'wzp6_ee_eeH_Haa_ecm240':{},
@@ -34,7 +40,7 @@ processList = {'wzp6_ee_mumuH_HZZ_ecm240':{},       #Signal
                'wzp6_ee_eeH_Hgg_ecm240':{},
                'wzp6_ee_eeH_Hmumu_ecm240':{},
                'wzp6_ee_eeH_Hss_ecm240':{},
-               'wzp6_ee_eeH_Htautau_ecm240':{}, 
+               'wzp6_ee_eeH_Htautau_ecm240':{},
                'p8_ee_ZZ_ecm240':{},
                'p8_ee_WW_ecm240':{}
                }
@@ -70,9 +76,9 @@ class RDFanalysis():
                #Filter to have two leptonic on shell Z bosons               
                .Filter("N_other_Z_leptonic == 0 && N_on_Z_leptonic == 2")
 
-               .Define("Za_tlv",            "on_Z_leptonic_tlv[0]")
+               ##.Define("Za_tlv",            "on_Z_leptonic_tlv[0]")   #I don't filter the mass after all, not yet
                .Define("Za_m",              "Za_tlv.M()")
-               .Define("Zb_tlv",            "on_Z_leptonic_tlv[1]")
+               ##.Define("Zb_tlv",            "on_Z_leptonic_tlv[1]")   #I don't filter the mass after all, not yet
                .Define("Zb_m",              "Zb_tlv.M()")
 
                #We filter to have the invariant masses that correspond to on shell Z
