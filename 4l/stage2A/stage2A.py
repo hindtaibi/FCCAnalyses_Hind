@@ -209,8 +209,10 @@ class RDFanalysis():
                .Define("angle_miss_j5",     "angle_miss_jet[0]")
                .Define("angle_miss_j6",     "angle_miss_jet[1]")
 
-               #Visible mass
+               #Visible/Missing mass
+	       
                .Define("visible_m",         "visible_4vector.M()")
+	       .Define("missing_m",         "missing_tlv[0].M()")
 
                      
                )
@@ -337,7 +339,8 @@ class RDFanalysis():
             "pymiss",
             "pzmiss",
 
-            "visible_m"
+            "visible_m",
+	    "missing_m"
           
         ]        
 
