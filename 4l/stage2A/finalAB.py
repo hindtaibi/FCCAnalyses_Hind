@@ -6,39 +6,45 @@ inputDir  = "../outputs/"
 #Input directory where the files produced at the pre-selection level are
 outputDir  = "outputs"
 
-processList = {'wzp6_ee_mumuH_HZZ_ecm240':{},        #Signal
+processList = {#Signal
+	       'wzp6_ee_mumuH_HZZ_ecm240':{},   
+               'wzp6_ee_eeH_HZZ_ecm240':{},     
+               'wzp6_ee_nunuH_HZZ_ecm240':{},   
+               'wzp6_ee_qqH_HZZ_ecm240':{},
+               'wzp6_ee_ssH_HZZ_ecm240':{},
+               'wzp6_ee_bbH_HZZ_ecm240':{},
+               'wzp6_ee_ccH_HZZ_ecm240':{},
+               #Background
                'wzp6_ee_mumuH_HWW_ecm240':{},
                'wzp6_ee_mumuH_HZa_ecm240':{},
-               #'wzp6_ee_mumuH_Haa_ecm240':{},      #Empty after stage2    
-               #'wzp6_ee_mumuH_Hbb_ecm240':{},	    #Empty after stage2
-               #'wzp6_ee_mumuH_Hcc_ecm240':{},      #Empty after stage2
-               #'wzp6_ee_mumuH_Hgg_ecm240':{},      #Empty after stage2
+               #'wzp6_ee_mumuH_Haa_ecm240':{},
+               'wzp6_ee_mumuH_Hbb_ecm240':{},
+               'wzp6_ee_mumuH_Hcc_ecm240':{},
+               'wzp6_ee_mumuH_Hgg_ecm240':{},
                'wzp6_ee_mumuH_Hmumu_ecm240':{},
-               #'wzp6_ee_mumuH_Hss_ecm240':{},      #Empty after stage2
+               'wzp6_ee_mumuH_Hss_ecm240':{},
                'wzp6_ee_mumuH_Htautau_ecm240':{},
-               #'wzp6_ee_nunuH_HZZ_ecm240':{},      #Empty after stage2
-               #'wzp6_ee_nunuH_HWW_ecm240':{},      #Empty after stage2       
-               #'wzp6_ee_nunuH_HZa_ecm240':{},      #Empty after stage2       
-               #'wzp6_ee_nunuH_Haa_ecm240':{},      #Empty after stage2       
-               #'wzp6_ee_nunuH_Hbb_ecm240':{},      #Empty after stage2            
-               #'wzp6_ee_nunuH_Hcc_ecm240':{},      #Empty after stage2     
-               #'wzp6_ee_nunuH_Hgg_ecm240':{},      #Empty after stage2    
-               #'wzp6_ee_nunuH_Hmumu_ecm240':{},    #Empty after stage2   
-               #'wzp6_ee_nunuH_Hss_ecm240':{},      #Empty after stage2   
-               #'wzp6_ee_nunuH_Htautau_ecm240':{},  #Empty after stage2    
-               'wzp6_ee_eeH_HZZ_ecm240':{},          #Signal
+               #'wzp6_ee_nunuH_HWW_ecm240':{},
+               #'wzp6_ee_nunuH_HZa_ecm240':{},
+               #'wzp6_ee_nunuH_Haa_ecm240':{},
+               #'wzp6_ee_nunuH_Hbb_ecm240':{},
+               #'wzp6_ee_nunuH_Hcc_ecm240':{},
+               #'wzp6_ee_nunuH_Hgg_ecm240':{},   
+               #'wzp6_ee_nunuH_Hmumu_ecm240':{},
+               #'wzp6_ee_nunuH_Hss_ecm240':{},
+               #'wzp6_ee_nunuH_Htautau_ecm240':{},
                'wzp6_ee_eeH_HWW_ecm240':{},
                'wzp6_ee_eeH_HZa_ecm240':{},
-               #'wzp6_ee_eeH_Haa_ecm240':{},        #Empty after stage2      
-               #'wzp6_ee_eeH_Hbb_ecm240':{},        #Empty after stage2
-               #'wzp6_ee_eeH_Hcc_ecm240':{},        #Empty after stage2
-               #'wzp6_ee_eeH_Hgg_ecm240':{},        #Empty after stage2    
+               #'wzp6_ee_eeH_Haa_ecm240':{},
+               'wzp6_ee_eeH_Hbb_ecm240':{},
+               'wzp6_ee_eeH_Hcc_ecm240':{},
+               #'wzp6_ee_eeH_Hgg_ecm240':{},
                'wzp6_ee_eeH_Hmumu_ecm240':{},
-               #'wzp6_ee_eeH_Hss_ecm240':{},        #Empty after stage2
+               'wzp6_ee_eeH_Hss_ecm240':{},
                'wzp6_ee_eeH_Htautau_ecm240':{},
                'p8_ee_ZZ_ecm240':{},
-               #'p8_ee_WW_ecm240':{}                #Empty after stage2
-            }
+               #'p8_ee_WW_ecm240':{}
+               }
 
 #Link to the dictonary that contains all the cross section informations etc...
 procDict = "FCCee_procDict_winter2023_IDEA.json"
@@ -55,8 +61,10 @@ doScale = False
 
 
 #Dictionnay of the list of cuts. The key is the name of the selection that will be added to the output file
-cutList = {"precuts":"emiss > -10",  
-           "precuts_emiss":"emiss > 8"
+cutList = {"precuts":				   "emiss > -10",
+	   "precuts_Za_m":			   "Za_m < 110 && Za_m > 80",
+	   "precuts_Za_m_Zb_m":			   "Za_m < 110 && Za_m > 80 && Zb_m < 110 && Zb_m > 80",
+           "precuts_Za_m_Zb_m_emiss":              "Za_m < 110 && Za_m > 80 && Zb_m < 110 && Zb_m > 80 && emiss > 8"
            }
 
 #Dictionary for the ouput variable/hitograms. The key is the name of the variable in the output files. "name" is the name of the variable in the input file, "title" is the x-axis label of the histogram, "bin" the number of bins of the histogram, "xmin" the minimum x-axis value and "xmax" the maximum x-axis value.

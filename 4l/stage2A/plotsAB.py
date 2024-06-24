@@ -68,23 +68,25 @@ variables = ['emiss',
 ###Dictonnary with the analysis name as a key, and the list of selections to be plotted for this analysis. The name of the selections should be the same than in the final selection
 selections = {}
 selections['finalAB']   = ["precuts", 
-                           "precuts_emiss"]
+                           "precuts_Za_m",
+                           "precuts_Za_m_Zb_m",
+                           "precuts_Za_m_Zb_m_emiss"]
 
 extralabel = {}
-extralabel["precuts"] = "Precuts: 2 leptonic Z with mass 80 < m_{ll} < 110"
-extralabel["precuts_emiss"] = "Precuts + emiss > 8"
-#extralabel["precuts_emiss_photon_e"] = "Precuts + emiss < 8 + photon_e < 20"
-#extralabel["precuts_emiss_photon_e_jj_m"] = "Precuts + emiss < 8 + photon_e < 20 + jj_m > 5"
+extralabel["precuts"] = "Precuts: 2 on shell leptonic Z"
+extralabel["precuts_Za_m"] = "Precuts + 80 < m(Z_{a}) < 110"
+extralabel["precuts_Za_m_Zb_m"] = "Precuts + 80 < m(Z_{a}),m(Z_{b}) < 110"
+extralabel["precuts_Za_m_Zb_m_emiss"] = "Precuts + 80 < m(Z_{a}),m(Z_{b}) < 110 + emiss > 8"
 
 
 colors = {}
 colors['Signal,HZZ'] = ROOT.kRed
 colors['HWW'] = ROOT.kGreen
 #colors['nunuH,HZZ'] = ROOT.kBlue
-#colors['Hgg'] = ROOT.kYellow
+colors['Hgg'] = ROOT.kYellow
 #colors['ZZ'] = ROOT.kOrange-2
 colors['Htautau'] = ROOT.kCyan+2
-#colors['Hqq'] = ROOT.kPink-9
+colors['Hqq'] = ROOT.kPink-9
 colors['Hmumu'] = ROOT.kViolet
 colors['HZa'] = ROOT.kOrange+6
 colors['ZZ'] = ROOT.kAzure+6
@@ -98,9 +100,18 @@ plots['finalAB'] = {'signal':{'Signal,HZZ':['wzp6_ee_mumuH_HZZ_ecm240',
  
                                   'Htautau':['wzp6_ee_mumuH_Htautau_ecm240', 
                                              'wzp6_ee_eeH_Htautau_ecm240'],
+                                             
+                                  'Hqq':['wzp6_ee_mumuH_Hbb_ecm240', 
+                                         'wzp6_ee_eeH_Hbb_ecm240',
+                                         'wzp6_ee_mumuH_Hss_ecm240',
+                                         'wzp6_ee_eeH_Hss_ecm240',
+                                         'wzp6_ee_mumuH_Hcc_ecm240',
+                                         'wzp6_ee_eeH_Hcc_ecm240'],
  
                                   'Hmumu':['wzp6_ee_mumuH_Hmumu_ecm240', 
                                            'wzp6_ee_eeH_Hmumu_ecm240'],
+                                           
+                                  'Hgg':['wzp6_ee_mumuH_Hgg_ecm240'],
  
                                   'HZa':['wzp6_ee_mumuH_HZa_ecm240', 
                                          'wzp6_ee_eeH_HZa_ecm240'],
@@ -116,5 +127,7 @@ legend['ZZ'] = 'ZZ'
 legend['Htautau'] = 'H#rightarrow#tau#tau'
 legend['Hmumu'] = 'H#rightarrow#mu#mu'
 legend['HZa'] = 'H#rightarrowZa'
+legend['Hqq'] = 'H#rightarrowqq'
+legend['Hgg'] = 'Hgg'
 #legend['Mee'] = 'Mee'
 #legend['VV'] = 'VV boson'
