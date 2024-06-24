@@ -76,13 +76,13 @@ class RDFanalysis():
                #Filter to have two leptonic on shell Z bosons               
                .Filter("N_other_Z_leptonic == 0 && N_on_Z_leptonic == 2")
 
-               ##.Define("Za_tlv",            "on_Z_leptonic_tlv[0]")   #I don't filter the mass after all, not yet
+               .Define("Za_tlv",            "on_Z_leptonic_tlv[0]")   
                .Define("Za_m",              "Za_tlv.M()")
-               ##.Define("Zb_tlv",            "on_Z_leptonic_tlv[1]")   #I don't filter the mass after all, not yet
+               .Define("Zb_tlv",            "on_Z_leptonic_tlv[1]")   
                .Define("Zb_m",              "Zb_tlv.M()")
 
                #We filter to have the invariant masses that correspond to on shell Z
-               .Filter("Za_m < 110 && Za_m > 80 && Zb_m < 110 && Zb_m > 80")
+               ##.Filter("Za_m < 110 && Za_m > 80 && Zb_m < 110 && Zb_m > 80")   #I don't filter the mass after all, not yet
 
                #Dileptons
 		
