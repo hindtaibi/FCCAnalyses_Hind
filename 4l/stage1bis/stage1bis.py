@@ -1,6 +1,14 @@
 #Mandatory: List of processes
 
-processList = {'wzp6_ee_mumuH_HZZ_ecm240':{},   #Signal
+processList = {#Signal
+	       'wzp6_ee_mumuH_HZZ_ecm240':{},   
+               'wzp6_ee_eeH_HZZ_ecm240':{},     
+               'wzp6_ee_nunuH_HZZ_ecm240':{},   
+               'wzp6_ee_qqH_HZZ_ecm240':{},
+               'wzp6_ee_ssH_HZZ_ecm240':{},
+               'wzp6_ee_bbH_HZZ_ecm240':{},
+               'wzp6_ee_ccH_HZZ_ecm240':{},
+               #Background
                'wzp6_ee_mumuH_HWW_ecm240':{},
                'wzp6_ee_mumuH_HZa_ecm240':{},
                'wzp6_ee_mumuH_Haa_ecm240':{},
@@ -10,7 +18,6 @@ processList = {'wzp6_ee_mumuH_HZZ_ecm240':{},   #Signal
                'wzp6_ee_mumuH_Hmumu_ecm240':{},
                'wzp6_ee_mumuH_Hss_ecm240':{},
                'wzp6_ee_mumuH_Htautau_ecm240':{},
-               'wzp6_ee_nunuH_HZZ_ecm240':{},
                'wzp6_ee_nunuH_HWW_ecm240':{},
                'wzp6_ee_nunuH_HZa_ecm240':{},
                'wzp6_ee_nunuH_Haa_ecm240':{},
@@ -20,7 +27,6 @@ processList = {'wzp6_ee_mumuH_HZZ_ecm240':{},   #Signal
                'wzp6_ee_nunuH_Hmumu_ecm240':{},
                'wzp6_ee_nunuH_Hss_ecm240':{},
                'wzp6_ee_nunuH_Htautau_ecm240':{},
-               'wzp6_ee_eeH_HZZ_ecm240':{},     #Signal
                'wzp6_ee_eeH_HWW_ecm240':{},
                'wzp6_ee_eeH_HZa_ecm240':{},
                'wzp6_ee_eeH_Haa_ecm240':{},
