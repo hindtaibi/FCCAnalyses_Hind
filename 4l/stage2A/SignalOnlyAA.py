@@ -87,53 +87,31 @@ extralabel["precuts_Za_m_Zb_m_emiss_photon_e_jj_m"] = "Precuts + 80 < m(Z_{a}),m
 
 colors = {}
 colors['Signal,HZZ'] = ROOT.kRed
-colors['HWW'] = ROOT.kGreen
+#colors['HWW'] = ROOT.kGreen
 #colors['nunuH,HZZ'] = ROOT.kBlue
 #colors['Hgg'] = ROOT.kYellow
 #colors['ZZ'] = ROOT.kOrange-2
-colors['Htautau'] = ROOT.kCyan+2
+#colors['Htautau'] = ROOT.kCyan+2
 #colors['Hqq'] = ROOT.kPink-9
-colors['Hmumu'] = ROOT.kViolet
-colors['HZa'] = ROOT.kOrange+6
-colors['ZZ'] = ROOT.kAzure+6
+#colors['Hmumu'] = ROOT.kViolet
+#colors['HZa'] = ROOT.kOrange+6
+#colors['ZZ'] = ROOT.kAzure+6
 
 plots = {}                                  
 plots['finalAA'] = {'signal':{'Signal,HZZ':['wzp6_ee_mumuH_HZZ_ecm240',
-                                              'wzp6_ee_eeH_HZZ_ecm240']},
+                                            'wzp6_ee_eeH_HZZ_ecm240']},
 
-                   'backgrounds':{'HWW':['wzp6_ee_mumuH_HWW_ecm240', 
-                                         'wzp6_ee_eeH_HWW_ecm240'],
- 
-                                  'Htautau':['wzp6_ee_mumuH_Htautau_ecm240', 
-                                             'wzp6_ee_eeH_Htautau_ecm240'],
-                                             
-                                  'Hqq':['wzp6_ee_mumuH_Hbb_ecm240', 
-                                         'wzp6_ee_eeH_Hbb_ecm240',
-                                         'wzp6_ee_mumuH_Hss_ecm240',
-                                         'wzp6_ee_eeH_Hss_ecm240',
-                                         'wzp6_ee_mumuH_Hcc_ecm240',
-                                         'wzp6_ee_eeH_Hcc_ecm240'],
- 
-                                  'Hmumu':['wzp6_ee_mumuH_Hmumu_ecm240', 
-                                           'wzp6_ee_eeH_Hmumu_ecm240'],
-                                           
-                                  'Hgg':['wzp6_ee_mumuH_Hgg_ecm240'],
- 
-                                  'HZa':['wzp6_ee_mumuH_HZa_ecm240', 
-                                         'wzp6_ee_eeH_HZa_ecm240'],
-
-				  'ZZ':['p8_ee_ZZ_ecm240']
-                                  }
+                   'backgrounds':{}
                    }         
 
 legend = {}
 legend['Signal,HZZ'] = 'Signal'
-legend['HWW'] = 'H#rightarrowWW'
-legend['ZZ'] = 'ZZ'
-legend['Htautau'] = 'H#rightarrow#tau#tau'
-legend['Hmumu'] = 'H#rightarrow#mu#mu'
-legend['HZa'] = 'H#rightarrowZa'
-legend['Hqq'] = 'H#rightarrowqq'
-legend['Hgg'] = 'Hgg'
+#legend['HWW'] = 'H#rightarrowWW'
+#legend['ZZ'] = 'ZZ'
+#legend['Htautau'] = 'H#rightarrow#tau#tau'
+#legend['Hmumu'] = 'H#rightarrow#mu#mu'
+#legend['HZa'] = 'H#rightarrowZa'
+#legend['Hqq'] = 'H#rightarrowqq'
+#legend['Hgg'] = 'Hgg'
 #legend['Mee'] = 'Mee'
 #legend['VV'] = 'VV boson'
