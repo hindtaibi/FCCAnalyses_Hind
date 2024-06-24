@@ -202,7 +202,11 @@ class RDFanalysis():
                .Define("angle_miss_jet",    "ReconstructedParticle::get_angle(missing_tlv[0], jets_e2, jets_px2, jets_py2, jets_pz2)")
                .Define("angle_miss_j5",     "angle_miss_jet[0]")
                .Define("angle_miss_j6",     "angle_miss_jet[1]")
-       
+
+               #Visible mass
+               .Define("visible_m",         "visible_4vector.M()")
+
+                     
                )
         return df2
 
@@ -250,6 +254,11 @@ class RDFanalysis():
             "ll1miss_tlv",
             "ll2miss_m",
             "ll2miss_tlv",
+
+            #-------------------------------------------------------------------------------------Extra leptons
+
+            "N_on_extra_leptons",
+            "N_other_extra_leptons",
             
             #-----------------------------------------------------------------------------------------On shell Z
 
@@ -320,7 +329,9 @@ class RDFanalysis():
             "etmiss",
             "pxmiss",
             "pymiss",
-            "pzmiss"       
+            "pzmiss",
+
+            "visible_m"
           
         ]        
 

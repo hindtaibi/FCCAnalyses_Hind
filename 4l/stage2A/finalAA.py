@@ -64,6 +64,11 @@ cutList = {"precuts":"emiss > -10",
 #Dictionary for the ouput variable/hitograms. The key is the name of the variable in the output files. "name" is the name of the variable in the input file, "title" is the x-axis label of the histogram, "bin" the number of bins of the histogram, "xmin" the minimum x-axis value and "xmax" the maximum x-axis value.
 histoList = {
 
+    #Extra Leptons
+
+    "N_on_extra_leptons": {"name":"N_on_extra_leptons", "title":"N_on_extra_leptons",                         "bin":10,  "xmin":0,      "xmax":10},
+    "N_other_extra_leptons": {"name":"N_other_extra_leptons", "title":"N_other_extra_leptons",                "bin":10,  "xmin":0,      "xmax":10},
+
     #Photon
     
     "photon_e":       {"name":"photon_e",          "title":"Energy of the photon [GeV]",                       "bin":100,  "xmin":0,      "xmax":50},
@@ -127,10 +132,14 @@ histoList = {
     
     #Missing Energy
         
-    "emiss":          {"name":"emiss",          "title":"Missing energy [GeV]",                  		 "bin":100,  "xmin":0,     "xmax":50},
+    "emiss":          {"name":"emiss",          "title":"Missing Energy [GeV]",                  		 "bin":100,  "xmin":0,     "xmax":50},
     "pxmiss":         {"name":"pxmiss",         "title":"Missing p_{x} [GeV]",               			 "bin":100,  "xmin":-40,   "xmax":40},
     "pymiss":         {"name":"pymiss",         "title":"Missing p_{y} [GeV]",               			 "bin":100,  "xmin":-40,   "xmax":40},
-    "pzmiss":         {"name":"pzmiss",         "title":"Missing p_{z} [GeV]",               			 "bin":100,  "xmin":-40,   "xmax":40}
+    "pzmiss":         {"name":"pzmiss",         "title":"Missing p_{z} [GeV]",               			 "bin":100,  "xmin":-40,   "xmax":40},
+
+    #Visible Mass
+
+    "visible_m":      {"name":"visible_m",      "title":"Visible Mass [GeV]",                            "bin":100,  "xmin":170,   "xmax":250},
 }
 
 
