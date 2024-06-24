@@ -1,6 +1,6 @@
 import ROOT
 
-inputDir       = "../finalAA/outputs/"
+inputDir       = "../finalBA/outputs/"
 outdir         = "outputs"
 
 # global parameters
@@ -69,10 +69,10 @@ variables = ['emiss',
 
 ###Dictonnary with the analysis name as a key, and the list of selections to be plotted for this analysis. The name of the selections should be the same than in the final selection
 selections = {}
-selections['SignalOnlyA'] = ["precuts"]
+selections['SignalOnlyB'] = ["precuts"]
 
 extralabel = {}
-extralabel["precuts"] = "Precuts: 2 on shell leptonic Z"
+extralabel["precuts"] = "Precuts: 1 on shell leptonic Z & 1 pff shell leptonic Z"
 
 
 colors = {}
@@ -88,7 +88,7 @@ colors['Signal,HZZ'] = ROOT.kRed
 #colors['ZZ'] = ROOT.kAzure+6
 
 plots = {}                                  
-plots['SignalOnlyA'] = {'signal':{'Signal,HZZ':['wzp6_ee_mumuH_HZZ_ecm240',
+plots['SignalOnlyB'] = {'signal':{'Signal,HZZ':['wzp6_ee_mumuH_HZZ_ecm240',
                                                 'wzp6_ee_eeH_HZZ_ecm240',
                                                 'wzp6_ee_nunuH_HZZ_ecm240',
                                                 'wzp6_ee_qqH_HZZ_ecm240',

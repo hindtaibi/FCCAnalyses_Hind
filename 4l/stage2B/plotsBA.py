@@ -68,15 +68,19 @@ variables = ['emiss',
 ###Dictonnary with the analysis name as a key, and the list of selections to be plotted for this analysis. The name of the selections should be the same than in the final selection
 selections = {}
 selections['finalBA']   = ["precuts", 
-                           "precuts_emiss",
-                           "precuts_emiss_jj_m",
-                           "precuts_emiss_jj_m_Za_recoil"]
+                           "precuts_Za_m",
+                           "precuts_Za_m_Zb_m",
+                           "precuts_Za_m_Zb_m_emiss",
+                           "precuts_Za_m_Zb_m_emiss_jj_m",
+                           "precuts_Za_m_Zb_m_emiss_jj_m_Za_recoil"]
 
 extralabel = {}
-extralabel["precuts"] = "Precuts: 2 leptonic Z: 20 < m^{b}_{ll} < 80 and 80 < m^{a}_{ll} < 110"
-extralabel["precuts_emiss"] = "Precuts + emiss < 8"
-extralabel["precuts_emiss_jj_m"] = "Precuts + emiss < 8 + jj_m > 5"
-extralabel["precuts_emiss_jj_m_Za_recoil"] = "Precuts + emiss < 8 + jj_m > 5 + Za_recoil > 120"
+extralabel["precuts"] = "Precuts: 1 on shell and 1 off shell leptonic Z"
+extralabel["precuts_Za_m"] = "Precuts + 80 < m(Z_{a}) < 110"
+extralabel["precuts_Za_m_Zb_m"] = "Precuts + 80 < m(Z_{a}) < 110 + 20 < m(Z_{b}) < 80"
+extralabel["precuts_Za_m_Zb_m_emiss"] = "Precuts + 80 < m(Z_{a}) < 110 + 20 < m(Z_{b}) < 80 + emiss < 8"
+extralabel["precuts_Za_m_Zb_m_emiss_jj_m"] = "Precuts + 80 < m(Z_{a}) < 110 + 20 < m(Z_{b}) < 80 + emiss < 8 + m(jj) > 5"
+extralabel["precuts_Za_m_Zb_m_emiss_jj_m_Za_recoil"] = "Precuts + 80 < m(Z_{a}) < 110 + 20 < m(Z_{b}) < 80 + emiss < 8 + m(jj) > 5 + Za_recoil > 120"
 
 
 colors = {}
@@ -84,17 +88,21 @@ colors['Signal,HZZ'] = ROOT.kRed
 colors['HWW'] = ROOT.kGreen
 colors['nunuH,HZZ'] = ROOT.kBlue
 colors['Hgg'] = ROOT.kYellow
-#colors['nunuH,Hbb'] = ROOT.kOrange-2
+colors['nunuH,Hbb'] = ROOT.kGreen+3
 colors['Htautau'] = ROOT.kCyan+2
 colors['Hqq'] = ROOT.kPink-9
 colors['Hmumu'] = ROOT.kViolet
 colors['HZa'] = ROOT.kOrange+6
-#colors['Haa'] = ROOT.kGreen+3
 colors['ZZ'] = ROOT.kAzure+6
+colors['WW'] = ROOT.kGray+1
 
 plots = {}                                  
 plots['finalBA'] = {'signal':{'Signal,HZZ':['wzp6_ee_mumuH_HZZ_ecm240',
-                                              'wzp6_ee_eeH_HZZ_ecm240']},
+                                              'wzp6_ee_eeH_HZZ_ecm240',
+                                              'wzp6_ee_qqH_HZZ_ecm240',
+                                              'wzp6_ee_ssH_HZZ_ecm240',
+                                              'wzp6_ee_bbH_HZZ_ecm240',
+                                              'wzp6_ee_ccH_HZZ_ecm240']},
 
                    'backgrounds':{'HWW':['wzp6_ee_mumuH_HWW_ecm240', 
                                          'wzp6_ee_eeH_HWW_ecm240'],
@@ -119,7 +127,9 @@ plots['finalBA'] = {'signal':{'Signal,HZZ':['wzp6_ee_mumuH_HZZ_ecm240',
                                   'Hgg':['wzp6_ee_mumuH_Hgg_ecm240',
                                          'wzp6_ee_eeH_Hgg_ecm240'],
                                   
-                                  'ZZ':['p8_ee_ZZ_ecm240']
+                                  'ZZ':['p8_ee_ZZ_ecm240'],
+                                  
+                                  'WW':['p8_ee_WW_ecm240']
                                   }
                    }         
 
@@ -127,11 +137,11 @@ legend = {}
 legend['Signal,HZZ'] = 'Signal'
 legend['HWW'] = 'H#rightarrowWW'
 legend['nunuH,HZZ'] = '#nu#nuH, HZZ'
-#legend['nunuH,Hbb'] = '#nu#nuH, Hbb'
+legend['nunuH,Hbb'] = '#nu#nuH, Hbb'
 legend['Htautau'] = 'H#rightarrow#tau#tau'
 legend['Hmumu'] = 'H#rightarrow#mu#mu'
 legend['HZa'] = 'H#rightarrowZa'
-legend['Hqq'] = 'H#rightarrowqq (bb, ss, cc)'
-legend['Hgg'] = 'Hgg'
-#legend['Haa'] = 'Haa'
+legend['Hqq'] = 'H#rightarrowqq'
+legend['Hgg'] = 'H#rightarrowgg'
 legend['ZZ'] = 'ZZ'
+legend['WW'] = 'WW'
