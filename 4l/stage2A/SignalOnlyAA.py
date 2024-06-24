@@ -69,20 +69,10 @@ variables = ['emiss',
 
 ###Dictonnary with the analysis name as a key, and the list of selections to be plotted for this analysis. The name of the selections should be the same than in the final selection
 selections = {}
-selections['finalAA']   = ["precuts", 
-                           "precuts_Za_m",
-                           "precuts_Za_m_Zb_m",
-                           "precuts_Za_m_Zb_m_emiss",
-                           "precuts_Za_m_Zb_m_emiss_photon_e",
-                           "precuts_Za_m_Zb_m_emiss_photon_e_jj_m"]
+selections['SignalOnly']= ["precuts"]
 
 extralabel = {}
 extralabel["precuts"] = "Precuts: 2 on shell leptonic Z"
-extralabel["precuts_Za_m"] = "Precuts + 80 < m(Z_{a}) < 110"
-extralabel["precuts_Za_m_Zb_m"] = "Precuts + 80 < m(Z_{a}),m(Z_{b}) < 110"
-extralabel["precuts_Za_m_Zb_m_emiss"] = "Precuts + 80 < m(Z_{a}),m(Z_{b}) < 110 + emiss < 8"
-extralabel["precuts_Za_m_Zb_m_emiss_photon_e"] = "Precuts + 80 < m(Z_{a}),m(Z_{b}) < 110 + emiss < 8 + #gamma_{e} < 20"
-extralabel["precuts_Za_m_Zb_m_emiss_photon_e_jj_m"] = "Precuts + 80 < m(Z_{a}),m(Z_{b}) < 110 + emiss < 8 + #gamma_{e} < 20 + jj_m > 5"
 
 
 colors = {}
