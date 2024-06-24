@@ -130,5 +130,7 @@ histoList = {
     "emiss":          {"name":"emiss",          "title":"Missing energy [GeV]",                  		 "bin":100,  "xmin":0,     "xmax":90},
     "pxmiss":         {"name":"pxmiss",         "title":"Missing p_{x} [GeV]",               			 "bin":100,  "xmin":-80,   "xmax":80},
     "pymiss":         {"name":"pymiss",         "title":"Missing p_{y} [GeV]",               			 "bin":100,  "xmin":-80,   "xmax":80},
-    "pzmiss":         {"name":"pzmiss",         "title":"Missing p_{z} [GeV]",               			 "bin":100,  "xmin":-80,   "xmax":80}
+    "pzmiss":         {"name":"pzmiss",         "title":"Missing p_{z} [GeV]",               			 "bin":100,  "xmin":-80,   "xmax":80},
+
+    "visible_m":      {"name":"visible_m",      "title":"Visible Mass [GeV]",                            "bin":200,  "xmin":100,   "xmax":250}
 }

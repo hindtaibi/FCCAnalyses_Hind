@@ -60,19 +60,21 @@ variables = ['emiss',
 	         "ll2_theta_diff",
 	         "ll2_phi_diff",
 	         "diffthetajets_34",
-	         "diffphijets_34"
+	         "diffphijets_34",
+             "visible_m"
              ]
 
 
 ###Dictonnary with the analysis name as a key, and the list of selections to be plotted for this analysis. The name of the selections should be the same than in the final selection
 selections = {}
 selections['finalBB']   = ["precuts", 
-                           "precuts_emiss"]
+                           "precuts_emiss",
+                           "precuts_emiss_jj_m"]
 
 extralabel = {}
 extralabel["precuts"] = "Precuts: 2 leptonic Z with 20 < m^{b}_{ll} < 80 and 80 < m^{a}_{ll} < 110"
 extralabel["precuts_emiss"] = "Precuts + emiss > 8"
-#extralabel["precuts_emiss_jj_m"] = "Precuts + emiss < 8 + jj_m > 5"
+extralabel["precuts_emiss_jj_m"] = "Precuts + emiss > 8 + jj_m < 8"
 #extralabel["precuts_emiss_jj_m_Za_recoil"] = "Precuts + emiss < 8 + jj_m > 5 + Za_recoil > 120"
 
 

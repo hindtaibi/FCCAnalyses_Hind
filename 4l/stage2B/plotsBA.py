@@ -60,7 +60,8 @@ variables = ['emiss',
 	         "ll2_theta_diff",
 	         "ll2_phi_diff",
 	         "diffthetajets_34",
-	         "diffphijets_34"
+	         "diffphijets_34",
+             "visible_m"
              ]
 
 
@@ -72,7 +73,7 @@ selections['finalBA']   = ["precuts",
                            "precuts_emiss_jj_m_Za_recoil"]
 
 extralabel = {}
-extralabel["precuts"] = "Precuts: 2 leptonic Z with 20 < m^{b}_{ll} < 80 and 80 < m^{a}_{ll} < 110"
+extralabel["precuts"] = "Precuts: 2 leptonic Z: 20 < m^{b}_{ll} < 80 and 80 < m^{a}_{ll} < 110"
 extralabel["precuts_emiss"] = "Precuts + emiss < 8"
 extralabel["precuts_emiss_jj_m"] = "Precuts + emiss < 8 + jj_m > 5"
 extralabel["precuts_emiss_jj_m_Za_recoil"] = "Precuts + emiss < 8 + jj_m > 5 + Za_recoil > 120"
