@@ -139,7 +139,7 @@ histoList = {
     #Visible Mass
 
     "visible_m":      {"name":"visible_m",      "title":"Visible Mass [GeV]",                            "bin":100,  "xmin":170,   "xmax":250},
-    "missing_m":      {"name":"missing_m",      "title":"Missing Mass [GeV]",                            "bin":100,  "xmin":0,     "xmax":250}
+    "missing_m":      {"name":"missing_m",      "title":"Missing Mass [GeV]",                            "bin":100,  "xmin":0,     "xmax":250},
     "missing_theta":  {"name":"missing_theta",  "title":"Missing #theta",                                "bin":100,  "xmin":0,     "xmax":3.5}
 }
 
