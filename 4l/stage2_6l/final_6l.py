@@ -78,6 +78,7 @@ histoList = {
 
     "ll1a_m":         {"name":"ll1a_m",            "title":"Mass of the 1st Dilepton + Photon [GeV]",          "bin":100,  "xmin":10,     "xmax":150},
     "ll2a_m":         {"name":"ll2a_m",            "title":"Mass of the 2nd Dilepton + Photon [GeV]",          "bin":100,  "xmin":10,     "xmax":150},
+    "ll3a_m":         {"name":"ll3a_m",            "title":"Mass of the 3rd Dilepton + Photon [GeV]",          "bin":100,  "xmin":10,     "xmax":150},
 
     "ll1_theta_diff": {"name":"ll1_theta_diff",    "title":"Angular Difference (#theta) of the 1st Dilepton",  "bin":100,  "xmin":0,      "xmax":3.5},
     "ll1_phi_diff":   {"name":"ll1_phi_diff",      "title":"Angular Difference (#varphi) of the 1st Dilepton", "bin":100,  "xmin":0,      "xmax":7},
