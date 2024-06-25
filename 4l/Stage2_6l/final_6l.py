@@ -17,33 +17,33 @@ processList = {#Signal
                #Background
                'wzp6_ee_mumuH_HWW_ecm240':{},
                'wzp6_ee_mumuH_HZa_ecm240':{},
-               #'wzp6_ee_mumuH_Haa_ecm240':{},
+               'wzp6_ee_mumuH_Haa_ecm240':{},
                'wzp6_ee_mumuH_Hbb_ecm240':{},
                'wzp6_ee_mumuH_Hcc_ecm240':{},
                'wzp6_ee_mumuH_Hgg_ecm240':{},
                'wzp6_ee_mumuH_Hmumu_ecm240':{},
                'wzp6_ee_mumuH_Hss_ecm240':{},
                'wzp6_ee_mumuH_Htautau_ecm240':{},
-               #'wzp6_ee_nunuH_HWW_ecm240':{},
-               #'wzp6_ee_nunuH_HZa_ecm240':{},
-               #'wzp6_ee_nunuH_Haa_ecm240':{},
-               #'wzp6_ee_nunuH_Hbb_ecm240':{},
-               #'wzp6_ee_nunuH_Hcc_ecm240':{},
-               #'wzp6_ee_nunuH_Hgg_ecm240':{},   
-               #'wzp6_ee_nunuH_Hmumu_ecm240':{},
-               #'wzp6_ee_nunuH_Hss_ecm240':{},
-               #'wzp6_ee_nunuH_Htautau_ecm240':{},
+               'wzp6_ee_nunuH_HWW_ecm240':{},
+               'wzp6_ee_nunuH_HZa_ecm240':{},
+               'wzp6_ee_nunuH_Haa_ecm240':{},
+               'wzp6_ee_nunuH_Hbb_ecm240':{},
+               'wzp6_ee_nunuH_Hcc_ecm240':{},
+               'wzp6_ee_nunuH_Hgg_ecm240':{},   
+               'wzp6_ee_nunuH_Hmumu_ecm240':{},
+               'wzp6_ee_nunuH_Hss_ecm240':{},
+               'wzp6_ee_nunuH_Htautau_ecm240':{},
                'wzp6_ee_eeH_HWW_ecm240':{},
                'wzp6_ee_eeH_HZa_ecm240':{},
-               #'wzp6_ee_eeH_Haa_ecm240':{},
+               'wzp6_ee_eeH_Haa_ecm240':{},
                'wzp6_ee_eeH_Hbb_ecm240':{},
                'wzp6_ee_eeH_Hcc_ecm240':{},
-               #'wzp6_ee_eeH_Hgg_ecm240':{},
+               'wzp6_ee_eeH_Hgg_ecm240':{},
                'wzp6_ee_eeH_Hmumu_ecm240':{},
                'wzp6_ee_eeH_Hss_ecm240':{},
                'wzp6_ee_eeH_Htautau_ecm240':{},
                'p8_ee_ZZ_ecm240':{},
-               #'p8_ee_WW_ecm240':{}
+               'p8_ee_WW_ecm240':{}
                }
 
 #Link to the dictonary that contains all the cross section informations etc...
@@ -61,21 +61,11 @@ doScale = False
 
 
 #Dictionnay of the list of cuts. The key is the name of the selection that will be added to the output file
-cutList = {"precuts": 				   "emiss > -10",
-	   "precuts_Za_m":			   "Za_m < 110 && Za_m > 80",
-	   "precuts_Za_m_Zb_m":			   "Za_m < 110 && Za_m > 80 && Zb_m < 110 && Zb_m > 80",
-           "precuts_Za_m_Zb_m_emiss":              "Za_m < 110 && Za_m > 80 && Zb_m < 110 && Zb_m > 80 && emiss < 8",     
-           "precuts_Za_m_Zb_m_emiss_photon_e":     "Za_m < 110 && Za_m > 80 && Zb_m < 110 && Zb_m > 80 && emiss < 8 && photon_e < 20",
-           "precuts_Za_m_Zb_m_emiss_photon_e_jj_m":"Za_m < 110 && Za_m > 80 && Zb_m < 110 && Zb_m > 80 && emiss < 8 && photon_e < 20 && jj_m > 5"
+cutList = {"precuts":"emiss > -10"
            }
 
 #Dictionary for the ouput variable/hitograms. The key is the name of the variable in the output files. "name" is the name of the variable in the input file, "title" is the x-axis label of the histogram, "bin" the number of bins of the histogram, "xmin" the minimum x-axis value and "xmax" the maximum x-axis value.
 histoList = {
-
-    #Extra Leptons
-
-    "N_on_extra_leptons": {"name":"N_on_extra_leptons", "title":"N_on_extra_leptons",                         "bin":10,  "xmin":0,      "xmax":10},
-    "N_other_extra_leptons": {"name":"N_other_extra_leptons", "title":"N_other_extra_leptons",                "bin":10,  "xmin":0,      "xmax":10},
 
     #Photon
 
@@ -88,19 +78,12 @@ histoList = {
     "ll1a_m":         {"name":"ll1a_m",            "title":"Mass of the 1st Dilepton + Photon [GeV]",          "bin":100,  "xmin":10,     "xmax":150},
     "ll2a_m":         {"name":"ll2a_m",            "title":"Mass of the 2nd Dilepton + Photon [GeV]",          "bin":100,  "xmin":10,     "xmax":150},
 
-    "ll1jj_m":        {"name":"ll1jj_m",           "title":"Mass of the 1st Dilepton + Dijet [GeV]",           "bin":150,  "xmin":10,     "xmax":180},
-    "ll2jj_m":        {"name":"ll2jj_m",           "title":"Mass of the 2nd Dilepton + Dijet [GeV]",           "bin":150,  "xmin":10,     "xmax":180},
-
-    "ll1miss_m":      {"name":"ll1miss_m",         "title":"Mass of the 1st Dilepton + Missing tlv [GeV]",     "bin":100,  "xmin":10,     "xmax":180},
-    "ll2miss_m":      {"name":"ll2miss_m",         "title":"Mass of the 2nd Dilepton + Missing tlv [GeV]",     "bin":100,  "xmin":10,     "xmax":180},
-
     "ll1_theta_diff": {"name":"ll1_theta_diff",    "title":"Angular Difference (#theta) of the 1st Dilepton",  "bin":100,  "xmin":0,      "xmax":3.5},
     "ll1_phi_diff":   {"name":"ll1_phi_diff",      "title":"Angular Difference (#varphi) of the 1st Dilepton", "bin":100,  "xmin":0,      "xmax":7},
     "ll2_theta_diff": {"name":"ll2_theta_diff",    "title":"Angular Difference (#theta) of the 2nd Dilepton",  "bin":100,  "xmin":0,      "xmax":3.5},
     "ll2_phi_diff":   {"name":"ll2_phi_diff",      "title":"Angular Difference (#varphi) of the 2nd Dilepton", "bin":100,  "xmin":0,      "xmax":7},
-
-    "ll1a_ll1_m":     {"cols":["Za_m", "ll1a_m"],  "title":"1st Dilepton Mass - 1st Dilepton + Photon Mass [GeV]",  "bins": [(40,80,100), (40,80,100)]},
-    "ll2a_ll2_m":     {"cols":["Zb_m", "ll2a_m"],  "title":"2nd Dilepton Mass - 2nd Dilepton + Photon Mass [GeV]",  "bins": [(40,80,100), (40,80,100)]},
+    "ll3_theta_diff": {"name":"ll3_theta_diff",    "title":"Angular Difference (#theta) of the 3rd Dilepton",  "bin":100,  "xmin":0,      "xmax":3.5},
+    "ll3_phi_diff":   {"name":"ll3_phi_diff",      "title":"Angular Difference (#varphi) of the 3rd Dilepton", "bin":100,  "xmin":0,      "xmax":7},
 
     #Za (1st dilepton) and Zb (2nd dilepton)
     
@@ -111,7 +94,7 @@ histoList = {
     "Za_pz":          {"name":"Za_pz",             "title":"Za_pz [GeV]",                        "bin":100,  "xmin":-70,    "xmax":70},
     "Za_theta":       {"name":"Za_theta",          "title":"Za_theta",                           "bin":100,  "xmin":0,      "xmax":3.5},
     "Za_phi":         {"name":"Za_phi",            "title":"Za_phi",                             "bin":100,  "xmin":-3.5,   "xmax":3.5},
-    "Za_m":           {"name":"Za_m",              "title":"Za_m [GeV]",                         "bin":100,  "xmin":10,     "xmax":120},
+    "Za_m":           {"name":"Za_m",              "title":"Za_m [GeV]",                         "bin":150,  "xmin":10,     "xmax":130},
     "Za_recoil_m":    {"name":"Za_recoil_m",       "title":"Za_recoil_m [GeV]",                  "bin":100,  "xmin":90,     "xmax":200},
 
     "Zb_e":           {"name":"Zb_e",              "title":"Zb_e [GeV]",                         "bin":150,  "xmin":10,     "xmax":180},
@@ -121,8 +104,18 @@ histoList = {
     "Zb_pz":          {"name":"Zb_pz",             "title":"Zb_pz [GeV]",                        "bin":100,  "xmin":-60,    "xmax":60},
     "Zb_theta":       {"name":"Zb_theta",          "title":"Zb_theta",                           "bin":100,  "xmin":0,      "xmax":3.5},
     "Zb_phi":         {"name":"Zb_phi",            "title":"Zb_phi",                             "bin":100,  "xmin":-3.5,   "xmax":3.5},
-    "Zb_m":           {"name":"Zb_m",              "title":"Zb_m [GeV]",                         "bin":100,  "xmin":10,     "xmax":120},
-    "Zb_recoil_m":    {"name":"Zb_recoil_m",       "title":"Zb_recoil_m [GeV]",                  "bin":100,  "xmin":150,    "xmax":240},
+    "Zb_m":           {"name":"Zb_m",              "title":"Zb_m [GeV]",                         "bin":150,  "xmin":10,     "xmax":130},
+    "Zb_recoil_m":    {"name":"Zb_recoil_m",       "title":"Zb_recoil_m [GeV]",                  "bin":100,  "xmin":240,    "xmax":170},
+    
+    "Zc_e":           {"name":"Zb_e",              "title":"Zb_e [GeV]",                         "bin":150,  "xmin":0,      "xmax":180},
+    "Zc_p":           {"name":"Zb_p",              "title":"Zb_p [GeV]",                         "bin":100,  "xmin":0,      "xmax":80},
+    "Zc_px":          {"name":"Zb_px",             "title":"Zb_px [GeV]",                        "bin":100,  "xmin":-60,    "xmax":60},
+    "Zc_py":          {"name":"Zb_py",             "title":"Zb_py [GeV]",                        "bin":100,  "xmin":-60,    "xmax":60},
+    "Zc_pz":          {"name":"Zb_pz",             "title":"Zb_pz [GeV]",                        "bin":100,  "xmin":-60,    "xmax":60},
+    "Zc_theta":       {"name":"Zb_theta",          "title":"Zb_theta",                           "bin":100,  "xmin":0,      "xmax":3.5},
+    "Zc_phi":         {"name":"Zb_phi",            "title":"Zb_phi",                             "bin":100,  "xmin":-3.5,   "xmax":3.5},
+    "Zc_m":           {"name":"Zb_m",              "title":"Zb_m [GeV]",                         "bin":150,  "xmin":10,     "xmax":130},
+    "Zc_recoil_m":    {"name":"Zb_recoil_m",       "title":"Zb_recoil_m [GeV]",                  "bin":150,  "xmin":120,    "xmax":240},
 
     #Dijet
 
@@ -135,9 +128,6 @@ histoList = {
     "jj_phi":         {"name":"jj_phi",        "title":"jj_phi",                             "bin":100,  "xmin":-3.5,  "xmax":3.5},
     "jj_m":           {"name":"jj_m",          "title":"jj_m [GeV]",                         "bin":100,  "xmin":0,     "xmax":150},
 
-    "diffthetajets_56": {"name":"diffthetajets_56",   "title":"diffthetajets_56",               "bin":100,  "xmin":0,     "xmax":3.5},
-    "diffphijets_56":   {"name":"diffphijets_56",     "title":"diffphijets_56",                 "bin":100,  "xmin":0,     "xmax":7},
-
     #Missing Energy
 
     "emiss":          {"name":"emiss",          "title":"Missing Energy [GeV]",                          "bin":100,  "xmin":0,     "xmax":200},
@@ -149,6 +139,7 @@ histoList = {
 
     "visible_m":      {"name":"visible_m",      "title":"Visible Mass [GeV]",                            "bin":100,  "xmin":170,   "xmax":250},
     "missing_m":      {"name":"missing_m",      "title":"Missing Mass [GeV]",                            "bin":100,  "xmin":0,     "xmax":250}
+    "missing_theta":  {"name":"missing_theta",  "title":"Missing #theta",                                "bin":100,  "xmin":0,     "xmax":3.5}
 }
 
 
