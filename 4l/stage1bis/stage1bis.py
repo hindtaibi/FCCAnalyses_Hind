@@ -223,10 +223,9 @@ class RDFanalysis():
 
             #----------------------------------------------------------------------------------Jet construction
 
-            #We select all the particles minus the particles used for the Z bosons and the photons to reconstruct the jets then we create the pseudojets with them 
+            #We select all the particles minus the particles used for the Z bosons to reconstruct the jets then we create the pseudojets with them 
             
-	        .Define("my_recoparticles1",   	       "ReconstructedParticle::remove(ReconstructedParticles, photons)")
-            .Define("my_recoparticles",    	       "ReconstructedParticle::remove(my_recoparticles1, all_Z_leptons)")
+	        .Define("my_recoparticles",   	       "ReconstructedParticle::remove(ReconstructedParticles, all_Z_leptons)")
             .Define("RP_px",              	       "ReconstructedParticle::get_px(my_recoparticles)")
             .Define("RP_py",             	       "ReconstructedParticle::get_py(my_recoparticles)")
             .Define("RP_pz",            	       "ReconstructedParticle::get_pz(my_recoparticles)")
