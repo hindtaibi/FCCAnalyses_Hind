@@ -109,15 +109,15 @@ histoList = {
     "Zb_m":           {"name":"Zb_m",              "title":"Zb_m [GeV]",                         "bin":150,  "xmin":10,     "xmax":130},
     "Zb_recoil_m":    {"name":"Zb_recoil_m",       "title":"Zb_recoil_m [GeV]",                  "bin":100,  "xmin":240,    "xmax":170},
     
-    "Zc_e":           {"name":"Zb_e",              "title":"Zb_e [GeV]",                         "bin":150,  "xmin":0,      "xmax":180},
-    "Zc_p":           {"name":"Zb_p",              "title":"Zb_p [GeV]",                         "bin":100,  "xmin":0,      "xmax":80},
-    "Zc_px":          {"name":"Zb_px",             "title":"Zb_px [GeV]",                        "bin":100,  "xmin":-60,    "xmax":60},
-    "Zc_py":          {"name":"Zb_py",             "title":"Zb_py [GeV]",                        "bin":100,  "xmin":-60,    "xmax":60},
-    "Zc_pz":          {"name":"Zb_pz",             "title":"Zb_pz [GeV]",                        "bin":100,  "xmin":-60,    "xmax":60},
-    "Zc_theta":       {"name":"Zb_theta",          "title":"Zb_theta",                           "bin":100,  "xmin":0,      "xmax":3.5},
-    "Zc_phi":         {"name":"Zb_phi",            "title":"Zb_phi",                             "bin":100,  "xmin":-3.5,   "xmax":3.5},
-    "Zc_m":           {"name":"Zb_m",              "title":"Zb_m [GeV]",                         "bin":150,  "xmin":10,     "xmax":130},
-    "Zc_recoil_m":    {"name":"Zb_recoil_m",       "title":"Zb_recoil_m [GeV]",                  "bin":150,  "xmin":120,    "xmax":240},
+    "Zc_e":           {"name":"Zc_e",              "title":"Zc_e [GeV]",                         "bin":150,  "xmin":0,      "xmax":180},
+    "Zc_p":           {"name":"Zc_p",              "title":"Zc_p [GeV]",                         "bin":100,  "xmin":0,      "xmax":80},
+    "Zc_px":          {"name":"Zc_px",             "title":"Zc_px [GeV]",                        "bin":100,  "xmin":-60,    "xmax":60},
+    "Zc_py":          {"name":"Zc_py",             "title":"Zc_py [GeV]",                        "bin":100,  "xmin":-60,    "xmax":60},
+    "Zc_pz":          {"name":"Zc_pz",             "title":"Zc_pz [GeV]",                        "bin":100,  "xmin":-60,    "xmax":60},
+    "Zc_theta":       {"name":"Zc_theta",          "title":"Zc_theta",                           "bin":100,  "xmin":0,      "xmax":3.5},
+    "Zc_phi":         {"name":"Zc_phi",            "title":"Zc_phi",                             "bin":100,  "xmin":-3.5,   "xmax":3.5},
+    "Zc_m":           {"name":"Zc_m",              "title":"Zc_m [GeV]",                         "bin":150,  "xmin":10,     "xmax":130},
+    "Zc_recoil_m":    {"name":"Zc_recoil_m",       "title":"Zc_recoil_m [GeV]",                  "bin":150,  "xmin":120,    "xmax":240},
 
     #Dijet
 
