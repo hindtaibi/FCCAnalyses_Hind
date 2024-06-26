@@ -66,16 +66,11 @@ cutList = {"precuts": 				   "emiss > -10",
 	   "precuts_Za_m_Zb_m":			   "Za_m < 110 && Za_m > 80 && Zb_m < 110 && Zb_m > 80",
            "precuts_Za_m_Zb_m_emiss":              "Za_m < 110 && Za_m > 80 && Zb_m < 110 && Zb_m > 80 && emiss < 8",     
            "precuts_Za_m_Zb_m_emiss_photon_e":     "Za_m < 110 && Za_m > 80 && Zb_m < 110 && Zb_m > 80 && emiss < 8 && photon_e < 20",
-           "precuts_Za_m_Zb_m_emiss_photon_e_jj_m":"Za_m < 110 && Za_m > 80 && Zb_m < 110 && Zb_m > 80 && emiss < 8 && photon_e < 20 && jj_m > 5"
+           "precuts_Za_m_Zb_m_emiss_photon_e_jj_m":"Za_m < 110 && Za_m > 80 && Zb_m < 110 && Zb_m > 80 && emiss < 8 && photon_e < 20 && jj_m > 10"
            }
 
 #Dictionary for the ouput variable/hitograms. The key is the name of the variable in the output files. "name" is the name of the variable in the input file, "title" is the x-axis label of the histogram, "bin" the number of bins of the histogram, "xmin" the minimum x-axis value and "xmax" the maximum x-axis value.
 histoList = {
-
-    #Extra Leptons
-
-    "N_on_extra_leptons": {"name":"N_on_extra_leptons", "title":"N_on_extra_leptons",                         "bin":10,  "xmin":0,      "xmax":10},
-    "N_other_extra_leptons": {"name":"N_other_extra_leptons", "title":"N_other_extra_leptons",                "bin":10,  "xmin":0,      "xmax":10},
 
     #Photon
 
