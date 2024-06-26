@@ -92,9 +92,9 @@ colors['HWW'] = ROOT.kGreen
 colors['Hgg'] = ROOT.kYellow
 #colors['ZZ'] = ROOT.kOrange-2
 colors['Htautau'] = ROOT.kCyan+2
-colors['Hqq'] = ROOT.kPink-9
+colors['Hqq'] = ROOT.kPink-4
 colors['Hmumu'] = ROOT.kViolet
-colors['HZa'] = ROOT.kOrange+6
+colors['HZa'] = ROOT.kOrange+7
 colors['ZZ'] = ROOT.kAzure+6
 
 plots = {}                                  
