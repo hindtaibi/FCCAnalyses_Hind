@@ -6,7 +6,7 @@ inputDir    = "../stage1bis/outputs"
 outputDir   = "outputs"
 
 processList = {#Signal
-	       'wzp6_ee_mumuH_HZZ_ecm240':{},   
+	           'wzp6_ee_mumuH_HZZ_ecm240':{},   
                'wzp6_ee_eeH_HZZ_ecm240':{},     
                'wzp6_ee_nunuH_HZZ_ecm240':{},   
                'wzp6_ee_qqH_HZZ_ecm240':{},
@@ -76,9 +76,9 @@ class RDFanalysis():
                #Filter to have two leptonic on shell Z bosons               
                .Filter("N_other_Z_leptonic == 0 && N_on_Z_leptonic == 2")
 
-               .Define("Za_tlv",            "on_Z_leptonic_tlv[0]")   
+               .Define("Za_tlv",            "on_Z_leptonic_tlv[0]")
                .Define("Za_m",              "Za_tlv.M()")
-               .Define("Zb_tlv",            "on_Z_leptonic_tlv[1]")   
+               .Define("Zb_tlv",            "on_Z_leptonic_tlv[1]")
                .Define("Zb_m",              "Zb_tlv.M()")
 
                #We filter to have the invariant masses that correspond to on shell Z
@@ -117,11 +117,13 @@ class RDFanalysis():
 
                .Define("ll1a_tlv",          "ll1_tlv + photon_tlv")
                .Define("ll1a_m",            "ll1a_tlv.M()")
+               .Define("ll1a_recoil_m",     "sqrt((240-ll1a_tlv.E())*(240-ll1a_tlv.E())-(ll1a_tlv.P())*(ll1a_tlv.P()))")
                
                #2nd dilepton + photon
 
                .Define("ll2a_tlv",          "ll2_tlv + photon_tlv")
                .Define("ll2a_m",            "ll2a_tlv.M()")
+               .Define("ll2a_recoil_m",     "sqrt((240-ll2a_tlv.E())*(240-ll2a_tlv.E())-(ll2a_tlv.P())*(ll2a_tlv.P()))")
                
                #1st dilepton + missing tlv
                
@@ -210,9 +212,9 @@ class RDFanalysis():
                .Define("angle_miss_j6",     "angle_miss_jet[1]")
 
                #Visible/Missing mass
-	       
+
                .Define("visible_m",         "visible_4vector.M()")
-	       .Define("missing_m",         "missing_tlv[0].M()")
+               .Define("missing_m",         "missing_tlv[0].M()")
 
                      
                )
@@ -249,8 +251,10 @@ class RDFanalysis():
             "ll2_recoil_m",
 
             "ll1a_m",
+            "ll1a_recoil_m",
             "ll1a_tlv",
             "ll2a_m",
+            "ll2a_recoil_m",
             "ll2a_tlv",
 
             "ll1jj_m",
@@ -340,7 +344,7 @@ class RDFanalysis():
             "pzmiss",
 
             "visible_m",
-	    "missing_m"
+            "missing_m"
           
         ]        
 
