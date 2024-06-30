@@ -12,7 +12,7 @@ energy         =  240.0
 collider       = "FCC-ee"
 formats        = ['png']
 yaxis          = ['log']
-stacksig       = ['stack']
+stacksig       = ['stack','nostack']
 
 variables = ['emiss',
     	     'pxmiss',
@@ -24,8 +24,8 @@ variables = ['emiss',
              "visible_m",
 	         "ll1a_m",
 	         "ll2a_m",
-             "N_on_extra_leptons",
-             "N_other_extra_leptons",
+             "ll1a_recoil_m",
+             "ll2a_recoil_m",
              #"ll1a_ll1_m",
              #"ll2a_ll2_m",
 	         "ll1jj_m",
@@ -82,7 +82,7 @@ extralabel["precuts_Za_m"] = "Precuts + 80 < m(Z_{a}) < 110"
 extralabel["precuts_Za_m_Zb_m"] = "Precuts + 80 < m(Z_{a}),m(Z_{b}) < 110"
 extralabel["precuts_Za_m_Zb_m_emiss"] = "Precuts + 80 < m(Z_{a}),m(Z_{b}) < 110 + emiss < 8"
 extralabel["precuts_Za_m_Zb_m_emiss_photon_e"] = "Precuts + 80 < m(Z_{a}),m(Z_{b}) < 110 + emiss < 8 + #gamma_{e} < 20"
-extralabel["precuts_Za_m_Zb_m_emiss_photon_e_jj_m"] = "Precuts + 80 < m(Z_{a}),m(Z_{b}) < 110 + emiss < 8 + #gamma_{e} < 20 + jj_m > 5"
+extralabel["precuts_Za_m_Zb_m_emiss_photon_e_jj_m"] = " "
 
 
 colors = {}
@@ -90,7 +90,6 @@ colors['Signal,HZZ'] = ROOT.kRed
 colors['HWW'] = ROOT.kGreen
 #colors['nunuH,HZZ'] = ROOT.kBlue
 colors['Hgg'] = ROOT.kYellow
-#colors['ZZ'] = ROOT.kOrange-2
 colors['Htautau'] = ROOT.kCyan+2
 colors['Hqq'] = ROOT.kPink-4
 colors['Hmumu'] = ROOT.kViolet
@@ -122,7 +121,7 @@ plots['finalAA'] = {'signal':{'Signal,HZZ':['wzp6_ee_mumuH_HZZ_ecm240',
                                   'HZa':['wzp6_ee_mumuH_HZa_ecm240', 
                                          'wzp6_ee_eeH_HZa_ecm240'],
 
-				  'ZZ':['p8_ee_ZZ_ecm240']
+				                  'ZZ':['p8_ee_ZZ_ecm240']
                                   }
                    }         
 
@@ -134,6 +133,6 @@ legend['Htautau'] = 'H#rightarrow#tau#tau'
 legend['Hmumu'] = 'H#rightarrow#mu#mu'
 legend['HZa'] = 'H#rightarrowZa'
 legend['Hqq'] = 'H#rightarrowqq'
-legend['Hgg'] = 'Hgg'
+legend['Hgg'] = 'H#rightarrowgg'
 #legend['Mee'] = 'Mee'
 #legend['VV'] = 'VV boson'
