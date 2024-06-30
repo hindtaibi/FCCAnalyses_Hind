@@ -12,7 +12,7 @@ energy         =  240.0
 collider       = "FCC-ee"
 formats        = ['png']
 yaxis          = ['log']
-stacksig       = ['stack']
+stacksig       = ['stack','nostack']
 
 variables = ['emiss',
     	     'pxmiss',
@@ -22,8 +22,11 @@ variables = ['emiss',
 	         "photon_theta",
 	         "photon_phi",
              "visible_m",
+	     "missing_m",
 	         "ll1a_m",
 	         "ll2a_m",
+	     "ll1a_recoil_m",
+	     "ll2a_recoil_m",
              #"ll1a_ll1_m",
              #"ll2a_ll2_m",
 	         "ll1jj_m",
@@ -86,9 +89,9 @@ colors['HWW'] = ROOT.kGreen
 colors['Hgg'] = ROOT.kYellow
 #colors['ZZ'] = ROOT.kOrange-2
 colors['Htautau'] = ROOT.kCyan+2
-colors['Hqq'] = ROOT.kPink-4
+colors['Hqq'] = ROOT.kPink-9
 colors['Hmumu'] = ROOT.kViolet
-colors['HZa'] = ROOT.kOrange+7
+colors['HZa'] = ROOT.kOrange+6
 colors['ZZ'] = ROOT.kAzure+6
 
 plots = {}                                  
