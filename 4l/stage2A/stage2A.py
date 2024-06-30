@@ -214,7 +214,7 @@ class RDFanalysis():
                #Visible/Missing mass
 
                .Define("visible_m",         "visible_4vector.M()")
-               .Define("missing_m",         "missing_tlv[0].M()")
+               .Define("missing_m",         "sqrt(emiss*emiss-pxmiss*pxmiss-pymiss*pymiss-pzmiss*pzmiss)")
 
                      
                )
