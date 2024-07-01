@@ -80,6 +80,8 @@ histoList = {
     
     "ll1a_m":         {"name":"ll1a_m",            "title":"Mass of the 1st Dilepton + Photon [GeV]",          "bin":100,  "xmin":60,     "xmax":180},
     "ll2a_m":         {"name":"ll2a_m",            "title":"Mass of the 2nd Dilepton + Photon [GeV]",          "bin":100,  "xmin":0,      "xmax":130},
+	"ll1a_recoil_m":  {"name":"ll1a_recoil_m",      "title":"Recoil Mass of the 1st Dilepton + Photon [GeV]",          "bin":100,  "xmin":70,     "xmax":120},
+    "ll2a_recoil_m":  {"name":"ll2a_recoil_m",     "title":"Recoil Mass of the 2nd Dilepton + Photon [GeV]",          "bin":100,  "xmin":70,      "xmax":160},
 
     "ll1jj_m":        {"name":"ll1jj_m",           "title":"Mass of the 1st Dilepton + Dijet [GeV]",           "bin":100,  "xmin":60,     "xmax":240},
     "ll2jj_m":        {"name":"ll2jj_m",           "title":"Mass of the 2nd Dilepton + Dijet [GeV]",           "bin":100,  "xmin":0,      "xmax":160},
