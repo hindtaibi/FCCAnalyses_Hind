@@ -117,11 +117,13 @@ class RDFanalysis():
 
                .Define("ll1a_tlv",          "ll1_tlv + photon_tlv")
                .Define("ll1a_m",            "ll1a_tlv.M()")
+	       .Define("ll1a_recoil_m",     "sqrt((240-ll1a_tlv.E())*(240-ll1a_tlv.E())-(ll1a_tlv.P())*(ll1a_tlv.P()))")
                
                #2nd dilepton + photon
 
                .Define("ll2a_tlv",          "ll2_tlv + photon_tlv")
                .Define("ll2a_m",            "ll2a_tlv.M()")
+	       .Define("ll2a_recoil_m",     "sqrt((240-ll2a_tlv.E())*(240-ll2a_tlv.E())-(ll2a_tlv.P())*(ll2a_tlv.P()))")
                
                #1st dilepton + missing tlv
                
@@ -247,8 +249,10 @@ class RDFanalysis():
             "ll2_recoil_m",
 
             "ll1a_m",
+		"ll1a_recoil_m",
             "ll1a_tlv",
             "ll2a_m",
+		"ll2a_recoil_m",
             "ll2a_tlv",
 
             "ll1jj_m",
