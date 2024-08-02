@@ -1,0 +1,43 @@
+#Channel: lljjll, jjllll
+#region1: lljjll
+#region2: jjllll
+
+imax 2  number of channels
+jmax 8  number of backgrounds
+kmax 4  number of nuisance parameters (sources of systematical uncertainties)
+---------------
+shapes  signal     lljjll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumSignal_region1_ll2jj_m_fit.root   ll2jj_m_fit
+shapes  HWW        lljjll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHWW_region1_ll2jj_m_fit.root      ll2jj_m_fit
+shapes  Hqq        lljjll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHqq_region1_ll2jj_m_fit.root      ll2jj_m_fit
+shapes  Hmumu      lljjll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHmumu_region1_ll2jj_m_fit.root    ll2jj_m_fit
+shapes  Htautau    lljjll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHtautau_region1_ll2jj_m_fit.root  ll2jj_m_fit
+shapes  HZa        lljjll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHZa_region1_ll2jj_m_fit.root      ll2jj_m_fit
+shapes  Hgg        lljjll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHgg_region1_ll2jj_m_fit.root      ll2jj_m_fit
+shapes  ZZ         lljjll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumZZ_region1_ll2jj_m_fit.root       ll2jj_m_fit
+shapes  WW         lljjll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumWW_region1_ll2jj_m_fit.root       ll2jj_m_fit
+shapes  data_obs   lljjll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/Sum_region1_ll2jj_m_fit.root         ll2jj_m_fit
+
+shapes  signal     jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumSignal_region2_ZZ_m_fit.root      ZZ_m_fit
+shapes  HWW        jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHWW_region2_ZZ_m_fit.root         ZZ_m_fit
+shapes  Hqq        jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHqq_region2_ZZ_m_fit.root         ZZ_m_fit
+shapes  Hmumu      jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHmumu_region2_ZZ_m_fit.root       ZZ_m_fit
+shapes  Htautau    jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHtautau_region2_ZZ_m_fit.root     ZZ_m_fit
+shapes  HZa        jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHZa_region2_ZZ_m_fit.root         ZZ_m_fit
+shapes  Hgg        jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHgg_region2_ZZ_m_fit.root         ZZ_m_fit
+shapes  ZZ         jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumZZ_region2_ZZ_m_fit.root          ZZ_m_fit
+shapes  WW         jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumWW_region2_ZZ_m_fit.root          ZZ_m_fit
+shapes  data_obs   jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/Sum_region2_ZZ_m_fit.root            ZZ_m_fit
+---------------
+---------------
+bin          lljjll   jjllll
+observation  -1       -1
+---------------
+bin                lljjll   lljjll   lljjll   lljjll   lljjll   lljjll   lljjll   lljjll   lljjll   jjllll   jjllll   jjllll   jjllll   jjllll   jjllll   jjllll   jjllll   jjllll
+process            signal   HWW      Hqq      Hmumu    Htautau  HZa      Hgg      ZZ       WW       signal   HWW      Hqq      Hmumu    Htautau  HZa      Hgg      ZZ       WW
+process            0        1        2        3        4        5        6        7        8        0        1        2        3        4        5        6        7        8
+rate               -1       -1       -1       -1       -1       -1       -1       -1       0        -1       -1       -1       -1       0        -1       -1       -1       0
+------------------------------
+normZZlljjll  lnN  -        -        -        -        -        -        -        1.10     -        -        -        -        -        -        -        -        -        -
+normZZjjllll  lnN  -        -        -        -        -        -        -        -        -        -        -        -        -        -        -        -        1.10     -
+normHqqlljjll lnN  -        -        1.10     -        -        -        -        -        -        -        -        -        -        -        -        -        -        -
+normHqqjjllll lnN  -        -        -        -        -        -        -        -        -        -        -        1.10     -        -        -        -        -        -

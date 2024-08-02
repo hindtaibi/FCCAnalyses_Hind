@@ -1,0 +1,65 @@
+q#Channels: lllljj, lljjll, jjllll, vvllll
+
+imax 4  number of channels
+jmax 8  number of backgrounds
+kmax 6  number of nuisance parameters (sources of systematical uncertainties)
+---------------
+shapes  signal     lllljj     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1ter/finalAA/outputssum/SumSignal_region1_Z1_recoil_m_fit.root   Z1_recoil_m_fit
+shapes  HWW        lllljj     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1ter/finalAA/outputssum/SumHWW_region1_Z1_recoil_m_fit.root      Z1_recoil_m_fit
+shapes  Hqq        lllljj     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1ter/finalAA/outputssum/SumHqq_region1_Z1_recoil_m_fit.root      Z1_recoil_m_fit
+shapes  Hmumu      lllljj     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1ter/finalAA/outputssum/SumHmumu_region1_Z1_recoil_m_fit.root    Z1_recoil_m_fit
+shapes  Htautau    lllljj     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1ter/finalAA/outputssum/SumHtautau_region1_Z1_recoil_m_fit.root  Z1_recoil_m_fit
+shapes  HZa        lllljj     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1ter/finalAA/outputssum/SumHZa_region1_Z1_recoil_m_fit.root      Z1_recoil_m_fit
+shapes  Hgg        lllljj     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1ter/finalAA/outputssum/SumHgg_region1_Z1_recoil_m_fit.root      Z1_recoil_m_fit
+shapes  ZZ         lllljj     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1ter/finalAA/outputssum/SumZZ_region1_Z1_recoil_m_fit.root       Z1_recoil_m_fit
+shapes  WW         lllljj     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1ter/finalAA/outputssum/SumWW_region1_Z1_recoil_m_fit.root       Z1_recoil_m_fit
+shapes  data_obs   lllljj     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1ter/finalAA/outputssum/Sum_region1_Z1_recoil_m_fit.root         Z1_recoil_m_fit
+
+shapes  signal     lljjll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumSignal_region1_ll2jj_m_fit.root    ll2jj_m_fit
+shapes  HWW        lljjll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHWW_region1_ll2jj_m_fit.root       ll2jj_m_fit
+shapes  Hqq        lljjll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHqq_region1_ll2jj_m_fit.root       ll2jj_m_fit
+shapes  Hmumu      lljjll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHmumu_region1_ll2jj_m_fit.root     ll2jj_m_fit
+shapes  Htautau    lljjll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHtautau_region1_ll2jj_m_fit.root   ll2jj_m_fit
+shapes  HZa        lljjll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHZa_region1_ll2jj_m_fit.root       ll2jj_m_fit
+shapes  Hgg        lljjll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHgg_region1_ll2jj_m_fit.root       ll2jj_m_fit
+shapes  ZZ         lljjll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumZZ_region1_ll2jj_m_fit.root        ll2jj_m_fit
+shapes  WW         lljjll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumWW_region1_ll2jj_m_fit.root        ll2jj_m_fit
+shapes  data_obs   lljjll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/Sum_region1_ll2jj_m_fit.root          ll2jj_m_fit
+
+shapes  signal     jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumSignal_region2_ZZ_m_fit.root       ZZ_m_fit
+shapes  HWW        jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHWW_region2_ZZ_m_fit.root          ZZ_m_fit
+shapes  Hqq        jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHqq_region2_ZZ_m_fit.root          ZZ_m_fit
+shapes  Hmumu      jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHmumu_region2_ZZ_m_fit.root        ZZ_m_fit
+shapes  Htautau    jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHtautau_region2_ZZ_m_fit.root      ZZ_m_fit
+shapes  HZa        jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHZa_region2_ZZ_m_fit.root          ZZ_m_fit
+shapes  Hgg        jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHgg_region2_ZZ_m_fit.root          ZZ_m_fit
+shapes  ZZ         jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumZZ_region2_ZZ_m_fit.root           ZZ_m_fit
+shapes  WW         jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumWW_region2_ZZ_m_fit.root           ZZ_m_fit
+shapes  data_obs   jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/Sum_region2_ZZ_m_fit.root             ZZ_m_fit
+
+shapes  signal     vvllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBB/outputssum/SumSignal_region2_ZZ_m_fit.root       ZZ_m_fit
+shapes  HWW        vvllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBB/outputssum/SumHWW_region2_ZZ_m_fit.root          ZZ_m_fit
+shapes  Hqq        vvllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBB/outputssum/SumHqq_region2_ZZ_m_fit.root          ZZ_m_fit
+shapes  Hmumu      vvllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBB/outputssum/SumHmumu_region2_ZZ_m_fit.root        ZZ_m_fit
+shapes  Htautau    vvllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBB/outputssum/SumHtautau_region2_ZZ_m_fit.root      ZZ_m_fit
+shapes  HZa        vvllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBB/outputssum/SumHZa_region2_ZZ_m_fit.root          ZZ_m_fit
+shapes  Hgg        vvllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBB/outputssum/SumHgg_region2_ZZ_m_fit.root          ZZ_m_fit
+shapes  ZZ         vvllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBB/outputssum/SumZZ_region2_ZZ_m_fit.root           ZZ_m_fit
+shapes  WW         vvllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBB/outputssum/SumWW_region2_ZZ_m_fit.root           ZZ_m_fit
+shapes  data_obs   vvllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBB/outputssum/Sum_region2_ZZ_m_fit.root             ZZ_m_fit
+---------------
+---------------
+bin          lllljj   lljjll   jjllll   vvllll 
+observation  -1       -1       -1       -1
+---------------
+bin          lllljj   lllljj   lllljj   lllljj   lllljj   lllljj   lllljj   lllljj   lllljj   lljjll   lljjll   lljjll   lljjll   lljjll   lljjll   lljjll   lljjll   lljjll   jjllll   jjllll   jjllll   jjllll   jjllll   jjllll   jjllll   jjllll   jjllll   vvllll   vvllll   vvllll   vvllll   vvllll   vvllll   vvllll   vvllll   vvllll
+process      signal   HWW      Hqq      Hmumu    Htautau  HZa      Hgg      ZZ       WW       signal   HWW      Hqq      Hmumu    Htautau  HZa      Hgg      ZZ       WW       signal   HWW      Hqq      Hmumu    Htautau  HZa      Hgg      ZZ       WW       signal   HWW      Hqq      Hmumu    Htautau  HZa      Hgg      ZZ       WW
+process      0        1        2        3        4        5        6        7        8        0        1        2        3        4        5        6        7        8        0        1        2        3        4        5        6        7        8        0        1        2        3        4        5        6        7        8
+rate         -1       -1       0        -1       -1       -1       0        -1       0        -1       -1       -1       -1       -1       -1       -1       -1       0        -1       -1       -1       -1       0        -1       -1       -1       0        -1       -1       0        0        -1       0        0        -1       -1
+------------------------------
+normZZ_lllljj lnN    -        -        -        -        -        -        -        1.10     -        -        -        -        -        -         -        -        -        -        -         -        -        -        -        -        -        -        -        -        -        -        -        -        -        -        -        -
+normZZ_lljjll lnN    -        -        -        -        -        -        -        -          -        -        -        -        -        -         -        -        1.10   -        -         -        -        -        -        -        -        -        -        -        -        -        -        -        -        -        -        - 
+normHqq_lljjll lnN  -        -        -        -        -        -        -        -          -        -        -        1.10   -        -         -        -       -        -        -         -        -        -        -        -        -        -        -        -        -        -        -        -        -        -        -        -  
+normZZ_jjllll lnN    -        -        -        -        -        -        -        -         -        -        -        -        -        -         -        -        -        -        -         -        -        -        -        -        -        1.10    -        -        -        -        -        -        -        -        -        -
+normHqq_jjllll lnN  -        -        -        -        -        -        -        -          -        -        -        -       -        -         -        -       -        -        -         -        1.10    -        -        -        -        -        -        -        -        -        -        -        -        -        -        - 
+normZZ_vvllll lnN    -        -        -        -        -        -        -        -         -        -        -        -        -        -         -        -        -        -        -         -        -        -        -        -        -       -        -        -        -        -        -        -        -        -        1.10    -    

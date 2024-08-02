@@ -1,0 +1,28 @@
+#Channel: lllljj
+#region1 (lllljj): Z1_m < 110 && Z1_m > 80 && Z2_m < 110 && Z2_m > 80 && emiss < 8 && photon_e < 20 && Z2a_recoil_m > 115 (mostly signal and ZZ background)
+
+imax 1  number of channels
+jmax 8  number of backgrounds
+kmax 1  number of nuisance parameters (sources of systematical uncertainties)
+---------------
+shapes  signal     lllljj     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1ter/finalAA/outputssum/SumSignal_region1_Z1_recoil_m_fit.root   Z1_recoil_m_fit
+shapes  HWW        lllljj     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1ter/finalAA/outputssum/SumHWW_region1_Z1_recoil_m_fit.root      Z1_recoil_m_fit
+shapes  Hqq        lllljj     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1ter/finalAA/outputssum/SumHqq_region1_Z1_recoil_m_fit.root      Z1_recoil_m_fit
+shapes  Hmumu      lllljj     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1ter/finalAA/outputssum/SumHmumu_region1_Z1_recoil_m_fit.root    Z1_recoil_m_fit
+shapes  Htautau    lllljj     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1ter/finalAA/outputssum/SumHtautau_region1_Z1_recoil_m_fit.root  Z1_recoil_m_fit
+shapes  HZa        lllljj     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1ter/finalAA/outputssum/SumHZa_region1_Z1_recoil_m_fit.root      Z1_recoil_m_fit
+shapes  Hgg        lllljj     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1ter/finalAA/outputssum/SumHgg_region1_Z1_recoil_m_fit.root      Z1_recoil_m_fit
+shapes  ZZ         lllljj     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1ter/finalAA/outputssum/SumZZ_region1_Z1_recoil_m_fit.root       Z1_recoil_m_fit
+shapes  WW         lllljj     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1ter/finalAA/outputssum/SumWW_region1_Z1_recoil_m_fit.root       Z1_recoil_m_fit
+shapes  data_obs   lllljj     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1ter/finalAA/outputssum/Sum_region1_Z1_recoil_m_fit.root         Z1_recoil_m_fit
+---------------
+---------------
+bin          lllljj   
+observation  -1       
+---------------
+bin          lllljj   lllljj   lllljj   lllljj   lllljj   lllljj   lllljj   lllljj   lllljj  
+process      signal   HWW      Hqq      Hmumu    Htautau  HZa      Hgg      ZZ       WW
+process      0        1        2        3        4        5        6        7        8
+rate         -1       -1       0        -1       -1       -1       0        -1       0
+------------------------------
+normZZ lnN   -        -        -        -        -        -        -        1.10     -      
