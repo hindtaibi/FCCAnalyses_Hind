@@ -20,7 +20,7 @@ fccanalysis build
 ```
 
 # FCCAnalyses
-## stage1X
+## stage1X.py
 The main purpose of stage1ter and stage1quater is to reconstruct the leptonic Z bosons and jets and to gather the kinematic information to be used afterwards. stage1ter and stage1quater could be merged in one unique stage1 as their main purpose of the same but I chose to separate them in order to be able to run through the whole p8_ee_ZZ_ecm240 and p8_ee_WW_ecm240 data. Indeed, these file being quite heavy, it is difficult to save the entirety of the associated stage1 analysis. To get around this issue, filters were applied at the end of stage1:
 - ```.Filter("on_Z_leptonic == 2 && other_Z_leptonic == 0")``` in stage1ter,
 - ```.Filter("on_Z_leptonic == 1 && other_Z_leptonic == 1")``` in stage1quater.
@@ -28,8 +28,15 @@ The main purpose of stage1ter and stage1quater is to reconstruct the leptonic Z 
 The command to run stage1X:
 ```fccanalysis run stage1X```
 
-## stage2
+## stage2.py
 As stage1X takes the most time to execute, I used stage2 when I needed to introduce new variables. This avoids having to run stage1X just because calculating the recoil mass of the dijet was forgotten in it. Stage2 takes as input the output of stage1X and returns as output the variables introduced in stage2 in addition to all the variables already defined in stage1X.
-The command to run stage2:
-```fccanalysis run stage2```
+
+The command to run stage2: ```fccanalysis run stage2```
+
+## finalYZ
+Y = A if we are looking at case A and thus using stage1ter.  
+Y = B if we are looking at case B and thus using stage1quater.
+
+### finalYZ
+
 
