@@ -21,26 +21,29 @@ fccanalysis build
 
 # FCCAnalyses
 ## stage1X.py
-The main purpose of stage1ter and stage1quater is to reconstruct the leptonic Z bosons and jets and to gather the kinematic information to be used afterwards. stage1ter and stage1quater could be merged in one unique stage1 as their main purpose of the same but I chose to separate them in order to be able to run through the whole p8_ee_ZZ_ecm240 and p8_ee_WW_ecm240 data. Indeed, these file being quite heavy, it is difficult to save the entirety of the associated stage1 analysis. To get around this issue, filters were applied at the end of stage1:
-- ```.Filter("on_Z_leptonic == 2 && other_Z_leptonic == 0")``` in stage1ter,
-- ```.Filter("on_Z_leptonic == 1 && other_Z_leptonic == 1")``` in stage1quater.
+The main purpose of [stage1ter.py](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/stage1ter/stage1ter.py) and [stage1quater.py](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/stage1ter/stage1quater.py) is to reconstruct the leptonic Z bosons and jets and to gather the kinematic information to be used afterwards. stage1ter and stage1quater could be merged in one unique stage1 as their main purpose of the same but I chose to separate them in order to be able to run through the whole p8_ee_ZZ_ecm240 and p8_ee_WW_ecm240 data. Indeed, these file being quite heavy, it is difficult to save the entirety of the associated stage1 analysis. To get around this issue, filters were applied at the end of stage1:
+- ```.Filter("on_Z_leptonic == 2 && other_Z_leptonic == 0")``` in stage1ter.py,
+- ```.Filter("on_Z_leptonic == 1 && other_Z_leptonic == 1")``` in stage1quater.py.
 
-The command to run stage1X:
-```fccanalysis run stage1X```
+The command to run stage1X.py:
+```fccanalysis run stage1X.py```
 
 ## stage2.py
-As stage1X takes the most time to execute, I used stage2 when I needed to introduce new variables. This avoids having to run stage1X just because calculating the recoil mass of the dijet was forgotten in it. Stage2 takes as input the output of stage1X and returns as output the variables introduced in stage2 in addition to all the variables already defined in stage1X.
+As stage1X.py takes the most time to execute, I used stage2.py when I needed to introduce new variables. This avoids having to run stage1X.py just because calculating the recoil mass of the dijet was forgotten in it. stage2.py takes as input the output of stage1X and returns as output the variables introduced in stage2.py in addition to all the variables already defined in stage1X.py.
 
-The command to run stage2: ```fccanalysis run stage2```
+The command to run stage2.py: ```fccanalysis run stage2.py```
 
 ## finalYZ
-Y = A if we are looking at case A and thus using stage1ter.  
-Y = B if we are looking at case B and thus using stage1quater.  
+Y = A if we are looking at case A and thus using stage1ter.py.  
+Y = B if we are looking at case B and thus using stage1quater.py.  
 Z = A if we are looking at the final states with two jets. For Z = A, ```emiss < 8``` comes within the first cuts.  
 Z = B if we are looking at the final states with two neutrinos. For Z = B, ```emiss > 8``` comes within the first cuts.
 
 The purpose of the files in the finalYZ folders is to create histograms tu use for the fit and/or the plots.
 
-### finalYZ
+### finalYZ.py
+finalYZ.py takes as input the output of stage2. It creates histograms.
+
+The command to run finalYZ: ```fccanalysis final finalYZ.py```
 
 
