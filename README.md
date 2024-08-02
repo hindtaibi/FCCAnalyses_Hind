@@ -35,7 +35,9 @@ The command to run stage2: ```fccanalysis run stage2```
 
 ## finalYZ
 Y = A if we are looking at case A and thus using stage1ter.  
-Y = B if we are looking at case B and thus using stage1quater.
+Y = B if we are looking at case B and thus using stage1quater.  
+Z = A if we are looking at the final states with two jets. For Z = A, ```emiss < 8``` comes within the first cuts.
+Z = B if we are looking at the final states with two neutrinos. For Z = B, ```emiss > 8``` comes within the first cuts.
 
 ### finalYZ
 
