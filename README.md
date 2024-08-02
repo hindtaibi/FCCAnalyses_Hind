@@ -1,5 +1,5 @@
 # Generalities
-In this FCC-ee analysis, we are interested in the final states with 2 leptonic Z bosons (ZH &rarr; 4l + xx). Therefore, we have two possibilities concerning these leptonic Z bsosons. Indeed, we could have:
+In this FCC-ee analysis, we are interested in final states with 2 leptonic Z bosons (ZH &rarr; 4l + xx). Therefore, we have two possibilities concerning these leptonic Z bsosons. Indeed, we could have:
 - two on shell leptonic Z bosons in the final state (case A), 
 - one on shell and one off shell leptonic Z bosons in the final state (case B).
 
@@ -21,49 +21,66 @@ fccanalysis build
 
 # FCCAnalyses
 ## stage1X.py
-The main purpose of [stage1ter.py](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/stage1ter/stage1ter.py) and [stage1quater.py](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/stage1quater/stage1quater.py) is to reconstruct the leptonic Z bosons and jets and to gather the kinematic information to be used afterwards. stage1ter and stage1quater could be merged in one unique stage1 as their main purpose of the same but I chose to separate them in order to be able to run through the whole p8_ee_ZZ_ecm240 and p8_ee_WW_ecm240 data. Indeed, these file being quite heavy, it is difficult to save the entirety of the associated stage1 analysis. To get around this issue, filters were applied at the end of stage1:
+The main purpose of [stage1ter.py](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/stage1ter/stage1ter.py) and [stage1quater.py](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/stage1quater/stage1quater.py) is to reconstruct the leptonic Z bosons and jets and to gather the kinematic information to be used afterwards. stage1ter and stage1quater could be merged in one unique stage1 as their main purpose if the same but I chose to separate them in order to be able to run through the whole p8_ee_ZZ_ecm240 and p8_ee_WW_ecm240 data. Indeed, these file being quite heavy, it is difficult to save the entirety of the associated stage1 analysis. To get around this issue, filters were applied at the end of stage1:
 - ```.Filter("on_Z_leptonic == 2 && other_Z_leptonic == 0")``` in stage1ter.py,
 - ```.Filter("on_Z_leptonic == 1 && other_Z_leptonic == 1")``` in stage1quater.py.
 
-The command to run stage1X.py:
-```fccanalysis run stage1X.py```
+The command to run stage1X.py:    
+```
+fccanalysis run stage1X.py
+```
 
 ## stage2.py
-As stage1X.py takes the most time to execute, I used stage2.py when I needed to introduce new variables. This avoids having to run stage1X.py just because calculating the recoil mass of the dijet was forgotten in it. stage2.py takes as input the output of stage1X and returns as output the variables introduced in stage2.py in addition to all the variables already defined in stage1X.py.
+As stage1X.py takes the most time to execute, I used stage2.py when I needed to introduce new variables. This avoids having to run stage1X.py just because calculating the recoil mass of the dijet was forgotten in it fo instance. stage2.py takes as input the output of stage1X and returns as output the variables introduced in stage2.py in addition to all the variables already defined in stage1X.py.
 
-The command to run stage2.py: ```fccanalysis run stage2.py```
+The command to run stage2.py:    
+```
+fccanalysis run stage2.py
+```
 
 ## finalYZ
 Y = A if we are looking at case A and thus using stage1ter.py.  
 Y = B if we are looking at case B and thus using stage1quater.py.  
-Z = A if we are looking at the final states with two jets. For Z = A, ```emiss < 8``` comes within the first selections.  
-Z = B if we are looking at the final states with two neutrinos. For Z = B, ```emiss > 8``` comes within the first selections.
+Z = A if we are looking at final states with two jets. For Z = A, ```emiss < 8``` comes within the first selections.  
+Z = B if we are looking at final states with two neutrinos. For Z = B, ```emiss > 8``` comes within the first selections.
 
 The purpose of the files in the finalYZ folders is to create histograms tu use for the fit and/or the plots.
 
 ### finalYZ.py
-finalYZ.py takes as input the output of stage2. It creates histograms. In finalYZ.py, we first apply selections on variables and then, we generate the wanted variables' distributions. This allow us to see the evolution of the distributions as the selections are made.
+finalYZ.py takes as input the output of stage2. It creates histograms. In finalYZ.py, we first apply selections on variables and then, we generate the wanted variables' distributions. This allow us to see the evolution of the distributions as the selections progress.
 
-The command to run finalYZ.py: ```fccanalysis final finalYZ.py```
+The command to run finalYZ.py:  
+```
+fccanalysis final finalYZ.py
+```
 
 ### finalYZsmooth.py
 finalYZsmooth.py takes as input one (or many) histograms created by finalYZ.py and its purpose is to smooth distributions that show statistical fluctuations. It replaces the histogram that we want to smooth by a smoothed one.
 
-The command to run finalYZsmooth.py: ```python finalYZsmooth.py```
+The command to run finalYZsmooth.py:  
+```
+python finalYZsmooth.py
+```
 
 ### finalYZsum.py
-finalYZsum.py takes as input the histograms generated by finalYZ.py. It sums the signal distributions and the background distributions so they can be used for a fit.
+finalYZsum.py takes as input the histograms generated by finalYZ.py. It sums the signal distributions and the background distributions so they can be used for the fit.
 
-The command to run finalYZsum.py: ```python finalYZsum.py```
+The command to run finalYZsum.py:  
+```
+python finalYZsum.py
+```
 
 ## plotsYZ.py
 plotsYZ.py takes as input the output of finalYZ.py. As indicated by its name, it plots the distributions.
 
-The command to run plotsYZ.py: ```fccanalysis plots plotsYZ.py```
+The command to run plotsYZ.py:  
+```
+fccanalysis plots plotsYZ.py
+```
 
 # Combine
 The [combine folder](https://github.com/hindtaibi/FCCAnalyses_Hind/tree/main/combine) contain the datacards which are preliminary to performing the fit. Combine documentation can be found [here](http://cms-analysis.github.io/HiggsAnalysis-CombinedLimit/part2/settinguptheanalysis/).
-With dtacardYZ.txt, we only apply the fit on distributions associated the channel studied in finalYZ. In datacardAll.txt, we use distributions associated to many decays.
+With datacardYZ.txt, we only apply the fit on distributions associated to channels studied in finalYZ. In datacardAll.txt, we combine many distributions in order to reduce the uncertainty.
 
 Commands:
 ```
