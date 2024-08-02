@@ -25,6 +25,9 @@ The main purpose of stage1ter and stage1quater is to reconstruct the leptonic Z 
 - ```.Filter("on_Z_leptonic == 2 && other_Z_leptonic == 0")``` in stage1ter,
 - ```.Filter("on_Z_leptonic == 1 && other_Z_leptonic == 1")``` in stage1quater.
 
+The command to run stage1X:
+```fccanalysis run stage1X```
+
 
 
 
