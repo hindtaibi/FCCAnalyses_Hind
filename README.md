@@ -28,6 +28,8 @@ The main purpose of stage1ter and stage1quater is to reconstruct the leptonic Z 
 The command to run stage1X:
 ```fccanalysis run stage1X```
 
-
-
+## stage2
+As stage1X takes the most time to execute, I used stage2 when I needed to introduce new variables. This avoids having to run stage1X just because calculating the recoil mass of the dijet was forgotten in it. Stage2 takes as input the output of stage1X and returns as output the variables introduced in stage2 in addition to all the variables already defined in stage1X.
+The command to run stage2:
+```fccanalysis run stage2```
 
