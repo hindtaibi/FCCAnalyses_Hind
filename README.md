@@ -21,7 +21,7 @@ fccanalysis build
 
 # FCCAnalyses
 ## stage1X.py
-The main purpose of [stage1ter.py](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/stage1ter/stage1ter.py) and [stage1quater.py](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/stage1ter/stage1quater.py) is to reconstruct the leptonic Z bosons and jets and to gather the kinematic information to be used afterwards. stage1ter and stage1quater could be merged in one unique stage1 as their main purpose of the same but I chose to separate them in order to be able to run through the whole p8_ee_ZZ_ecm240 and p8_ee_WW_ecm240 data. Indeed, these file being quite heavy, it is difficult to save the entirety of the associated stage1 analysis. To get around this issue, filters were applied at the end of stage1:
+The main purpose of [stage1ter.py](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/stage1ter/stage1ter.py) and [stage1quater.py](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/stage1quater/stage1quater.py) is to reconstruct the leptonic Z bosons and jets and to gather the kinematic information to be used afterwards. stage1ter and stage1quater could be merged in one unique stage1 as their main purpose of the same but I chose to separate them in order to be able to run through the whole p8_ee_ZZ_ecm240 and p8_ee_WW_ecm240 data. Indeed, these file being quite heavy, it is difficult to save the entirety of the associated stage1 analysis. To get around this issue, filters were applied at the end of stage1:
 - ```.Filter("on_Z_leptonic == 2 && other_Z_leptonic == 0")``` in stage1ter.py,
 - ```.Filter("on_Z_leptonic == 1 && other_Z_leptonic == 1")``` in stage1quater.py.
 
