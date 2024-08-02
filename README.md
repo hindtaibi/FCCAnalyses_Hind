@@ -9,6 +9,7 @@ The files must be run successively as follows:
 - stage2 which takes as input the output of stage1X,
 - finalYZ which takes as input the output of stage2,
 - plots YZ which takes as input the output of final YZ.
+
 The use of each file is detailed below.
 
 
