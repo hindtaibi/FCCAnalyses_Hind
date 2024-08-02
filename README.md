@@ -14,8 +14,8 @@ The use of each file is detailed below.
 
 The preliminary source commands to use the FCCAnalyses framework are:
 
-'''source setup.sh'''
-'''fccanalysis build'''
+''' source setup.sh '''
+''' fccanalysis build '''
 
 # stage1X
 
