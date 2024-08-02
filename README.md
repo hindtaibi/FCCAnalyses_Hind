@@ -62,5 +62,13 @@ plotsYZ.py takes as input the output of finalYZ.py. As indicated by its name, it
 The command to run plotsYZ.py: ```fccanalysis plots plotsYZ.py```
 
 # Combine
+The [combine folder](https://github.com/hindtaibi/FCCAnalyses_Hind/tree/main/combine) contain the datacards which are preliminary to performing the fit. Combine documentation can be found [here](http://cms-analysis.github.io/HiggsAnalysis-CombinedLimit/part2/settinguptheanalysis/).
+With dtacardYZ.txt, we only apply the fit on distributions associated the channel studied in finalYZ. In datacardAll.txt, we use distributions associated to many decays.
 
+Commands:
+```
+source initCombine.sh
+text2workspace.py datacardX.txt -o ws.root  -v 10  
+combine -M FitDiagnostics -t -1 ws.root --expectSignal=1 -v 10
+```
 
