@@ -44,6 +44,10 @@ The purpose of the files in the finalYZ folders is to create histograms tu use f
 ### finalYZ.py
 finalYZ.py takes as input the output of stage2. It creates histograms.
 
-The command to run finalYZ: ```fccanalysis final finalYZ.py```
+The command to run finalYZ.py: ```fccanalysis final finalYZ.py```
 
+### finalYZsmooth.py
+finalYZsmooth.py takes as input one (or many) histograms created by finalYZ.py and its purpose is to smooth distributions that show statistical fluctuations. It replaces the histogram that we want to smooth by a smoothed one.
+
+The command to run finalYZsmooth.py: ```python finalYZ.py```
 
