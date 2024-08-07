@@ -1,4 +1,4 @@
-q#Channels: lllljj, lljjll, jjllll, vvllll
+#Channels: lllljj, lljjll, jjllll, vvllll
 
 imax 4  number of channels
 jmax 8  number of backgrounds
