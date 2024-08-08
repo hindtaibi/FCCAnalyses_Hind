@@ -1,0 +1,29 @@
+#Channel: jjllll
+#region2: jjllll
+
+imax 1  number of channels
+jmax 8  number of backgrounds
+kmax 2  number of nuisance parameters (sources of systematical uncertainties)
+---------------
+shapes  signal     jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumSignal_region2_ZZ_m_fit.root      ZZ_m_fit
+shapes  HWW        jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHWW_region2_ZZ_m_fit.root         ZZ_m_fit
+shapes  Hqq        jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHqq_region2_ZZ_m_fit.root         ZZ_m_fit
+shapes  Hmumu      jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHmumu_region2_ZZ_m_fit.root       ZZ_m_fit
+shapes  Htautau    jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHtautau_region2_ZZ_m_fit.root     ZZ_m_fit
+shapes  HZa        jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHZa_region2_ZZ_m_fit.root         ZZ_m_fit
+shapes  Hgg        jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumHgg_region2_ZZ_m_fit.root         ZZ_m_fit
+shapes  ZZ         jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumZZ_region2_ZZ_m_fit.root          ZZ_m_fit
+shapes  WW         jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/SumWW_region2_ZZ_m_fit.root          ZZ_m_fit
+shapes  data_obs   jjllll     /eos/user/h/htaibi/FCCAnalyses_Ines/examples/FCCee/higgs/width/4l/stage1quater/finalBA/outputssum/Sum_region2_ZZ_m_fit.root            ZZ_m_fit
+---------------
+---------------
+bin          jjllll
+observation  -1 
+---------------
+bin                jjllll   jjllll   jjllll   jjllll   jjllll   jjllll   jjllll   jjllll   jjllll
+process            signal   HWW      Hqq      Hmumu    Htautau  HZa      Hgg      ZZ       WW
+process            0        1        2        3        4        5        6        7        8
+rate               -1       -1       -1       -1       0        -1       -1       -1       0
+------------------------------
+normZZjjllll  lnN  -        -        -        -        -        -        -        1.10     -
+normHqqjjllll lnN  -        -        1.10     -        -        -        -        -        -
