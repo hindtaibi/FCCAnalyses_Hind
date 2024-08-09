@@ -1,13 +1,13 @@
 # Generalities
 In this FCC-ee analysis, we are interested in final states with 2 leptonic Z bosons (ZH &rarr; 4l + xx). Therefore, we have two possibilities concerning these leptonic Z bsosons. Indeed, we could have:
-- two on shell leptonic Z bosons in the final state (case A), 
+- two on shell leptonic Z bosons in the final state (case A); 
 - one on shell and one off shell leptonic Z bosons in the final state (case B).
 
 Case A is studied through the files in the stage1ter folder [here](https://github.com/hindtaibi/FCCAnalyses_Hind/tree/main/stage1ter) and case B is studied through the files in the stage1quater folder [here](https://github.com/hindtaibi/FCCAnalyses_Hind/tree/main/stage1quater). If you are wondering what happened to stage1 and stage1bis, they fell into the oblivion of unsuccessful attempts.  
 The files must be run successively as follows:
-- stage1X which takes as input the [simulated data](https://fcc-physics-events.web.cern.ch/FCCee/delphes/winter2023/idea/),
-- stage2 which takes as input the output of stage1X,
-- finalYZ which takes as input the output of stage2,
+- stage1X which takes as input the [simulated data](https://fcc-physics-events.web.cern.ch/FCCee/delphes/winter2023/idea/);
+- stage2 which takes as input the output of stage1X;
+- finalYZ which takes as input the output of stage2;
 - plots YZ which takes as input the output of final YZ.
 
 The use of each file is detailed below.
@@ -22,7 +22,7 @@ fccanalysis build
 # FCCAnalyses
 ## stage1X.py
 The main purpose of [stage1ter.py](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/stage1ter/stage1ter.py) and [stage1quater.py](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/stage1quater/stage1quater.py) is to reconstruct the leptonic Z bosons and jets and to gather the kinematic information to be used afterwards. stage1ter and stage1quater could be merged in one unique stage1 as their main purpose if the same but I chose to separate them in order to be able to run through the whole p8_ee_ZZ_ecm240 and p8_ee_WW_ecm240 data. Indeed, these file being quite heavy, it is difficult to save the entirety of the associated stage1 analysis. To get around this issue, filters were applied at the end of stage1:
-- ```.Filter("on_Z_leptonic == 2 && other_Z_leptonic == 0")``` in stage1ter.py,
+- ```.Filter("on_Z_leptonic == 2 && other_Z_leptonic == 0")``` in stage1ter.py;
 - ```.Filter("on_Z_leptonic == 1 && other_Z_leptonic == 1")``` in stage1quater.py.
 
 The command to run stage1X.py:    
@@ -80,7 +80,14 @@ fccanalysis plots plotsYZ.py
 
 # Combine
 The [combine folder](https://github.com/hindtaibi/FCCAnalyses_Hind/tree/main/combine) contain the datacards which are preliminary to performing the fit. Combine documentation can be found [here](http://cms-analysis.github.io/HiggsAnalysis-CombinedLimit/part2/settinguptheanalysis/).
-With datacardYZ.txt, we only apply the fit on distributions associated to channels studied in finalYZ. In datacardAll.txt, we combine many distributions in order to reduce the uncertainty.
+With datacardYZ.txt, we only apply the fit on distributions associated to channels studied in finalYZ. In datacardAll.txt, we combine many distributions in order to reduce the uncertainty.  
+All the datacards are:
+- [datacardAA.txt](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/combine/datacardAA.txt) for lllljj;
+- [datacardBA.txt](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/combine/datacardBA.txt) for lljjll and jjllll combined;
+- [datacardBB.txt](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/combine/datacardBB.txt) for vvllll;
+- [datacardBAA.txt](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/combine/datacardBAA.txt) for lljjll;
+- [datacardBAB.txt](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/combine/datacardBAB.txt) for jjllll;
+- [datacardAll.txt](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/combine/datacardAll.txt) for lllljj, lljjll, jjllll and vvllll combines.
 
 Commands:
 ```
