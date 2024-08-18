@@ -185,11 +185,11 @@ plots['finalBB'] = {'signal':{'Signal,HZZ':['wzp6_ee_mumuH_HZZ_ecm240',
 
 legend = {}
 legend['Signal,HZZ'] = 'Signal'
-legend['HWW'] = 'Z,H(WW)'
+legend['HWW'] = 'ZH(WW)'
 legend['ZZ'] = 'ZZ'
-legend['Htautau'] = 'Z,H(#tau#tau)'
-legend['Hmumu'] = 'Z,H(#mu#mu)'
-legend['HZa'] = 'Z,H(Z#gamma)'
-legend['Hqq'] = 'Z,H(qq)'
+legend['Htautau'] = 'ZH(#tau#tau)'
+legend['Hmumu'] = 'ZH(#mu#mu)'
+legend['HZa'] = 'ZH(Z#gamma)'
+legend['Hqq'] = 'ZH(qq)'
 legend['WW'] = 'WW'
-legend['Hgg'] = 'Z,H(gg)'
+legend['Hgg'] = 'ZH(gg)'
