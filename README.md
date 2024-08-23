@@ -87,7 +87,7 @@ All the datacards are:
 - [datacardBB.txt](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/combine/datacardBB.txt) for vvllll;
 - [datacardBAA.txt](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/combine/datacardBAA.txt) for lljjll;
 - [datacardBAB.txt](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/combine/datacardBAB.txt) for jjllll;
-- [datacardAll.txt](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/combine/datacardAll.txt) for lllljj, lljjll, jjllll and vvllll combines.
+- [datacardAll.txt](https://github.com/hindtaibi/FCCAnalyses_Hind/blob/main/combine/datacardAll.txt) for lllljj, lljjll, jjllll and vvllll combined.
 
 Commands:
 ```
