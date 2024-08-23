@@ -7,7 +7,7 @@ Case A is studied through the files in the stage1ter folder [here](https://githu
 The files must be run successively as follows:
 - stage1X which takes as input the [simulated data](https://fcc-physics-events.web.cern.ch/FCCee/delphes/winter2023/idea/);
 - stage2 which takes as input the output of stage1X;
-- finalYZ which takes as input the output of stage2;
+- finalYZ which takes as input the output of stage1X (or stage2 if need be);
 - plots YZ which takes as input the output of final YZ.
 
 The use of each file is detailed below.
